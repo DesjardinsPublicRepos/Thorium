@@ -73,6 +73,16 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _59339595 {
+            get {
+                object obj = ResourceManager.GetObject("59339595", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap and_more_icon_16 {
             get {
                 object obj = ResourceManager.GetObject("and-more-icon-16", resourceCulture);

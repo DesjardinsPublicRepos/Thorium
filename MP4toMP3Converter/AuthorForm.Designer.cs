@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Heading = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
+            this.AspNETPictureBox = new System.Windows.Forms.PictureBox();
             this.InfoLabel2 = new System.Windows.Forms.Label();
             this.BunifuPictureBox = new System.Windows.Forms.PictureBox();
             this.NRecoPictureBox = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
             this.InfoLabel1DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.InfoLabel2DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackgroundPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AspNETPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BunifuPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NRecoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icons8PictureBox)).BeginInit();
@@ -107,6 +109,7 @@
             // 
             this.BackgroundPanel.AutoScroll = true;
             this.BackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.BackgroundPanel.Controls.Add(this.AspNETPictureBox);
             this.BackgroundPanel.Controls.Add(this.InfoLabel2);
             this.BackgroundPanel.Controls.Add(this.BunifuPictureBox);
             this.BackgroundPanel.Controls.Add(this.NRecoPictureBox);
@@ -119,6 +122,18 @@
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(646, 410);
             this.BackgroundPanel.TabIndex = 6;
+            // 
+            // AspNETPictureBox
+            // 
+            this.AspNETPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AspNETPictureBox.Image = global::MP4toMP3Converter.Properties.Resources._59339595;
+            this.AspNETPictureBox.Location = new System.Drawing.Point(372, 256);
+            this.AspNETPictureBox.Name = "AspNETPictureBox";
+            this.AspNETPictureBox.Size = new System.Drawing.Size(60, 60);
+            this.AspNETPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AspNETPictureBox.TabIndex = 13;
+            this.AspNETPictureBox.TabStop = false;
+            this.AspNETPictureBox.Click += new System.EventHandler(this.AspNETPictureBox_Click);
             // 
             // InfoLabel2
             // 
@@ -238,6 +253,7 @@
             this.Name = "AuthorForm";
             this.Text = "AuthorForm";
             this.BackgroundPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AspNETPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BunifuPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NRecoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icons8PictureBox)).EndInit();
@@ -264,5 +280,6 @@
         private System.Windows.Forms.PictureBox BunifuPictureBox;
         private System.Windows.Forms.Label InfoLabel2;
         private Bunifu.Framework.UI.BunifuDragControl InfoLabel2DragControl;
+        private System.Windows.Forms.PictureBox AspNETPictureBox;
     }
 }

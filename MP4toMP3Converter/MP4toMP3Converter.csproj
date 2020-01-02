@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_coal_3.ico" />
+    <None Include="Resources\59339595.png" />
     <None Include="Resources\33341147.png" />
     <None Include="Resources\avatar.png" />
     <None Include="Resources\Pichon-Icons8.png" />
