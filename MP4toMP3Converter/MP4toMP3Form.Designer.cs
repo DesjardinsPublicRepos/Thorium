@@ -233,7 +233,8 @@
             this.Controls.Add(this.OutputBox);
             this.Controls.Add(this.InputBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(689, 511);
+            this.MaximumSize = new System.Drawing.Size(760, 580);
+            this.MinimumSize = new System.Drawing.Size(760, 580);
             this.Name = "MP4toMP3Form";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

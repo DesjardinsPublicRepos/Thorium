@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MP4toMP3Converter.Properties;
+
 namespace MP4toMP3Converter
 {
     public partial class AuthorForm : Form

@@ -12,6 +12,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MP4toMP3Converter.Properties;
+
 namespace MP4toMP3Converter
 {
     public partial class MP4toMP3Form : Form
@@ -22,7 +24,7 @@ namespace MP4toMP3Converter
         private string Output;
         private int ProgressState;
 
-        Thread t;
+        Thread thread;
 
         #endregion
 
@@ -30,6 +32,7 @@ namespace MP4toMP3Converter
 
         public MP4toMP3Form()
         {
+            this.DoubleBuffered = true;
             InitializeComponent();
         }
 
@@ -64,18 +67,14 @@ namespace MP4toMP3Converter
         private void ConvertButtonClick(object sender, EventArgs e)
         {
             ProgressState = -GetInputFileAmount();
-
-            /*LoadingPopup loadingPopup = new LoadingPopup();
-            loadingPopup.ShowDialog();*/
-
-            t = new Thread(new ThreadStart(StartLoadingPopup));
-            t.Start();
+            thread = new Thread(new ThreadStart(StartLoadingPopup));
+            thread.Start();
 
             Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
             {
                 try
                 {
-                    ConvertAll();
+                    OutsourcedFunctions.ConvertAll(InputData, InputName, thread, Output, ProgressState, "mp3");
                 }
                 catch (Exception ex)
                 {
@@ -156,27 +155,6 @@ namespace MP4toMP3Converter
                 if (InputData[i] == null) return i;
             }
             return 50;
-        }
-
-        public void ConvertAll()
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                if (InputData[i] != null && File.Exists("@" + InputData[i]) == false)
-                {
-                    var convert = new NReco.VideoConverter.FFMpegConverter();
-                    convert.ConvertMedia(InputData[i].Trim(), Output.Trim() + ("\\" + InputName[i].Substring(0, InputName[i].Length - 4) + ".mp3"), "mp3");
-                    ProgressState++;
-                }
-                else if (InputData[i] == null)
-                {
-                    t.Abort();
-                    InputData = new string[50];
-                    InputName = new string[50];
-
-                    break;
-                }
-            }
         }
 
         #endregion
