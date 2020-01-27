@@ -81,7 +81,7 @@
             // 
             this.HeadingDragControl.Fixed = true;
             this.HeadingDragControl.Horizontal = true;
-            this.HeadingDragControl.TargetControl = null;
+            this.HeadingDragControl.TargetControl = this.Heading;
             this.HeadingDragControl.Vertical = true;
             // 
             // Line1
