@@ -40,6 +40,10 @@
             this.ConvertButton = new System.Windows.Forms.PictureBox();
             this.OpenInput = new System.Windows.Forms.PictureBox();
             this.FormDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.OutputLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.InputLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.DragDropLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.ItemListBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.OpenOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenInput)).BeginInit();
@@ -85,6 +89,7 @@
             this.ConvertLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ConvertLabel.AutoSize = true;
             this.ConvertLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.ConvertLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ConvertLabel.Enabled = false;
             this.ConvertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConvertLabel.Location = new System.Drawing.Point(288, 546);
@@ -183,6 +188,34 @@
             this.FormDragControl.TargetControl = this;
             this.FormDragControl.Vertical = true;
             // 
+            // OutputLabelDragControl
+            // 
+            this.OutputLabelDragControl.Fixed = true;
+            this.OutputLabelDragControl.Horizontal = true;
+            this.OutputLabelDragControl.TargetControl = this.OutputLabel;
+            this.OutputLabelDragControl.Vertical = true;
+            // 
+            // InputLabelDragControl
+            // 
+            this.InputLabelDragControl.Fixed = true;
+            this.InputLabelDragControl.Horizontal = true;
+            this.InputLabelDragControl.TargetControl = this.InputLabel;
+            this.InputLabelDragControl.Vertical = true;
+            // 
+            // DragDropLabelDragControl
+            // 
+            this.DragDropLabelDragControl.Fixed = true;
+            this.DragDropLabelDragControl.Horizontal = true;
+            this.DragDropLabelDragControl.TargetControl = this.DragDropLabel;
+            this.DragDropLabelDragControl.Vertical = true;
+            // 
+            // ItemListBoxDragControl
+            // 
+            this.ItemListBoxDragControl.Fixed = true;
+            this.ItemListBoxDragControl.Horizontal = true;
+            this.ItemListBoxDragControl.TargetControl = this.ItemListBox;
+            this.ItemListBoxDragControl.Vertical = true;
+            // 
             // MP4toMP3Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,5 +258,9 @@
         private System.Windows.Forms.TextBox InputBox;
         private System.Windows.Forms.PictureBox OpenOutput;
         private Bunifu.Framework.UI.BunifuDragControl FormDragControl;
+        private Bunifu.Framework.UI.BunifuDragControl OutputLabelDragControl;
+        private Bunifu.Framework.UI.BunifuDragControl InputLabelDragControl;
+        private Bunifu.Framework.UI.BunifuDragControl DragDropLabelDragControl;
+        private Bunifu.Framework.UI.BunifuDragControl ItemListBoxDragControl;
     }
 }

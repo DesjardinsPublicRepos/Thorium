@@ -32,7 +32,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.AuthorFormDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.HeadingDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.Line1 = new System.Windows.Forms.Label();
             this.Heading = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
             this.AspNETPictureBox = new System.Windows.Forms.PictureBox();
@@ -41,11 +41,13 @@
             this.NRecoPictureBox = new System.Windows.Forms.PictureBox();
             this.Icons8PictureBox = new System.Windows.Forms.PictureBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Line2 = new System.Windows.Forms.Label();
             this.InfoLabel1 = new System.Windows.Forms.Label();
             this.BackgroundPanelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.InfoLabel1DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.InfoLabel2DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Line1DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Line2DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackgroundPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspNETPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BunifuPictureBox)).BeginInit();
@@ -59,9 +61,9 @@
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Noto Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(23, 61);
+            this.linkLabel1.Location = new System.Drawing.Point(263, 59);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(600, 27);
+            this.linkLabel1.Size = new System.Drawing.Size(121, 27);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "my GitHub";
@@ -82,16 +84,16 @@
             this.HeadingDragControl.TargetControl = null;
             this.HeadingDragControl.Vertical = true;
             // 
-            // label1
+            // Line1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(73, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(617, 37);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "__________________________________________________";
+            this.Line1.AutoSize = true;
+            this.Line1.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Line1.Location = new System.Drawing.Point(73, 65);
+            this.Line1.Name = "Line1";
+            this.Line1.Size = new System.Drawing.Size(617, 37);
+            this.Line1.TabIndex = 4;
+            this.Line1.Text = "__________________________________________________";
             // 
             // Heading
             // 
@@ -115,7 +117,7 @@
             this.BackgroundPanel.Controls.Add(this.NRecoPictureBox);
             this.BackgroundPanel.Controls.Add(this.Icons8PictureBox);
             this.BackgroundPanel.Controls.Add(this.linkLabel2);
-            this.BackgroundPanel.Controls.Add(this.label2);
+            this.BackgroundPanel.Controls.Add(this.Line2);
             this.BackgroundPanel.Controls.Add(this.InfoLabel1);
             this.BackgroundPanel.Controls.Add(this.linkLabel1);
             this.BackgroundPanel.Location = new System.Drawing.Point(60, 116);
@@ -188,25 +190,25 @@
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Noto Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.linkLabel2.Location = new System.Drawing.Point(23, 100);
+            this.linkLabel2.Location = new System.Drawing.Point(259, 98);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(600, 27);
+            this.linkLabel2.Size = new System.Drawing.Size(127, 27);
             this.linkLabel2.TabIndex = 4;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "this project";
             this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
             // 
-            // label2
+            // Line2
             // 
-            this.label2.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(103)))));
-            this.label2.Location = new System.Drawing.Point(23, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(600, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "____________________________________________";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Line2.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(103)))));
+            this.Line2.Location = new System.Drawing.Point(23, 114);
+            this.Line2.Name = "Line2";
+            this.Line2.Size = new System.Drawing.Size(600, 37);
+            this.Line2.TabIndex = 3;
+            this.Line2.Text = "____________________________________________";
+            this.Line2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InfoLabel1
             // 
@@ -240,6 +242,20 @@
             this.InfoLabel2DragControl.TargetControl = this.InfoLabel2;
             this.InfoLabel2DragControl.Vertical = true;
             // 
+            // Line1DragControl
+            // 
+            this.Line1DragControl.Fixed = true;
+            this.Line1DragControl.Horizontal = true;
+            this.Line1DragControl.TargetControl = this.Line1;
+            this.Line1DragControl.Vertical = true;
+            // 
+            // Line2DragControl
+            // 
+            this.Line2DragControl.Fixed = true;
+            this.Line2DragControl.Horizontal = true;
+            this.Line2DragControl.TargetControl = this.Line2;
+            this.Line2DragControl.Vertical = true;
+            // 
             // AuthorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,7 +264,7 @@
             this.ClientSize = new System.Drawing.Size(760, 580);
             this.Controls.Add(this.BackgroundPanel);
             this.Controls.Add(this.Heading);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Line1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuthorForm";
             this.Text = "AuthorForm";
@@ -268,11 +284,11 @@
         private Bunifu.Framework.UI.BunifuDragControl AuthorFormDragControl;
         private Bunifu.Framework.UI.BunifuDragControl HeadingDragControl;
         private System.Windows.Forms.Label Heading;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Line1;
         private System.Windows.Forms.Panel BackgroundPanel;
         private Bunifu.Framework.UI.BunifuDragControl BackgroundPanelDragControl;
         private System.Windows.Forms.Label InfoLabel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Line2;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private Bunifu.Framework.UI.BunifuDragControl InfoLabel1DragControl;
         private System.Windows.Forms.PictureBox Icons8PictureBox;
@@ -281,5 +297,7 @@
         private System.Windows.Forms.Label InfoLabel2;
         private Bunifu.Framework.UI.BunifuDragControl InfoLabel2DragControl;
         private System.Windows.Forms.PictureBox AspNETPictureBox;
+        private Bunifu.Framework.UI.BunifuDragControl Line1DragControl;
+        private Bunifu.Framework.UI.BunifuDragControl Line2DragControl;
     }
 }

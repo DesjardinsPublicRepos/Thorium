@@ -73,7 +73,14 @@ namespace MP4toMP3Converter
 
             Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
             {
-                ConvertAll();
+                try
+                {
+                    ConvertAll();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             });
             ItemListBox.Items.Clear();
         }
