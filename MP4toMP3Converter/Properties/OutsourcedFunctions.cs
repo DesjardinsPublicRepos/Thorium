@@ -13,15 +13,15 @@ namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
     {
-        public static void ConvertAll(string Output, string format, NReco.VideoConverter.FFMpegConverter converter)
+        public static void ConvertAll(string Output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup)
         {
             for (int i = 0; i < 50; i++)
             {
                 if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false)
                 {
-                    converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
-                    MP4toMP3Form.ProgressState++;
-                    UpdateInfoLabel();
+                        converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
+                        MP4toMP3Form.ProgressState++;
+                        UpdateInfoLabel(loadingPopup);
                 }
                 else if (MP4toMP3Form.InputData[i] == null)
                 {
@@ -34,22 +34,23 @@ namespace MP4toMP3Converter.Properties
             }
         }
 
-        public static void UpdateInfoLabel()
+        public static void UpdateInfoLabel(LoadingPopup loadingPopup)
         {
             try
             {
-                if (MP4toMP3Form.loadingPopup.InfoLabel1.InvokeRequired)
+                if (loadingPopup.InfoLabel1.InvokeRequired)
                 {
-                    MP4toMP3Form.loadingPopup.InfoLabel1.Invoke((MethodInvoker)delegate ()
+                    loadingPopup.InfoLabel1.Invoke((MethodInvoker)delegate ()
                     {
-                        UpdateInfoLabel();
+                        UpdateInfoLabel(loadingPopup);
                     });
                 }
                 else
                 {
-                    int newState = Math.Abs(MP4toMP3Form.ProgressState);
-                    string completeState = MP4toMP3Form.loadingPopup.InfoLabel1.Text.Substring(14, 2);
-                    MP4toMP3Form.loadingPopup.InfoLabel1.Text = "Loading... (" + newState + "/" + completeState;
+                    int completeState = Convert.ToInt32(loadingPopup.InfoLabel1.Text.Substring(14, 1));
+                    int newState = Convert.ToInt32(loadingPopup.InfoLabel1.Text.Substring(12, 1)) + 1;
+                    
+                    loadingPopup.InfoLabel1.Text = "Loading... (" + newState + "/" + completeState + ")";
                 }
             }
             catch(Exception e)

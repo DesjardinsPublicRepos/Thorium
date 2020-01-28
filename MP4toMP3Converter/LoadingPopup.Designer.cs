@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.FormDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.InfoLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.InfoLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.ButtonElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.ButtonElipse0 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.AbortButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Label0DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Label1DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.AnimDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,12 +47,12 @@
             this.bunifuElipse1.ElipseRadius = 8;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // bunifuDragControl1
+            // FormDragControl
             // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this;
-            this.bunifuDragControl1.Vertical = true;
+            this.FormDragControl.Fixed = true;
+            this.FormDragControl.Horizontal = true;
+            this.FormDragControl.TargetControl = this;
+            this.FormDragControl.Vertical = true;
             // 
             // InfoLabel1
             // 
@@ -73,10 +76,10 @@
             this.InfoLabel2.TabIndex = 1;
             this.InfoLabel2.Text = "Please wait";
             // 
-            // ButtonElipse
+            // ButtonElipse0
             // 
-            this.ButtonElipse.ElipseRadius = 5;
-            this.ButtonElipse.TargetControl = this.AbortButton;
+            this.ButtonElipse0.ElipseRadius = 5;
+            this.ButtonElipse0.TargetControl = this.AbortButton;
             // 
             // AbortButton
             // 
@@ -125,6 +128,27 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // Label0DragControl
+            // 
+            this.Label0DragControl.Fixed = true;
+            this.Label0DragControl.Horizontal = true;
+            this.Label0DragControl.TargetControl = this.InfoLabel1;
+            this.Label0DragControl.Vertical = true;
+            // 
+            // Label1DragControl
+            // 
+            this.Label1DragControl.Fixed = true;
+            this.Label1DragControl.Horizontal = true;
+            this.Label1DragControl.TargetControl = this.InfoLabel2;
+            this.Label1DragControl.Vertical = true;
+            // 
+            // AnimDragControl
+            // 
+            this.AnimDragControl.Fixed = true;
+            this.AnimDragControl.Horizontal = true;
+            this.AnimDragControl.TargetControl = this.pictureBox1;
+            this.AnimDragControl.Vertical = true;
+            // 
             // LoadingPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,11 +172,14 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuDragControl FormDragControl;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuCustomLabel InfoLabel2;
         private Bunifu.Framework.UI.BunifuFlatButton AbortButton;
-        private Bunifu.Framework.UI.BunifuElipse ButtonElipse;
+        private Bunifu.Framework.UI.BunifuElipse ButtonElipse0;
         public Bunifu.Framework.UI.BunifuCustomLabel InfoLabel1;
+        private Bunifu.Framework.UI.BunifuDragControl Label0DragControl;
+        private Bunifu.Framework.UI.BunifuDragControl Label1DragControl;
+        private Bunifu.Framework.UI.BunifuDragControl AnimDragControl;
     }
 }

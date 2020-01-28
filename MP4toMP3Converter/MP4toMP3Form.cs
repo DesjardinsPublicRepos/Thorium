@@ -71,6 +71,7 @@ namespace MP4toMP3Converter
         {
             ProgressState = -GetInputFileAmount();
             Debug.WriteLine(GetInputFileAmount());
+            loadingPopup = new LoadingPopup();
             thread = new Thread(new ThreadStart(StartLoadingPopup));
             thread.Start(); 
 
@@ -78,7 +79,7 @@ namespace MP4toMP3Converter
             {
                 try
                 {
-                    OutsourcedFunctions.ConvertAll(Output, "mp3", converter);
+                    OutsourcedFunctions.ConvertAll(Output, "mp3", converter, loadingPopup);
                 }
                 catch (Exception ex)
                 {
@@ -133,7 +134,6 @@ namespace MP4toMP3Converter
 
         public void StartLoadingPopup()
         {
-            loadingPopup = new LoadingPopup();
             Application.Run(loadingPopup);
         }
 
