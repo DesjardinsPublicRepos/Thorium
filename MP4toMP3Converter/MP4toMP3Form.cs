@@ -19,12 +19,15 @@ namespace MP4toMP3Converter
     public partial class MP4toMP3Form : Form
     {
         #region GlobalVars
+        public static string Output;
 
-        private string[] InputData = new string[50], InputName = new string[50];
-        private string Output;
-        private int ProgressState;
 
-        Thread thread;
+        public static string[] InputData = new string[50], InputName = new string[50];
+
+        public static LoadingPopup loadingPopup;
+        public static NReco.VideoConverter.FFMpegConverter converter = new NReco.VideoConverter.FFMpegConverter();
+        public static int ProgressState;
+        public static Thread thread;
 
         #endregion
 
@@ -67,14 +70,15 @@ namespace MP4toMP3Converter
         private void ConvertButtonClick(object sender, EventArgs e)
         {
             ProgressState = -GetInputFileAmount();
+            Debug.WriteLine(GetInputFileAmount());
             thread = new Thread(new ThreadStart(StartLoadingPopup));
-            thread.Start();
+            thread.Start(); 
 
             Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
             {
                 try
                 {
-                    OutsourcedFunctions.ConvertAll(InputData, InputName, thread, Output, ProgressState, "mp3");
+                    OutsourcedFunctions.ConvertAll(Output, "mp3", converter);
                 }
                 catch (Exception ex)
                 {
@@ -129,7 +133,8 @@ namespace MP4toMP3Converter
 
         public void StartLoadingPopup()
         {
-            Application.Run(new LoadingPopup());
+            loadingPopup = new LoadingPopup();
+            Application.Run(loadingPopup);
         }
 
         private void AddInputFile(string FilePath, string FileName)
@@ -140,7 +145,7 @@ namespace MP4toMP3Converter
                 {
                     InputData[i] = FilePath;
                     InputName[i] = FileName;
-                    Debug.WriteLine(FilePath + "- plus -" + FileName);
+                    Debug.WriteLine("added '" + FileName + "' to InputData");
 
                     ItemListBox.Items.Add(Path.GetFileNameWithoutExtension(FilePath));
                     break; 

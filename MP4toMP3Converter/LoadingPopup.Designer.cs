@@ -151,8 +151,8 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuCustomLabel InfoLabel2;
-        private Bunifu.Framework.UI.BunifuCustomLabel InfoLabel1;
         private Bunifu.Framework.UI.BunifuFlatButton AbortButton;
         private Bunifu.Framework.UI.BunifuElipse ButtonElipse;
+        public Bunifu.Framework.UI.BunifuCustomLabel InfoLabel1;
     }
 }

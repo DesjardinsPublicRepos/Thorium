@@ -21,7 +21,7 @@ namespace MP4toMP3Converter
         #region GlobalVars
 
         private Form activeForm = null;
-        String SetupFile = "preferences.txt";
+        string SetupFile = "preferences.txt";
         public int[] ColorScheme0 = new int[3];
         #endregion
 
@@ -41,7 +41,6 @@ namespace MP4toMP3Converter
                 Debug.WriteLine(ColorScheme0[0]);
                 Debug.WriteLine(ColorScheme0[1]);
                 Debug.WriteLine(ColorScheme0[2]);
-
             }
             else
             {
