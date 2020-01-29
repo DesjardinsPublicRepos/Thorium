@@ -70,6 +70,8 @@ namespace MP4toMP3Converter
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            MP4toMP3Form.converter.Stop();
+            if (MP4toMP3Form.thread != null) MP4toMP3Form.thread.Abort();
             this.Close();
         }
         #endregion

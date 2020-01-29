@@ -69,24 +69,27 @@ namespace MP4toMP3Converter
 
         private void ConvertButtonClick(object sender, EventArgs e)
         {
-            ProgressState = -GetInputFileAmount();
-            Debug.WriteLine(GetInputFileAmount());
-            loadingPopup = new LoadingPopup();
-            thread = new Thread(new ThreadStart(StartLoadingPopup));
-            thread.Start(); 
-
-            Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
+            if (InputData[0] != null)
             {
-                try
+                ProgressState = -GetInputFileAmount();
+                Debug.WriteLine(GetInputFileAmount());
+                loadingPopup = new LoadingPopup();
+                thread = new Thread(new ThreadStart(StartLoadingPopup));
+                thread.Start();
+
+                Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
                 {
-                    OutsourcedFunctions.ConvertAll(Output, "mp3", converter, loadingPopup);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
-            });
-            ItemListBox.Items.Clear();
+                    try
+                    {
+                        OutsourcedFunctions.ConvertAll(Output, "mp3", converter, loadingPopup);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
+                });
+                ItemListBox.Items.Clear();
+            }
         }
 
         private void ListBoxDragDrop(object sender, DragEventArgs e)

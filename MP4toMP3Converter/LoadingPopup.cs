@@ -27,11 +27,23 @@ namespace MP4toMP3Converter
         private void AbortButton_Click(object sender, EventArgs e)
         {
             MP4toMP3Form.converter.Stop();
-            
             MP4toMP3Form.InputData = new string[50];
             MP4toMP3Form.InputName = new string[50];
 
             MP4toMP3Form.thread.Abort();
+            
+
+            /*this.Close();
+            if (MP4toMP3Form.thread != null) MP4toMP3Form.thread.Abort();
+            try
+            {
+                if (MP4toMP3Form.thread != null) MP4toMP3Form.thread.Abort();
+            }
+            catch (System.Threading.ThreadAbortException ee)
+            {
+                Debug.WriteLine(ee);
+            }*/
+            
         }
     }
 }

@@ -19,9 +19,10 @@ namespace MP4toMP3Converter.Properties
             {
                 if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false)
                 {
+                    if  (Path.GetExtension(MP4toMP3Form.InputData[i].Trim()) == ".mp4" || MP4toMP3Form.InputData[i].Trim() == ".wav") 
                         converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
                         MP4toMP3Form.ProgressState++;
-                        UpdateInfoLabel(loadingPopup);
+                        if (MP4toMP3Form.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
                 else if (MP4toMP3Form.InputData[i] == null)
                 {
