@@ -32,6 +32,8 @@ namespace MP4toMP3Converter
             this.Visible = false;
             this.Enabled = false;
 
+            //MP4toMP3Form.ActiveForm.Enabled = true;
+
             MP4toMP3Form.converter.Stop(); // thread ends smoothly a few seconds after
 
             /*this.Close();
