@@ -29,6 +29,7 @@ namespace MP4toMP3Converter.Properties
                     MP4toMP3Form.InputData = new string[50];
                     MP4toMP3Form.InputName = new string[50];
 
+                    loadingPopup.Close();
                     break;
                 }
             }
