@@ -26,7 +26,6 @@ namespace MP4toMP3Converter.Properties
                 }
                 else if (MP4toMP3Form.InputData[i] == null)
                 {
-                    MP4toMP3Form.thread.Abort();
                     MP4toMP3Form.InputData = new string[50];
                     MP4toMP3Form.InputName = new string[50];
 
