@@ -361,6 +361,7 @@
             // 
             // IconPictureBox
             // 
+            this.IconPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.IconPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.icons8_coal_100px;
             this.IconPictureBox.Location = new System.Drawing.Point(308, 144);
             this.IconPictureBox.Name = "IconPictureBox";
