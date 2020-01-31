@@ -71,6 +71,8 @@ namespace MP4toMP3Converter
         {
             if (InputData[0] != null)
             {
+                //MainForm.ActiveForm.Enabled = false;
+
                 ProgressState = -GetInputFileAmount();
                 Debug.WriteLine(GetInputFileAmount());
                 loadingPopup = new LoadingPopup();

@@ -19,10 +19,18 @@ namespace MP4toMP3Converter.Properties
             {
                 if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false)
                 {
-                    if (Path.GetExtension(MP4toMP3Form.InputData[i].Trim()) == ".mp4" || MP4toMP3Form.InputData[i].Trim() == ".wav")
+                    string foo = Path.GetExtension(MP4toMP3Form.InputData[i].Trim());
+
+                    if (foo == ".mp4" || foo == ".m4a" || foo == ".m4v" || foo == ".f4v" || foo == ".f4a" || foo == ".m4b" || foo == ".m4r" || foo == ".f4b" || foo == ".mov"
+                        || foo == ".3gp" || foo == ".3gp2" || foo == ".3g2" || foo == ".3gpp" || foo == ".3gpp2" || foo == ".mpeg" || foo == ".vob" || foo == ".lfx"
+                        || foo == ".ogg" || foo == ".oga" || foo == ".ogv" || foo == ".ogx" || foo == ".op1a" || foo == ".op-atom" || foo == ".ts" || foo == "."
+                        || foo == ".wmv" || foo == ".wma" || foo == ".asf*" || foo == ".webm" || foo == ".flv" || foo == ".avi" || foo == ".quicktime" || foo == ".hdv"
+                        || foo == ".gfx" || foo == ".mpeg-2" || foo == ".mxf" || foo == ".mpeg-ts")
+
                     {
                         converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
                     }
+
                     MP4toMP3Form.ProgressState++;
                     if (MP4toMP3Form.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
