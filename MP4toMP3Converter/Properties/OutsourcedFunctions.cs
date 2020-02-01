@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Forms;
 using MP4toMP3Converter;
 
+
 namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
@@ -17,20 +18,10 @@ namespace MP4toMP3Converter.Properties
         {
             for (int i = 0; i < 50; i++)
             {
-                if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false)
+                if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false && IsVideo(Path.GetExtension(MP4toMP3Form.InputData[i].Trim())) == true)
                 {
-                    string foo = Path.GetExtension(MP4toMP3Form.InputData[i].Trim());
-
-                    if (foo == ".mp4" || foo == ".m4a" || foo == ".m4v" || foo == ".f4v" || foo == ".f4a" || foo == ".m4b" || foo == ".m4r" || foo == ".f4b" || foo == ".mov"
-                        || foo == ".3gp" || foo == ".3gp2" || foo == ".3g2" || foo == ".3gpp" || foo == ".3gpp2" || foo == ".mpeg" || foo == ".vob" || foo == ".lfx"
-                        || foo == ".ogg" || foo == ".oga" || foo == ".ogv" || foo == ".ogx" || foo == ".op1a" || foo == ".op-atom" || foo == ".ts" || foo == "."
-                        || foo == ".wmv" || foo == ".wma" || foo == ".asf*" || foo == ".webm" || foo == ".flv" || foo == ".avi" || foo == ".quicktime" || foo == ".hdv"
-                        || foo == ".gfx" || foo == ".mpeg-2" || foo == ".mxf" || foo == ".mpeg-ts")
-
-                    {
-                        converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
-                    }
-
+                    converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
+                    
                     MP4toMP3Form.ProgressState++;
                     if (MP4toMP3Form.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
@@ -38,10 +29,34 @@ namespace MP4toMP3Converter.Properties
                 {
                     MP4toMP3Form.InputData = new string[50];
                     MP4toMP3Form.InputName = new string[50];
+                    
 
-                    loadingPopup.Close();
                     break;
                 }
+            }
+            Thread.Sleep(3);
+            closePopup(loadingPopup);
+        }
+
+        public static void closePopup(LoadingPopup loadingPopup)
+        {
+            try
+            {
+                if (loadingPopup.InvokeRequired)
+                {
+                    loadingPopup.Invoke((MethodInvoker)delegate ()
+                    {
+                        closePopup(loadingPopup);
+                    });
+                }
+                else
+                {
+                    loadingPopup.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
             }
         }
 
@@ -73,6 +88,52 @@ namespace MP4toMP3Converter.Properties
         public static void LoadWebsite(string http)
         {
             System.Diagnostics.Process.Start(http);
+        }
+
+        public string getThumbnail(string url)
+        {
+            string thumb = string.Empty;
+            if (url == "")
+            {
+                return "";
+            }
+
+            if (url.IndexOf("=") > 0)
+            {
+                thumb = url.Split('=')[1];
+            }
+            else if (url.IndexOf("/v/") > 0)
+            {
+                string videoCode = url.Substring(url.IndexOf("/v/") + 3);
+                int ind = videoCode.IndexOf("?");
+                thumb = videoCode.Substring(0, ind == -1 ? videoCode.Length : ind);
+            }
+            else if (url.IndexOf('/') < 6)
+            {
+                thumb = url.Split('/')[3];
+            }
+            else if (url.IndexOf('/') > 6)
+            {
+                thumb = url.Split('/')[1];
+            }
+
+            return "http://img.youtube.com/vi/" + thumb + "/mqdefault.jpg";
+        }
+
+        private static bool IsVideo(string foo)
+        {
+            if (foo == ".mp4" || foo == ".m4a" || foo == ".m4v" || foo == ".f4v" || foo == ".f4a" || foo == ".m4b" || foo == ".m4r" || foo == ".f4b" || foo == ".mov"
+                        || foo == ".3gp" || foo == ".3gp2" || foo == ".3g2" || foo == ".3gpp" || foo == ".3gpp2" || foo == ".mpeg" || foo == ".vob" || foo == ".lfx"
+                        || foo == ".ogg" || foo == ".oga" || foo == ".ogv" || foo == ".ogx" || foo == ".op1a" || foo == ".op-atom" || foo == ".ts" || foo == "."
+                        || foo == ".wmv" || foo == ".wma" || foo == ".asf*" || foo == ".webm" || foo == ".flv" || foo == ".avi" || foo == ".quicktime" || foo == ".hdv"
+                        || foo == ".gfx" || foo == ".mpeg-2" || foo == ".mxf" || foo == ".mpeg-ts")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
