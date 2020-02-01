@@ -37,6 +37,7 @@ namespace MP4toMP3Converter
         {
             this.DoubleBuffered = true;
             InitializeComponent();
+            formatDropdown.SelectedIndex = 21;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -47,11 +48,14 @@ namespace MP4toMP3Converter
 
         private void InputBoxClick(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog() { Multiselect = false, Filter = "Video file|*.mp4" };
+            OpenFileDialog openFileDialog = new OpenFileDialog() { Multiselect = true};
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                AddInputFile(openFileDialog.FileName, openFileDialog.SafeFileName);
-
+                foreach (string file in openFileDialog.FileNames)
+                {
+                    Debug.WriteLine(file);
+                    AddInputFile(file, Path.GetFileName(file));
+                }
                 DragDropLabel.Dispose();
                 GC.Collect();
             }
@@ -71,10 +75,14 @@ namespace MP4toMP3Converter
         {
             if (InputData[0] != null)
             {
+                OutsourcedFunctions.getConvertableFiles(InputData);
+                InputData = InputData.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
                 //MainForm.ActiveForm.Enabled = false;
 
-                ProgressState = -GetInputFileAmount();
-                Debug.WriteLine(GetInputFileAmount());
+                string OutputFormat = formatDropdown.Text;
+                ProgressState = InputData.Length;
+
                 loadingPopup = new LoadingPopup();
                 thread = new Thread(new ThreadStart(StartLoadingPopup));
                 thread.Start();
@@ -83,10 +91,10 @@ namespace MP4toMP3Converter
                 {
                     try
                     {
-                        OutsourcedFunctions.ConvertAll(Output, "mp3", converter, loadingPopup);
+                        OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, InputData, "convert");
                     }
                     catch (Exception ex)
-                    {
+                    { 
                         Debug.WriteLine(ex);
                     }
                 });
@@ -142,6 +150,7 @@ namespace MP4toMP3Converter
             Application.Run(loadingPopup);
         }
 
+
         private void AddInputFile(string FilePath, string FileName)
         {
             for (int i = 0; i < 50; i++)
@@ -157,65 +166,6 @@ namespace MP4toMP3Converter
                 }
             }
         }
-
-        private int GetInputFileAmount()
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                if (InputData[i] == null) return i;
-            }
-            return 50;
-        }
-
         #endregion
     }
 }
-
-/*
-Label label = new Label();
-            this.Controls.Add(label);
-
-            LoadingPopup(label);
-            test
-
-            var timer = new System.Windows.Forms.Timer { Interval = 800 };
-            timer.Tick += (o, args) =>
-            {
-                if (ProgressState == 0)
-                {
-                    label.Text = "Compiling complete!";
-                    timer.Dispose();
-
-                    ItemListBox.Items.Clear();
-                    InputData = new string[50];
-                    InputName = new string[50];
-                }
-                label.Text += ".";
-                if (label.Text == "loading .....")
-                {
-                    label.Text = "loading .";
-                }
-
-                // DISPOSE LABEL
-            };
-            timer.Start();
-
-
-    private void LoadingPopup(Label label)
-        {
-            LoadingPopup loadingPopup = new LoadingPopup();
-            loadingPopup.ShowDialog();
-
-            label.Location = new Point(64, 133);
-            label.Size = new Size(615, 304);
-            label.BackColor = Color.FromArgb(255, 230, 191, 255);
-            label.TextAlign = ContentAlignment.BottomCenter;
-
-            label.Font = ItemListBox.Font;
-            label.Padding = new Padding(0, 0, 0, 60);
-            label.Text = "loading ";
-            label.BringToFront();
-        }
-
-
-    */

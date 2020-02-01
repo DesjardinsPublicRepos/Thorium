@@ -30,7 +30,9 @@ namespace MP4toMP3Converter
         public MainForm()
         {
             InitializeComponent();
-            CustomizeDesign();
+
+            sub1panel.Visible = false;
+            sub2panel.Visible = false;
 
             if (File.Exists(SetupFile) == true && GetLine(SetupFile, 5).Substring(11, 7) != "Default")
             {
@@ -100,12 +102,6 @@ namespace MP4toMP3Converter
                 }
                 return sr.ReadLine();
             }
-        }
-
-        private void CustomizeDesign()
-        {
-            sub1panel.Visible = false;
-            sub2panel.Visible = false;
         }
 
         private void HideSubMenus()

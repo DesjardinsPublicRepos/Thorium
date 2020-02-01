@@ -14,28 +14,50 @@ namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
     {
-        public static void ConvertAll(string Output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup)
+        public static void ConvertAll(string Output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, string[] inputData, string settings)
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < inputData.Length; i++)
             {
-                if (MP4toMP3Form.InputData[i] != null && File.Exists("@" + MP4toMP3Form.InputData[i]) == false && IsVideo(Path.GetExtension(MP4toMP3Form.InputData[i].Trim())) == true)
+                if (inputData[i] != null)
                 {
-                    converter.ConvertMedia(MP4toMP3Form.InputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
-                    
+                    if (settings == "convert")
+                    {
+                        converter.ConvertMedia(inputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
+                    }
+                    if (settings == "combine" | settings == "convertCombine")
+                    {
+                        converter.ConcatMedia(inputData, Output.Trim() + ("\\" + MP4toMP3Form.InputName[0].Substring(0, MP4toMP3Form.InputName[0].Length - 4) + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+
+                        break;
+                    }
+
                     MP4toMP3Form.ProgressState++;
                     if (MP4toMP3Form.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
-                else if (MP4toMP3Form.InputData[i] == null)
+                if (i == inputData.Length)
                 {
-                    MP4toMP3Form.InputData = new string[50];
-                    MP4toMP3Form.InputName = new string[50];
-                    
-
                     break;
                 }
             }
+            MP4toMP3Form.InputData = new string[50];
+            MP4toMP3Form.InputName = new string[50];
+                    
             Thread.Sleep(3);
             closePopup(loadingPopup);
+        }
+
+        public static void getConvertableFiles(string[] inputData)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                if (inputData[i] != null)
+                {
+                    if (File.Exists("@" + inputData[i]) == true | IsVideo(Path.GetExtension(inputData[i].Trim())) == false)
+                    {
+                        inputData[i] = null;
+                    }
+                }
+            }
         }
 
         public static void closePopup(LoadingPopup loadingPopup)

@@ -58,9 +58,9 @@
             this.InfoLabel2.ForeColor = System.Drawing.Color.Gray;
             this.InfoLabel2.Location = new System.Drawing.Point(47, 89);
             this.InfoLabel2.Name = "InfoLabel2";
-            this.InfoLabel2.Size = new System.Drawing.Size(108, 20);
+            this.InfoLabel2.Size = new System.Drawing.Size(103, 20);
             this.InfoLabel2.TabIndex = 1;
-            this.InfoLabel2.Text = "Please wait..";
+            this.InfoLabel2.Text = "Please wait.";
             // 
             // ButtonElipse0
             // 

@@ -44,6 +44,7 @@
             this.InputLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.DragDropLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.ItemListBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.formatDropdown = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.OpenOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenInput)).BeginInit();
@@ -76,9 +77,8 @@
             this.ItemListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemListBox.FormattingEnabled = true;
             this.ItemListBox.ItemHeight = 20;
-            this.ItemListBox.Location = new System.Drawing.Point(64, 133);
+            this.ItemListBox.Location = new System.Drawing.Point(82, 135);
             this.ItemListBox.Name = "ItemListBox";
-            this.ItemListBox.ScrollAlwaysVisible = true;
             this.ItemListBox.Size = new System.Drawing.Size(615, 300);
             this.ItemListBox.TabIndex = 31;
             this.ItemListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListBoxDragDrop);
@@ -94,9 +94,9 @@
             this.ConvertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConvertLabel.Location = new System.Drawing.Point(288, 546);
             this.ConvertLabel.Name = "ConvertLabel";
-            this.ConvertLabel.Size = new System.Drawing.Size(168, 20);
+            this.ConvertLabel.Size = new System.Drawing.Size(79, 20);
             this.ConvertLabel.TabIndex = 30;
-            this.ConvertLabel.Text = "Compile   MP4  -> MP3";
+            this.ConvertLabel.Text = "convert to";
             // 
             // OutputLabel
             // 
@@ -104,7 +104,7 @@
             this.OutputLabel.AutoSize = true;
             this.OutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.OutputLabel.Location = new System.Drawing.Point(418, 23);
+            this.OutputLabel.Location = new System.Drawing.Point(438, 23);
             this.OutputLabel.Name = "OutputLabel";
             this.OutputLabel.Size = new System.Drawing.Size(151, 16);
             this.OutputLabel.TabIndex = 29;
@@ -115,7 +115,7 @@
             this.InputLabel.AutoSize = true;
             this.InputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.InputLabel.Location = new System.Drawing.Point(61, 23);
+            this.InputLabel.Location = new System.Drawing.Point(79, 23);
             this.InputLabel.Name = "InputLabel";
             this.InputLabel.Size = new System.Drawing.Size(160, 16);
             this.InputLabel.TabIndex = 28;
@@ -126,7 +126,7 @@
             this.OutputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OutputBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.OutputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OutputBox.Location = new System.Drawing.Point(421, 42);
+            this.OutputBox.Location = new System.Drawing.Point(441, 42);
             this.OutputBox.Name = "OutputBox";
             this.OutputBox.Size = new System.Drawing.Size(221, 20);
             this.OutputBox.TabIndex = 25;
@@ -136,7 +136,7 @@
             // 
             this.InputBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.InputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputBox.Location = new System.Drawing.Point(64, 42);
+            this.InputBox.Location = new System.Drawing.Point(82, 42);
             this.InputBox.Name = "InputBox";
             this.InputBox.Size = new System.Drawing.Size(221, 20);
             this.InputBox.TabIndex = 24;
@@ -148,7 +148,7 @@
             this.OpenOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.OpenOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenOutput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
-            this.OpenOutput.Location = new System.Drawing.Point(648, 42);
+            this.OpenOutput.Location = new System.Drawing.Point(668, 42);
             this.OpenOutput.Name = "OpenOutput";
             this.OpenOutput.Size = new System.Drawing.Size(28, 20);
             this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -173,7 +173,7 @@
             this.OpenInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.OpenInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenInput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
-            this.OpenInput.Location = new System.Drawing.Point(291, 42);
+            this.OpenInput.Location = new System.Drawing.Point(309, 42);
             this.OpenInput.Name = "OpenInput";
             this.OpenInput.Size = new System.Drawing.Size(28, 20);
             this.OpenInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,12 +216,73 @@
             this.ItemListBoxDragControl.TargetControl = this.ItemListBox;
             this.ItemListBoxDragControl.Vertical = true;
             // 
+            // formatDropdown
+            // 
+            this.formatDropdown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.formatDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(181)))), ((int)(((byte)(232)))));
+            this.formatDropdown.Cursor = System.Windows.Forms.Cursors.Default;
+            this.formatDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.formatDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formatDropdown.ForeColor = System.Drawing.Color.Purple;
+            this.formatDropdown.FormattingEnabled = true;
+            this.formatDropdown.IntegralHeight = false;
+            this.formatDropdown.ItemHeight = 16;
+            this.formatDropdown.Items.AddRange(new object[] {
+            "3gp",
+            "aa",
+            "aac",
+            "aax",
+            "act",
+            "aiff",
+            "alac",
+            "amr",
+            "ape",
+            "au",
+            "awb",
+            "dct",
+            "dss",
+            "dvf",
+            "flac",
+            "gsm",
+            "iklax",
+            "ivs",
+            "m4a",
+            "m4b",
+            "mmf",
+            "mp3",
+            "mpc",
+            "msv",
+            "nmf",
+            "ndf",
+            "ogg",
+            "oga",
+            "mogg",
+            "opus",
+            "ra",
+            "rm",
+            "raw",
+            "sln",
+            "tta",
+            "voc",
+            "vox",
+            "wav",
+            "wma",
+            "wv",
+            "webm",
+            "8svx",
+            "cda"});
+            this.formatDropdown.Location = new System.Drawing.Point(373, 544);
+            this.formatDropdown.Name = "formatDropdown";
+            this.formatDropdown.Size = new System.Drawing.Size(70, 24);
+            this.formatDropdown.TabIndex = 34;
+            // 
             // MP4toMP3Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(760, 580);
+            this.Controls.Add(this.formatDropdown);
             this.Controls.Add(this.OpenOutput);
             this.Controls.Add(this.DragDropLabel);
             this.Controls.Add(this.ItemListBox);
@@ -263,5 +324,6 @@
         private Bunifu.Framework.UI.BunifuDragControl InputLabelDragControl;
         private Bunifu.Framework.UI.BunifuDragControl DragDropLabelDragControl;
         private Bunifu.Framework.UI.BunifuDragControl ItemListBoxDragControl;
+        private System.Windows.Forms.ComboBox formatDropdown;
     }
 }
