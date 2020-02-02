@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MP4toMP3Converter.exe" size="1370568">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MP4toMP3Converter.exe" size="1371592">
       <assemblyIdentity name="MP4toMP3Converter" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jVVOdyV3u9sTXHLxyV0p6p4sQGi20CZrqP9Y7jJ8v0E=</dsig:DigestValue>
+        <dsig:DigestValue>7eseC/nfQ4um32ijq2+OdH8+7MC96K47yjWJ/ywwDfg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

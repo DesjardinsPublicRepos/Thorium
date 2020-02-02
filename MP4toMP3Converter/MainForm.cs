@@ -29,6 +29,12 @@ namespace MP4toMP3Converter
 
         public MainForm()
         {
+            this.SetStyle(ControlStyles.DoubleBuffer |
+      ControlStyles.UserPaint |
+      ControlStyles.AllPaintingInWmPaint,
+      true);
+            this.UpdateStyles();
+
             InitializeComponent();
 
             sub1panel.Visible = false;
@@ -57,7 +63,16 @@ namespace MP4toMP3Converter
 
         private void Sub1Button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new MP4toMP3Form());
+            ConvertForm.InputData = new string[50];
+            ConvertForm.InputName = new string[50];
+            OpenChildForm(new ConvertForm("convert"));
+        }
+
+        private void Sub1Button2Click(object sender, EventArgs e)
+        {
+            ConvertForm.InputData = new string[50];
+            ConvertForm.InputName = new string[50];
+            OpenChildForm(new ConvertForm("combine"));
         }
 
         private void Sub2Button3_Click(object sender, EventArgs e)
@@ -72,8 +87,8 @@ namespace MP4toMP3Converter
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            MP4toMP3Form.converter.Stop();
-            if (MP4toMP3Form.thread != null) MP4toMP3Form.thread.Abort();
+            ConvertForm.converter.Stop();
+            if (ConvertForm.thread != null) ConvertForm.thread.Abort();
             this.Close();
         }
         #endregion
@@ -137,6 +152,17 @@ namespace MP4toMP3Converter
         }
 
         #endregion
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
     }
 }
 

@@ -22,25 +22,25 @@ namespace MP4toMP3Converter.Properties
                 {
                     if (settings == "convert")
                     {
-                        converter.ConvertMedia(inputData[i].Trim(), Output.Trim() + ("\\" + MP4toMP3Form.InputName[i].Substring(0, MP4toMP3Form.InputName[i].Length - 4) + "." + format), format);
+                        converter.ConvertMedia(inputData[i].Trim(), Output.Trim() + ("\\" + ConvertForm.InputName[i].Substring(0, ConvertForm.InputName[i].Length - 4) + "." + format), format);
                     }
                     if (settings == "combine" | settings == "convertCombine")
                     {
-                        converter.ConcatMedia(inputData, Output.Trim() + ("\\" + MP4toMP3Form.InputName[0].Substring(0, MP4toMP3Form.InputName[0].Length - 4) + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                        converter.ConcatMedia(inputData, Output.Trim() + ("\\CombinedFile " + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + " and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
 
                         break;
                     }
 
-                    MP4toMP3Form.ProgressState++;
-                    if (MP4toMP3Form.ProgressState != 0) UpdateInfoLabel(loadingPopup);
+                    ConvertForm.ProgressState++;
+                    if (ConvertForm.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
                 if (i == inputData.Length)
                 {
                     break;
                 }
             }
-            MP4toMP3Form.InputData = new string[50];
-            MP4toMP3Form.InputName = new string[50];
+            ConvertForm.InputData = new string[50];
+            ConvertForm.InputName = new string[50];
                     
             Thread.Sleep(3);
             closePopup(loadingPopup);

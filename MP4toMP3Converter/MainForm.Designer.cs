@@ -237,9 +237,10 @@
             this.Sub1Button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub1Button2.Size = new System.Drawing.Size(260, 45);
             this.Sub1Button2.TabIndex = 1;
-            this.Sub1Button2.Text = "combine";
+            this.Sub1Button2.Text = "combine files";
             this.Sub1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub1Button2.UseVisualStyleBackColor = true;
+            this.Sub1Button2.Click += new System.EventHandler(this.Sub1Button2Click);
             // 
             // Sub1Button1
             // 
@@ -256,7 +257,7 @@
             this.Sub1Button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub1Button1.Size = new System.Drawing.Size(260, 45);
             this.Sub1Button1.TabIndex = 0;
-            this.Sub1Button1.Text = "convert";
+            this.Sub1Button1.Text = "convert files";
             this.Sub1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub1Button1.UseVisualStyleBackColor = true;
             this.Sub1Button1.Click += new System.EventHandler(this.Sub1Button1_Click);

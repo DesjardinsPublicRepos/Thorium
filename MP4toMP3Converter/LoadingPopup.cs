@@ -17,19 +17,29 @@ namespace MP4toMP3Converter
 {
     public partial class LoadingPopup : Form
     {
+        private string convertOptions;
 
-        public LoadingPopup()
+        public LoadingPopup(string convertOptions)
         {
+            this.convertOptions = convertOptions;
             InitializeComponent();
-            InfoLabel1.Text = "Loading... (1/" + Math.Abs(MP4toMP3Form.ProgressState).ToString() + ")";
+            InfoLabel1.Text = "Loading... (1/" + Math.Abs(ConvertForm.ProgressState).ToString() + ")";
         }
 
         private void AbortButton_Click(object sender, EventArgs e)
         {
-            MP4toMP3Form.InputData = new string[50];
-            MP4toMP3Form.InputName = new string[50];
+            ConvertForm.InputData = new string[50];
+            ConvertForm.InputName = new string[50];
 
-            MP4toMP3Form.converter.Stop(); // thread ends smoothly a few seconds after
+            if (convertOptions == "convert")
+            {
+                ConvertForm.converter.Stop(); // thread ends smoothly a few seconds after
+            }
+            else
+            {
+                ConvertForm.converter.Abort();
+            }
+            
 
             Application.ExitThread();
         }

@@ -27,7 +27,6 @@ C:\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.pdb
 C:\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.MainForm.resources
 C:\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.MP4toMP3Form.resources
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.MainForm.resources
-C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.MP4toMP3Form.resources
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.LoadingPopup.resources
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.AuthorForm.resources
@@ -35,3 +34,4 @@ C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\bin\Debug\MP4to
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\bin\Debug\MP4toMP3Converter.application
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.exe.manifest
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.application
+C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.ConvertForm.resources
