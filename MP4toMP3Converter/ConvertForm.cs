@@ -42,7 +42,7 @@ namespace MP4toMP3Converter
             InitializeComponent();
             if (convertOptions == "convert")
             {
-                formatDropdown.SelectedIndex = 21;
+                formatDropdown.SelectedIndex = 3;
             }
             else
             {

@@ -228,52 +228,21 @@
             this.formatDropdown.IntegralHeight = false;
             this.formatDropdown.ItemHeight = 16;
             this.formatDropdown.Items.AddRange(new object[] {
-            "3gp",
-            "aa",
-            "aac",
-            "aax",
-            "act",
             "aiff",
-            "alac",
-            "amr",
-            "ape",
             "au",
-            "awb",
-            "dct",
-            "dss",
-            "dvf",
             "flac",
-            "gsm",
-            "iklax",
-            "ivs",
-            "m4a",
-            "m4b",
-            "mmf",
             "mp3",
-            "mpc",
-            "msv",
-            "nmf",
-            "ndf",
             "ogg",
             "oga",
-            "mogg",
             "opus",
-            "ra",
-            "rm",
-            "raw",
-            "sln",
             "tta",
             "voc",
-            "vox",
             "wav",
-            "wma",
             "wv",
-            "webm",
-            "8svx",
-            "cda"});
-            this.formatDropdown.Location = new System.Drawing.Point(373, 544);
+            "webm"});
+            this.formatDropdown.Location = new System.Drawing.Point(366, 546);
             this.formatDropdown.Name = "formatDropdown";
-            this.formatDropdown.Size = new System.Drawing.Size(70, 24);
+            this.formatDropdown.Size = new System.Drawing.Size(69, 24);
             this.formatDropdown.TabIndex = 34;
             // 
             // ConvertForm
