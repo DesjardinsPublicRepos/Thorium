@@ -37,7 +37,6 @@
             this.Sub2Button1 = new System.Windows.Forms.Button();
             this.DropdownButton2 = new System.Windows.Forms.Button();
             this.sub1panel = new System.Windows.Forms.Panel();
-            this.Sub1Button4 = new System.Windows.Forms.Button();
             this.Sub1Button3 = new System.Windows.Forms.Button();
             this.Sub1Button2 = new System.Windows.Forms.Button();
             this.Sub1Button1 = new System.Windows.Forms.Button();
@@ -90,9 +89,9 @@
             this.sub2panel.Controls.Add(this.Sub2Button2);
             this.sub2panel.Controls.Add(this.Sub2Button1);
             this.sub2panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sub2panel.Location = new System.Drawing.Point(0, 409);
+            this.sub2panel.Location = new System.Drawing.Point(0, 364);
             this.sub2panel.Name = "sub2panel";
-            this.sub2panel.Size = new System.Drawing.Size(260, 135);
+            this.sub2panel.Size = new System.Drawing.Size(260, 93);
             this.sub2panel.TabIndex = 3;
             // 
             // Sub2Button3
@@ -161,7 +160,7 @@
             this.DropdownButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DropdownButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DropdownButton2.ForeColor = System.Drawing.SystemColors.Control;
-            this.DropdownButton2.Location = new System.Drawing.Point(0, 359);
+            this.DropdownButton2.Location = new System.Drawing.Point(0, 314);
             this.DropdownButton2.Name = "DropdownButton2";
             this.DropdownButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.DropdownButton2.Size = new System.Drawing.Size(260, 50);
@@ -174,34 +173,14 @@
             // sub1panel
             // 
             this.sub1panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sub1panel.Controls.Add(this.Sub1Button4);
             this.sub1panel.Controls.Add(this.Sub1Button3);
             this.sub1panel.Controls.Add(this.Sub1Button2);
             this.sub1panel.Controls.Add(this.Sub1Button1);
             this.sub1panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.sub1panel.Location = new System.Drawing.Point(0, 179);
             this.sub1panel.Name = "sub1panel";
-            this.sub1panel.Size = new System.Drawing.Size(260, 180);
+            this.sub1panel.Size = new System.Drawing.Size(260, 135);
             this.sub1panel.TabIndex = 1;
-            // 
-            // Sub1Button4
-            // 
-            this.Sub1Button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Sub1Button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Sub1Button4.FlatAppearance.BorderSize = 0;
-            this.Sub1Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Sub1Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.Sub1Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Sub1Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sub1Button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.Sub1Button4.Location = new System.Drawing.Point(0, 135);
-            this.Sub1Button4.Name = "Sub1Button4";
-            this.Sub1Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Sub1Button4.Size = new System.Drawing.Size(260, 45);
-            this.Sub1Button4.TabIndex = 3;
-            this.Sub1Button4.Text = "trash to trash";
-            this.Sub1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Sub1Button4.UseVisualStyleBackColor = true;
             // 
             // Sub1Button3
             // 
@@ -221,6 +200,7 @@
             this.Sub1Button3.Text = "combine and convert";
             this.Sub1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub1Button3.UseVisualStyleBackColor = true;
+            this.Sub1Button3.Click += new System.EventHandler(this.Sub1Button3_Click);
             // 
             // Sub1Button2
             // 
@@ -485,7 +465,6 @@
         private System.Windows.Forms.Button Sub2Button2;
         private System.Windows.Forms.Button Sub2Button1;
         private System.Windows.Forms.Button DropdownButton2;
-        private System.Windows.Forms.Button Sub1Button4;
         private System.Windows.Forms.Label InfoLabel2;
         private System.Windows.Forms.Label InfoLabel1;
         private System.Windows.Forms.Label stLabel;

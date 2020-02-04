@@ -23,7 +23,10 @@ namespace MP4toMP3Converter
         {
             this.convertOptions = convertOptions;
             InitializeComponent();
-            InfoLabel1.Text = "Loading... (1/" + Math.Abs(ConvertForm.ProgressState).ToString() + ")";
+            if (convertOptions == "convert")
+            {
+                InfoLabel1.Text = "Loading... (1/" + Math.Abs(ConvertForm.ProgressState).ToString() + ")";
+            }
         }
 
         private void AbortButton_Click(object sender, EventArgs e)

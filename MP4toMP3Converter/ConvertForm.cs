@@ -40,14 +40,14 @@ namespace MP4toMP3Converter
             this.DoubleBuffered = true;
 
             InitializeComponent();
-            if (convertOptions == "convert")
+            if (convertOptions == "convert" | convertOptions == "convertCombine")
             {
                 formatDropdown.SelectedIndex = 3;
             }
             else
             {
                 formatDropdown.Items.Clear();
-                string[] items = new string[] { "mp4", "avi", "flv", "mov" };
+                string[] items = new string[] { "mp4", "avi", "flv", "mov", "webm", "ogg", "oga", "ogv" };
 
                 foreach (string item in items)
                 {
@@ -55,13 +55,18 @@ namespace MP4toMP3Converter
                 }
 
                 formatDropdown.SelectedIndex = 0;
+            }
+
+            if (convertOptions != "convert")
+            {
                 ConvertLabel.Text = "combine to";
                 ConvertLabel.Location = new Point(279, 546);
             }
+            
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            Output = @"C:\Users\Fabian\Downloads";
+            Output = "C:\\Users\\" + Environment.UserName + "\\Music";
             OutputBox.Text = Output;
         }
 

@@ -130,7 +130,7 @@
             this.InfoLabel1.Name = "InfoLabel1";
             this.InfoLabel1.Size = new System.Drawing.Size(212, 28);
             this.InfoLabel1.TabIndex = 5;
-            this.InfoLabel1.Text = "Loading... (0/0)";
+            this.InfoLabel1.Text = "Loading... (1/1)";
             // 
             // Label1DragControl
             // 

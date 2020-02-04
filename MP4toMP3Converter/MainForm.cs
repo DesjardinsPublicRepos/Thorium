@@ -19,6 +19,7 @@ namespace MP4toMP3Converter
     public partial class MainForm : Form
     {
         #region GlobalVars
+        public static string filepathMode = "publish";
 
         private Form activeForm = null;
         string SetupFile = "preferences.txt";
@@ -30,9 +31,9 @@ namespace MP4toMP3Converter
         public MainForm()
         {
             this.SetStyle(ControlStyles.DoubleBuffer |
-      ControlStyles.UserPaint |
-      ControlStyles.AllPaintingInWmPaint,
-      true);
+            ControlStyles.UserPaint |
+            ControlStyles.AllPaintingInWmPaint,
+            true);
             this.UpdateStyles();
 
             InitializeComponent();
@@ -73,6 +74,13 @@ namespace MP4toMP3Converter
             ConvertForm.InputData = new string[50];
             ConvertForm.InputName = new string[50];
             OpenChildForm(new ConvertForm("combine"));
+        }
+
+        private void Sub1Button3_Click(object sender, EventArgs e)
+        {
+            ConvertForm.InputData = new string[50];
+            ConvertForm.InputName = new string[50];
+            OpenChildForm(new ConvertForm("convertCombine"));
         }
 
         private void Sub2Button3_Click(object sender, EventArgs e)
@@ -162,7 +170,6 @@ namespace MP4toMP3Converter
                 return handleParam;
             }
         }
-
     }
 }
 

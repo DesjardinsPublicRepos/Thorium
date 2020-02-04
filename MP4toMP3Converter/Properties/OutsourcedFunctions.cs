@@ -24,11 +24,37 @@ namespace MP4toMP3Converter.Properties
                     {
                         converter.ConvertMedia(inputData[i].Trim(), Output.Trim() + ("\\" + ConvertForm.InputName[i].Substring(0, ConvertForm.InputName[i].Length - 4) + "." + format), format);
                     }
-                    if (settings == "combine" | settings == "convertCombine")
+                    else if (settings == "combine")
                     {
-                        converter.ConcatMedia(inputData, Output.Trim() + ("\\CombinedFile " + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + " and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
-
+                        converter.ConcatMedia(inputData, Output.Trim() + ("\\CombinedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                         break;
+                    }
+                    else
+                    {
+                        if (format == "mp3")
+                        {
+                            converter.ConcatMedia(inputData, Output.Trim() + ("\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                            break;
+                        }
+                        else
+                        {
+                            if (MainForm.filepathMode == "publish")
+                            {
+                                converter.ConcatMedia(inputData, @"c:\tempFile" + "." + "mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
+                                converter.ConvertMedia(@"c:\tempFile" + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+
+                                File.Delete(@"c:\tempFile" + "." + "mp4");
+                                break;
+                            }
+                            else
+                            {
+                                converter.ConcatMedia(inputData, Output.Trim() + ("\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4"), "mp4", new NReco.VideoConverter.ConcatSettings());
+                                converter.ConvertMedia(Output.Trim() + "\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+
+                                File.Delete(Output.Trim() + "\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4");
+                                break;
+                            }
+                        }
                     }
 
                     ConvertForm.ProgressState++;

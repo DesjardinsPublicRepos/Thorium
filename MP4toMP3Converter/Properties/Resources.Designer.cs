@@ -83,16 +83,6 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap and_more_icon_16 {
-            get {
-                object obj = ResourceManager.GetObject("and-more-icon-16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap avatar {
             get {
                 object obj = ResourceManager.GetObject("avatar", resourceCulture);
@@ -103,29 +93,9 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ezgif_com_gif_maker {
-            get {
-                object obj = ResourceManager.GetObject("ezgif.com-gif-maker", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap folder_2_open_512 {
             get {
                 object obj = ResourceManager.GetObject("folder_2_open-512", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap greater_than_sign_icon_36388 {
-            get {
-                object obj = ResourceManager.GetObject("greater-than-sign-icon-36388", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,26 +133,6 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap load {
-            get {
-                object obj = ResourceManager.GetObject("load", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap load2 {
-            get {
-                object obj = ResourceManager.GetObject("load2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap newLoad {
             get {
                 object obj = ResourceManager.GetObject("newLoad", resourceCulture);
@@ -196,36 +146,6 @@ namespace MP4toMP3Converter.Properties {
         internal static System.Drawing.Bitmap Pichon_Icons8 {
             get {
                 object obj = ResourceManager.GetObject("Pichon-Icons8", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rtjh {
-            get {
-                object obj = ResourceManager.GetObject("rtjh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Settings_icon {
-            get {
-                object obj = ResourceManager.GetObject("Settings-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap untitled_5 {
-            get {
-                object obj = ResourceManager.GetObject("untitled-5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
