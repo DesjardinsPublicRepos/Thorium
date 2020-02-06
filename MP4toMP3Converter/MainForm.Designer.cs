@@ -58,6 +58,7 @@
             this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Sub2Button4 = new System.Windows.Forms.Button();
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -85,13 +86,14 @@
             // sub2panel
             // 
             this.sub2panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sub2panel.Controls.Add(this.Sub2Button4);
             this.sub2panel.Controls.Add(this.Sub2Button3);
             this.sub2panel.Controls.Add(this.Sub2Button2);
             this.sub2panel.Controls.Add(this.Sub2Button1);
             this.sub2panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.sub2panel.Location = new System.Drawing.Point(0, 364);
             this.sub2panel.Name = "sub2panel";
-            this.sub2panel.Size = new System.Drawing.Size(260, 93);
+            this.sub2panel.Size = new System.Drawing.Size(260, 139);
             this.sub2panel.TabIndex = 3;
             // 
             // Sub2Button3
@@ -146,7 +148,7 @@
             this.Sub2Button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub2Button1.Size = new System.Drawing.Size(260, 45);
             this.Sub2Button1.TabIndex = 1;
-            this.Sub2Button1.Text = "exit codes";
+            this.Sub2Button1.Text = "Settings";
             this.Sub2Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub2Button1.UseVisualStyleBackColor = true;
             // 
@@ -424,6 +426,25 @@
             this.bunifuDragControl2.TargetControl = null;
             this.bunifuDragControl2.Vertical = true;
             // 
+            // Sub2Button4
+            // 
+            this.Sub2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sub2Button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Sub2Button4.FlatAppearance.BorderSize = 0;
+            this.Sub2Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Sub2Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.Sub2Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sub2Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sub2Button4.ForeColor = System.Drawing.SystemColors.Control;
+            this.Sub2Button4.Location = new System.Drawing.Point(0, 90);
+            this.Sub2Button4.Name = "Sub2Button4";
+            this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
+            this.Sub2Button4.TabIndex = 5;
+            this.Sub2Button4.Text = "exit codes";
+            this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Sub2Button4.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,6 +501,7 @@
         private System.Windows.Forms.PictureBox IconPictureBox;
         private Bunifu.Framework.UI.BunifuDragControl IconPictureBoxDragControl;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
+        private System.Windows.Forms.Button Sub2Button4;
     }
 }
 
