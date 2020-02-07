@@ -32,8 +32,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.AuthorFormDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.HeadingDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Line1 = new System.Windows.Forms.Label();
             this.Heading = new System.Windows.Forms.Label();
+            this.Line1 = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
             this.AspNETPictureBox = new System.Windows.Forms.PictureBox();
             this.InfoLabel2 = new System.Windows.Forms.Label();
@@ -84,17 +84,6 @@
             this.HeadingDragControl.TargetControl = this.Heading;
             this.HeadingDragControl.Vertical = true;
             // 
-            // Line1
-            // 
-            this.Line1.AutoSize = true;
-            this.Line1.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Line1.Location = new System.Drawing.Point(73, 65);
-            this.Line1.Name = "Line1";
-            this.Line1.Size = new System.Drawing.Size(617, 37);
-            this.Line1.TabIndex = 4;
-            this.Line1.Text = "__________________________________________________";
-            // 
             // Heading
             // 
             this.Heading.Dock = System.Windows.Forms.DockStyle.Top;
@@ -107,10 +96,21 @@
             this.Heading.Text = "Author and CC References";
             this.Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Line1
+            // 
+            this.Line1.AutoSize = true;
+            this.Line1.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Line1.Location = new System.Drawing.Point(73, 65);
+            this.Line1.Name = "Line1";
+            this.Line1.Size = new System.Drawing.Size(617, 37);
+            this.Line1.TabIndex = 4;
+            this.Line1.Text = "__________________________________________________";
+            // 
             // BackgroundPanel
             // 
             this.BackgroundPanel.AutoScroll = true;
-            this.BackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.BackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundPanel.Controls.Add(this.AspNETPictureBox);
             this.BackgroundPanel.Controls.Add(this.InfoLabel2);
             this.BackgroundPanel.Controls.Add(this.BunifuPictureBox);

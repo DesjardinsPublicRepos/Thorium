@@ -35,11 +35,28 @@ namespace MP4toMP3Converter
         #region PrimaryMethods
 
         public ConvertForm(string convertOptions)
+
         {
             this.convertOptions = convertOptions;
-            this.DoubleBuffered = true;
 
             InitializeComponent();
+            
+            if (convertOptions != "convert")
+            {
+                ConvertLabel.Text = "combine";
+            }
+
+            if (this.convertOptions != "combine")
+            {
+                Output = "C:\\Users\\" + Environment.UserName + "\\Music";
+            }
+            else
+            {
+                Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
+            }
+            OutputBox.Text = Output;
+
+
             if (convertOptions == "convert" | convertOptions == "convertCombine")
             {
                 formatDropdown.SelectedIndex = 3;
@@ -56,18 +73,6 @@ namespace MP4toMP3Converter
 
                 formatDropdown.SelectedIndex = 0;
             }
-
-            if (convertOptions != "convert")
-            {
-                ConvertLabel.Text = "combine to";
-                ConvertLabel.Location = new Point(279, 546);
-            }
-            
-        }
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            Output = "C:\\Users\\" + Environment.UserName + "\\Music";
-            OutputBox.Text = Output;
         }
 
         private void InputBoxClick(object sender, EventArgs e)
@@ -173,7 +178,6 @@ namespace MP4toMP3Converter
         {
             Application.Run(loadingPopup);
         }
-
 
         private void AddInputFile(string FilePath, string FileName)
         {

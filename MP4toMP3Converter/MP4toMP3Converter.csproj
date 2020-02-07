@@ -96,6 +96,18 @@
     <Compile Include="AuthorForm.Designer.cs">
       <DependentUpon>AuthorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorSelectForm.Designer.cs">
+      <DependentUpon>ColorSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +130,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AuthorForm.resx">
       <DependentUpon>AuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSelectForm.resx">
+      <DependentUpon>ColorSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPopup.resx">
       <DependentUpon>LoadingPopup.cs</DependentUpon>
@@ -192,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_coal_3.ico" />
+    <None Include="Resources\icons8_audio_file_128px_2.png" />
+    <None Include="Resources\icons8_video_file_128px.png" />
+    <None Include="Resources\icons8_arrow_96px.png" />
     <None Include="Resources\59339595.png" />
     <None Include="Resources\33341147.png" />
     <None Include="Resources\avatar.png" />

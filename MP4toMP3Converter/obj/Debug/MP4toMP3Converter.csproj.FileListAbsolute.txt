@@ -35,3 +35,5 @@ C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\bin\Debug\MP4to
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.exe.manifest
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.application
 C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.ConvertForm.resources
+C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.SettingsForm.resources
+C:\Users\Fabian\source\repos\MP4toMP3Converter\MP4toMP3Converter\obj\Debug\MP4toMP3Converter.ColorSelectForm.resources

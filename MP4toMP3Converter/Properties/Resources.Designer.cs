@@ -103,6 +103,26 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_arrow_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_arrow_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_audio_file_128px_2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_audio_file_128px_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_coal_100px {
             get {
                 object obj = ResourceManager.GetObject("icons8_coal_100px", resourceCulture);
@@ -126,6 +146,16 @@ namespace MP4toMP3Converter.Properties {
         internal static System.Drawing.Bitmap icons8_exit_50px {
             get {
                 object obj = ResourceManager.GetObject("icons8_exit_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_video_file_128px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_video_file_128px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.BackPanel = new System.Windows.Forms.Panel();
             this.sub2panel = new System.Windows.Forms.Panel();
+            this.Sub2Button4 = new System.Windows.Forms.Button();
             this.Sub2Button3 = new System.Windows.Forms.Button();
             this.Sub2Button2 = new System.Windows.Forms.Button();
             this.Sub2Button1 = new System.Windows.Forms.Button();
@@ -55,10 +56,9 @@
             this.InfoLabel1DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.InfoLabel2DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.stLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Sub2Button4 = new System.Windows.Forms.Button();
+            this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -95,6 +95,25 @@
             this.sub2panel.Name = "sub2panel";
             this.sub2panel.Size = new System.Drawing.Size(260, 139);
             this.sub2panel.TabIndex = 3;
+            // 
+            // Sub2Button4
+            // 
+            this.Sub2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sub2Button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Sub2Button4.FlatAppearance.BorderSize = 0;
+            this.Sub2Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Sub2Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.Sub2Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sub2Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sub2Button4.ForeColor = System.Drawing.SystemColors.Control;
+            this.Sub2Button4.Location = new System.Drawing.Point(0, 90);
+            this.Sub2Button4.Name = "Sub2Button4";
+            this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
+            this.Sub2Button4.TabIndex = 5;
+            this.Sub2Button4.Text = "exit codes";
+            this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Sub2Button4.UseVisualStyleBackColor = true;
             // 
             // Sub2Button3
             // 
@@ -151,6 +170,7 @@
             this.Sub2Button1.Text = "Settings";
             this.Sub2Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub2Button1.UseVisualStyleBackColor = true;
+            this.Sub2Button1.Click += new System.EventHandler(this.Sub2Button1_Click);
             // 
             // DropdownButton2
             // 
@@ -233,7 +253,7 @@
             this.Sub1Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.Sub1Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Sub1Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sub1Button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.Sub1Button1.ForeColor = System.Drawing.Color.White;
             this.Sub1Button1.Location = new System.Drawing.Point(0, 0);
             this.Sub1Button1.Name = "Sub1Button1";
             this.Sub1Button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -400,18 +420,6 @@
             this.stLabelDragControl.TargetControl = this.stLabel;
             this.stLabelDragControl.Vertical = true;
             // 
-            // OpenOutput
-            // 
-            this.OpenOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.OpenOutput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
-            this.OpenOutput.Location = new System.Drawing.Point(1086, 72);
-            this.OpenOutput.Name = "OpenOutput";
-            this.OpenOutput.Size = new System.Drawing.Size(28, 20);
-            this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.OpenOutput.TabIndex = 12;
-            this.OpenOutput.TabStop = false;
-            // 
             // IconPictureBoxDragControl
             // 
             this.IconPictureBoxDragControl.Fixed = true;
@@ -426,24 +434,17 @@
             this.bunifuDragControl2.TargetControl = null;
             this.bunifuDragControl2.Vertical = true;
             // 
-            // Sub2Button4
+            // OpenOutput
             // 
-            this.Sub2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Sub2Button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Sub2Button4.FlatAppearance.BorderSize = 0;
-            this.Sub2Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Sub2Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.Sub2Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Sub2Button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sub2Button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.Sub2Button4.Location = new System.Drawing.Point(0, 90);
-            this.Sub2Button4.Name = "Sub2Button4";
-            this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
-            this.Sub2Button4.TabIndex = 5;
-            this.Sub2Button4.Text = "exit codes";
-            this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Sub2Button4.UseVisualStyleBackColor = true;
+            this.OpenOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OpenOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.OpenOutput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
+            this.OpenOutput.Location = new System.Drawing.Point(1086, 72);
+            this.OpenOutput.Name = "OpenOutput";
+            this.OpenOutput.Size = new System.Drawing.Size(28, 20);
+            this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.OpenOutput.TabIndex = 12;
+            this.OpenOutput.TabStop = false;
             // 
             // MainForm
             // 
@@ -473,35 +474,35 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox OpenOutput;
-        private System.Windows.Forms.Panel BackPanel;
-        private System.Windows.Forms.Panel sub1panel;
-        private System.Windows.Forms.Button Sub1Button3;
-        private System.Windows.Forms.Button Sub1Button2;
-        private System.Windows.Forms.Button Sub1Button1;
-        private System.Windows.Forms.Button DropdownButton1;
-        private System.Windows.Forms.Panel sub0panel;
-        private System.Windows.Forms.Panel sub2panel;
-        private System.Windows.Forms.Button Sub2Button3;
-        private System.Windows.Forms.Button Sub2Button2;
-        private System.Windows.Forms.Button Sub2Button1;
-        private System.Windows.Forms.Button DropdownButton2;
         private System.Windows.Forms.Label InfoLabel2;
         private System.Windows.Forms.Label InfoLabel1;
         private System.Windows.Forms.Label stLabel;
         private System.Windows.Forms.Panel FormPanel;
-        private System.Windows.Forms.Button CloseButton;
-        private Bunifu.Framework.UI.BunifuDragControl FormPanelDragControl;
-        private Bunifu.Framework.UI.BunifuDragControl sub0panelDragControl;
-        private Bunifu.Framework.UI.BunifuDragControl BackPanelDragControl;
-        private Bunifu.Framework.UI.BunifuElipse FormElipse;
-        private Bunifu.Framework.UI.BunifuDragControl InfoLabel1DragControl;
-        private Bunifu.Framework.UI.BunifuDragControl InfoLabel2DragControl;
-        private Bunifu.Framework.UI.BunifuDragControl stLabelDragControl;
         private System.Windows.Forms.PictureBox IconPictureBox;
-        private Bunifu.Framework.UI.BunifuDragControl IconPictureBoxDragControl;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
-        private System.Windows.Forms.Button Sub2Button4;
+        public System.Windows.Forms.Panel BackPanel;
+        public System.Windows.Forms.PictureBox OpenOutput;
+        public System.Windows.Forms.Panel sub1panel;
+        public System.Windows.Forms.Button Sub1Button3;
+        public System.Windows.Forms.Button Sub1Button2;
+        public System.Windows.Forms.Button Sub1Button1;
+        public System.Windows.Forms.Button DropdownButton1;
+        public System.Windows.Forms.Panel sub0panel;
+        public System.Windows.Forms.Panel sub2panel;
+        public System.Windows.Forms.Button Sub2Button3;
+        public System.Windows.Forms.Button Sub2Button2;
+        public System.Windows.Forms.Button Sub2Button1;
+        public System.Windows.Forms.Button DropdownButton2;
+        public System.Windows.Forms.Button CloseButton;
+        public Bunifu.Framework.UI.BunifuDragControl FormPanelDragControl;
+        public Bunifu.Framework.UI.BunifuDragControl sub0panelDragControl;
+        public Bunifu.Framework.UI.BunifuDragControl BackPanelDragControl;
+        public Bunifu.Framework.UI.BunifuElipse FormElipse;
+        public Bunifu.Framework.UI.BunifuDragControl InfoLabel1DragControl;
+        public Bunifu.Framework.UI.BunifuDragControl InfoLabel2DragControl;
+        public Bunifu.Framework.UI.BunifuDragControl stLabelDragControl;
+        public Bunifu.Framework.UI.BunifuDragControl IconPictureBoxDragControl;
+        public Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
+        public System.Windows.Forms.Button Sub2Button4;
     }
 }
 

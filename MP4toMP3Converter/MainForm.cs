@@ -23,18 +23,17 @@ namespace MP4toMP3Converter
 
         private Form activeForm = null;
         string SetupFile = "preferences.txt";
-        public int[] ColorScheme0 = new int[3];
+        public static byte[] ColorScheme = new byte[27];
         #endregion
 
         #region PrimaryMethods
 
         public MainForm()
         {
-            this.SetStyle(ControlStyles.DoubleBuffer |
-            ControlStyles.UserPaint |
-            ControlStyles.AllPaintingInWmPaint,
-            true);
+            this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
+
+            //read setup file here
 
             InitializeComponent();
 
@@ -43,17 +42,17 @@ namespace MP4toMP3Converter
 
             if (File.Exists(SetupFile) == true && GetLine(SetupFile, 5).Substring(11, 7) != "Default")
             {
-                ColorScheme0[0] = Convert.ToInt32(GetLine(SetupFile, 6).Substring(14, 3));
-                ColorScheme0[1] = Convert.ToInt32(GetLine(SetupFile, 6).Substring(18, 3));
-                ColorScheme0[2] = Convert.ToInt32(GetLine(SetupFile, 6).Substring(22, 3));
+                ColorScheme[0] = Convert.ToByte(GetLine(SetupFile, 6).Substring(14, 3));
+                ColorScheme[1] = Convert.ToByte(GetLine(SetupFile, 6).Substring(18, 3));
+                ColorScheme[2] = Convert.ToByte(GetLine(SetupFile, 6).Substring(22, 3));
 
-                Debug.WriteLine(ColorScheme0[0]);
-                Debug.WriteLine(ColorScheme0[1]);
-                Debug.WriteLine(ColorScheme0[2]);
+                Debug.WriteLine(ColorScheme[1]);
+                Debug.WriteLine(ColorScheme[2]);
             }
             else
             {
                 CreateDefaultSetupFile();
+                ColorScheme = DefaultColors();
             }
         }
 
@@ -83,6 +82,11 @@ namespace MP4toMP3Converter
             OpenChildForm(new ConvertForm("convertCombine"));
         }
 
+        private void Sub2Button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new SettingsForm(this));
+        }
+
         private void Sub2Button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AuthorForm());
@@ -97,7 +101,7 @@ namespace MP4toMP3Converter
         {
             ConvertForm.converter.Stop();
             if (ConvertForm.thread != null) ConvertForm.thread.Abort();
-            this.Close();
+            Environment.Exit(1);
         }
         #endregion
 
@@ -157,6 +161,19 @@ namespace MP4toMP3Converter
             FormPanel.Tag = ChildForm;
             ChildForm.BringToFront();
             ChildForm.Show();
+        }
+
+        private byte[] DefaultColors()
+        {
+            return new byte[] { 0, 0, 0, 
+                                255, 255, 255, 
+                                227, 176, 255, 
+                                151, 142, 153, 
+                                40, 40, 40, 
+                                64, 0, 64,  
+                                50, 50, 50, 
+                                64, 64, 64,
+                                111, 74, 113};
         }
 
         #endregion
