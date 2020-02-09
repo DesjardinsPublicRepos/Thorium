@@ -29,13 +29,16 @@ namespace MP4toMP3Converter
 
         private void button1_Click(object sender, EventArgs e)
         {
+            byte[] before = MainForm.ColorScheme;
             try
             {
                 MainForm.ColorScheme[byteArray[0]] = Convert.ToByte(textBox1.Text);
                 MainForm.ColorScheme[byteArray[1]] = Convert.ToByte(textBox2.Text);
                 MainForm.ColorScheme[byteArray[2]] = Convert.ToByte(textBox3.Text);
             }
-            catch (OverflowException) { }
+            catch (FormatException) { MainForm.ColorScheme = before; }
+            catch (OverflowException) { MainForm.ColorScheme = before; }
+
 
             SettingsForm.updateColors(settingsForm);
             this.Close();
