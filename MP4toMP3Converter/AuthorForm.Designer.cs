@@ -129,9 +129,9 @@
             // 
             this.AspNETPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AspNETPictureBox.Image = global::MP4toMP3Converter.Properties.Resources._59339595;
-            this.AspNETPictureBox.Location = new System.Drawing.Point(372, 256);
+            this.AspNETPictureBox.Location = new System.Drawing.Point(473, 263);
             this.AspNETPictureBox.Name = "AspNETPictureBox";
-            this.AspNETPictureBox.Size = new System.Drawing.Size(60, 60);
+            this.AspNETPictureBox.Size = new System.Drawing.Size(74, 74);
             this.AspNETPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.AspNETPictureBox.TabIndex = 13;
             this.AspNETPictureBox.TabStop = false;
@@ -152,9 +152,9 @@
             // 
             this.BunifuPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BunifuPictureBox.Image = global::MP4toMP3Converter.Properties.Resources._33341147;
-            this.BunifuPictureBox.Location = new System.Drawing.Point(267, 253);
+            this.BunifuPictureBox.Location = new System.Drawing.Point(359, 258);
             this.BunifuPictureBox.Name = "BunifuPictureBox";
-            this.BunifuPictureBox.Size = new System.Drawing.Size(65, 65);
+            this.BunifuPictureBox.Size = new System.Drawing.Size(80, 80);
             this.BunifuPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BunifuPictureBox.TabIndex = 11;
             this.BunifuPictureBox.TabStop = false;
@@ -164,9 +164,9 @@
             // 
             this.NRecoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NRecoPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.avatar;
-            this.NRecoPictureBox.Location = new System.Drawing.Point(156, 253);
+            this.NRecoPictureBox.Location = new System.Drawing.Point(228, 254);
             this.NRecoPictureBox.Name = "NRecoPictureBox";
-            this.NRecoPictureBox.Size = new System.Drawing.Size(75, 65);
+            this.NRecoPictureBox.Size = new System.Drawing.Size(93, 88);
             this.NRecoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NRecoPictureBox.TabIndex = 10;
             this.NRecoPictureBox.TabStop = false;
@@ -176,9 +176,9 @@
             // 
             this.Icons8PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icons8PictureBox.Image = global::MP4toMP3Converter.Properties.Resources.Pichon_Icons8;
-            this.Icons8PictureBox.Location = new System.Drawing.Point(57, 253);
+            this.Icons8PictureBox.Location = new System.Drawing.Point(110, 258);
             this.Icons8PictureBox.Name = "Icons8PictureBox";
-            this.Icons8PictureBox.Size = new System.Drawing.Size(65, 65);
+            this.Icons8PictureBox.Size = new System.Drawing.Size(80, 80);
             this.Icons8PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Icons8PictureBox.TabIndex = 9;
             this.Icons8PictureBox.TabStop = false;
@@ -202,7 +202,7 @@
             // Line2
             // 
             this.Line2.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(103)))));
+            this.Line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.Line2.Location = new System.Drawing.Point(23, 114);
             this.Line2.Name = "Line2";
             this.Line2.Size = new System.Drawing.Size(600, 37);

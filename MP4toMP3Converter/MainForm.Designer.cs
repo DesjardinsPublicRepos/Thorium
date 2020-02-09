@@ -111,7 +111,7 @@
             this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
             this.Sub2Button4.TabIndex = 5;
-            this.Sub2Button4.Text = "exit codes";
+            this.Sub2Button4.Text = "search for Updates";
             this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub2Button4.UseVisualStyleBackColor = true;
             // 
@@ -471,9 +471,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenOutput)).EndInit();
             this.ResumeLayout(false);
 
+
+
         }
 
         #endregion
+
+
         private System.Windows.Forms.Label InfoLabel2;
         private System.Windows.Forms.Label InfoLabel1;
         private System.Windows.Forms.Label stLabel;
