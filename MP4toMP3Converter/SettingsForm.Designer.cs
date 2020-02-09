@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Heading = new System.Windows.Forms.Label();
             this.Line1 = new System.Windows.Forms.Label();
             this.InputLabel = new System.Windows.Forms.Label();
@@ -49,6 +50,17 @@
             this.color4box = new System.Windows.Forms.PictureBox();
             this.color2box = new System.Windows.Forms.PictureBox();
             this.color5box = new System.Windows.Forms.PictureBox();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl5 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl6 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl7 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl8 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl9 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl10 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl11 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -342,6 +354,83 @@
             this.color5box.TabStop = false;
             this.color5box.Click += new System.EventHandler(this.color5box_Click);
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.Heading;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // bunifuDragControl2
+            // 
+            this.bunifuDragControl2.Fixed = true;
+            this.bunifuDragControl2.Horizontal = true;
+            this.bunifuDragControl2.TargetControl = this.Line1;
+            this.bunifuDragControl2.Vertical = true;
+            // 
+            // bunifuDragControl3
+            // 
+            this.bunifuDragControl3.Fixed = true;
+            this.bunifuDragControl3.Horizontal = true;
+            this.bunifuDragControl3.TargetControl = this.label1;
+            this.bunifuDragControl3.Vertical = true;
+            // 
+            // bunifuDragControl4
+            // 
+            this.bunifuDragControl4.Fixed = true;
+            this.bunifuDragControl4.Horizontal = true;
+            this.bunifuDragControl4.TargetControl = this.label2;
+            this.bunifuDragControl4.Vertical = true;
+            // 
+            // bunifuDragControl5
+            // 
+            this.bunifuDragControl5.Fixed = true;
+            this.bunifuDragControl5.Horizontal = true;
+            this.bunifuDragControl5.TargetControl = this.label3;
+            this.bunifuDragControl5.Vertical = true;
+            // 
+            // bunifuDragControl6
+            // 
+            this.bunifuDragControl6.Fixed = true;
+            this.bunifuDragControl6.Horizontal = true;
+            this.bunifuDragControl6.TargetControl = this.label4;
+            this.bunifuDragControl6.Vertical = true;
+            // 
+            // bunifuDragControl7
+            // 
+            this.bunifuDragControl7.Fixed = true;
+            this.bunifuDragControl7.Horizontal = true;
+            this.bunifuDragControl7.TargetControl = this.label5;
+            this.bunifuDragControl7.Vertical = true;
+            // 
+            // bunifuDragControl8
+            // 
+            this.bunifuDragControl8.Fixed = true;
+            this.bunifuDragControl8.Horizontal = true;
+            this.bunifuDragControl8.TargetControl = this.label6;
+            this.bunifuDragControl8.Vertical = true;
+            // 
+            // bunifuDragControl9
+            // 
+            this.bunifuDragControl9.Fixed = true;
+            this.bunifuDragControl9.Horizontal = true;
+            this.bunifuDragControl9.TargetControl = this.InputLabel;
+            this.bunifuDragControl9.Vertical = true;
+            // 
+            // bunifuDragControl10
+            // 
+            this.bunifuDragControl10.Fixed = true;
+            this.bunifuDragControl10.Horizontal = true;
+            this.bunifuDragControl10.TargetControl = this;
+            this.bunifuDragControl10.Vertical = true;
+            // 
+            // bunifuDragControl11
+            // 
+            this.bunifuDragControl11.Fixed = true;
+            this.bunifuDragControl11.Horizontal = true;
+            this.bunifuDragControl11.TargetControl = this.panel1;
+            this.bunifuDragControl11.Vertical = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,5 +482,16 @@
         private System.Windows.Forms.PictureBox color7box2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl5;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl6;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl7;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl8;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl9;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl10;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl11;
     }
 }

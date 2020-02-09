@@ -243,7 +243,7 @@
             this.formatDropdown.Cursor = System.Windows.Forms.Cursors.Default;
             this.formatDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.formatDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formatDropdown.ForeColor = System.Drawing.Color.Purple;
+            this.formatDropdown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.formatDropdown.FormattingEnabled = true;
             this.formatDropdown.IntegralHeight = false;
             this.formatDropdown.ItemHeight = 16;
