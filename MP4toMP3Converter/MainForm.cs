@@ -23,7 +23,9 @@ namespace MP4toMP3Converter
 
         private Form activeForm = null;
         public static string SetupFile = "preferences.txt";
+
         public static byte[] ColorScheme = new byte[27];
+        public static byte iconScheme;
 
         #endregion
 
@@ -39,6 +41,7 @@ namespace MP4toMP3Converter
                 if (getLine(SetupFile, 5).Substring(11, 7) == "Default")
                 {
                     ColorScheme = DefaultColors();
+                    iconScheme = 6;
                 }
                 else
                 {
@@ -71,12 +74,15 @@ namespace MP4toMP3Converter
                     ColorScheme[24] = Convert.ToByte(file[6].Substring(96, 3));
                     ColorScheme[25] = Convert.ToByte(file[6].Substring(100, 3));
                     ColorScheme[26] = Convert.ToByte(file[6].Substring(104, 3));
+
+                    iconScheme = Convert.ToByte(file[7].Substring(0, 3));
                 }
             }
             else
             {
                 CreateDefaultSetupFile();
                 ColorScheme = DefaultColors();
+                iconScheme = 6;
             }
             
             InitializeComponent();
@@ -147,6 +153,7 @@ namespace MP4toMP3Converter
             sw.WriteLine("SetupMode <Default>");
             sw.WriteLine("ColorScheme: ");
             sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
+            sw.WriteLine("006");
             sw.Close();
         }
 
@@ -276,6 +283,37 @@ namespace MP4toMP3Converter
             Sub2Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
             Sub2Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
             Sub2Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
+
+            switch(iconScheme)
+            {
+                case 0:
+                    IconPictureBox.Image = Properties.Resources.coal_white;
+                    break;
+                case 1:
+                    IconPictureBox.Image = Resources.coal_orange;
+                    break;
+                case 2:
+                    IconPictureBox.Image = Resources.coal_yellow;
+                    break;
+                case 3:
+                    IconPictureBox.Image = Resources.coal_green;
+                    break;
+                case 4:
+                    IconPictureBox.Image = Resources.coal_brightblue;
+                    break;
+                case 5:
+                    IconPictureBox.Image = Resources.coal_blue;
+                    break;
+                case 6:
+                    IconPictureBox.Image = Resources.coal_lila;
+                    break;
+                case 7:
+                    IconPictureBox.Image = Resources.coal_red;
+                    break;
+                case 8:
+                    IconPictureBox.Image = Resources.coal_black;
+                    break;
+            }
         }
 
         #endregion

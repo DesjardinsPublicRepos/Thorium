@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Thorium</ProductName>
     <PublisherName>Desjardins</PublisherName>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -210,6 +210,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_coal_3.ico" />
+    <None Include="Resources\coal-pink.png" />
+    <None Include="Resources\coal-red.png" />
+    <None Include="Resources\coal-lila.png" />
+    <None Include="Resources\coal-blue.png" />
+    <None Include="Resources\coal-brightblue.png" />
+    <None Include="Resources\coal-green.png" />
+    <None Include="Resources\coal-yellow.png" />
+    <None Include="Resources\coal-orange.png" />
+    <None Include="Resources\coal-white.png" />
+    <None Include="Resources\coal-black.png" />
     <None Include="Resources\icons8_audio_file_128px_2.png" />
     <None Include="Resources\icons8_video_file_128px.png" />
     <None Include="Resources\icons8_arrow_96px.png" />

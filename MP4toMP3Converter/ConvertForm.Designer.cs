@@ -92,7 +92,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DragDropLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.DragDropLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DragDropLabel.Enabled = false;
             this.DragDropLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DragDropLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.DragDropLabel.Location = new System.Drawing.Point(103, 272);

@@ -29,27 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Heading = new System.Windows.Forms.Label();
-            this.Line1 = new System.Windows.Forms.Label();
-            this.InputLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.color7box2 = new System.Windows.Forms.PictureBox();
-            this.color5box2 = new System.Windows.Forms.PictureBox();
-            this.color7box = new System.Windows.Forms.PictureBox();
-            this.color3box = new System.Windows.Forms.PictureBox();
-            this.color1box = new System.Windows.Forms.PictureBox();
-            this.color6box = new System.Windows.Forms.PictureBox();
-            this.color4box = new System.Windows.Forms.PictureBox();
-            this.color2box = new System.Windows.Forms.PictureBox();
-            this.color5box = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -61,7 +40,50 @@
             this.bunifuDragControl9 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl10 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl11 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.Line1 = new System.Windows.Forms.Label();
+            this.Heading = new System.Windows.Forms.Label();
+            this.InputLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.icon1box = new System.Windows.Forms.PictureBox();
+            this.icon3box = new System.Windows.Forms.PictureBox();
+            this.icon2box = new System.Windows.Forms.PictureBox();
+            this.icon8box = new System.Windows.Forms.PictureBox();
+            this.icon7box = new System.Windows.Forms.PictureBox();
+            this.icon6box = new System.Windows.Forms.PictureBox();
+            this.icon4box = new System.Windows.Forms.PictureBox();
+            this.icon9box = new System.Windows.Forms.PictureBox();
+            this.icon5box = new System.Windows.Forms.PictureBox();
+            this.color7box2 = new System.Windows.Forms.PictureBox();
+            this.color5box2 = new System.Windows.Forms.PictureBox();
+            this.color7box = new System.Windows.Forms.PictureBox();
+            this.color3box = new System.Windows.Forms.PictureBox();
+            this.color1box = new System.Windows.Forms.PictureBox();
+            this.color6box = new System.Windows.Forms.PictureBox();
+            this.color4box = new System.Windows.Forms.PictureBox();
+            this.color2box = new System.Windows.Forms.PictureBox();
+            this.color5box = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon1box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon3box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon8box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon7box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon6box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon4box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon9box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon5box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box)).BeginInit();
@@ -73,27 +95,104 @@
             ((System.ComponentModel.ISupportInitialize)(this.color5box)).BeginInit();
             this.SuspendLayout();
             // 
-            // Heading
+            // bunifuDragControl1
             // 
-            this.Heading.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Heading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Heading.Location = new System.Drawing.Point(5, 14);
-            this.Heading.Name = "Heading";
-            this.Heading.Size = new System.Drawing.Size(751, 61);
-            this.Heading.TabIndex = 8;
-            this.Heading.Text = "Color scheme";
-            this.Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.Heading;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // bunifuDragControl2
+            // 
+            this.bunifuDragControl2.Fixed = true;
+            this.bunifuDragControl2.Horizontal = true;
+            this.bunifuDragControl2.TargetControl = this.Line1;
+            this.bunifuDragControl2.Vertical = true;
+            // 
+            // bunifuDragControl3
+            // 
+            this.bunifuDragControl3.Fixed = true;
+            this.bunifuDragControl3.Horizontal = true;
+            this.bunifuDragControl3.TargetControl = this.label1;
+            this.bunifuDragControl3.Vertical = true;
+            // 
+            // bunifuDragControl4
+            // 
+            this.bunifuDragControl4.Fixed = true;
+            this.bunifuDragControl4.Horizontal = true;
+            this.bunifuDragControl4.TargetControl = this.label2;
+            this.bunifuDragControl4.Vertical = true;
+            // 
+            // bunifuDragControl5
+            // 
+            this.bunifuDragControl5.Fixed = true;
+            this.bunifuDragControl5.Horizontal = true;
+            this.bunifuDragControl5.TargetControl = this.label3;
+            this.bunifuDragControl5.Vertical = true;
+            // 
+            // bunifuDragControl6
+            // 
+            this.bunifuDragControl6.Fixed = true;
+            this.bunifuDragControl6.Horizontal = true;
+            this.bunifuDragControl6.TargetControl = this.label4;
+            this.bunifuDragControl6.Vertical = true;
+            // 
+            // bunifuDragControl7
+            // 
+            this.bunifuDragControl7.Fixed = true;
+            this.bunifuDragControl7.Horizontal = true;
+            this.bunifuDragControl7.TargetControl = this.label5;
+            this.bunifuDragControl7.Vertical = true;
+            // 
+            // bunifuDragControl8
+            // 
+            this.bunifuDragControl8.Fixed = true;
+            this.bunifuDragControl8.Horizontal = true;
+            this.bunifuDragControl8.TargetControl = this.label6;
+            this.bunifuDragControl8.Vertical = true;
+            // 
+            // bunifuDragControl9
+            // 
+            this.bunifuDragControl9.Fixed = true;
+            this.bunifuDragControl9.Horizontal = true;
+            this.bunifuDragControl9.TargetControl = this.InputLabel;
+            this.bunifuDragControl9.Vertical = true;
+            // 
+            // bunifuDragControl10
+            // 
+            this.bunifuDragControl10.Fixed = true;
+            this.bunifuDragControl10.Horizontal = true;
+            this.bunifuDragControl10.TargetControl = this;
+            this.bunifuDragControl10.Vertical = true;
+            // 
+            // bunifuDragControl11
+            // 
+            this.bunifuDragControl11.Fixed = true;
+            this.bunifuDragControl11.Horizontal = true;
+            this.bunifuDragControl11.TargetControl = this.panel1;
+            this.bunifuDragControl11.Vertical = true;
             // 
             // Line1
             // 
             this.Line1.AutoSize = true;
             this.Line1.Font = new System.Drawing.Font("Noto Sans", 20F);
             this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Line1.Location = new System.Drawing.Point(77, 44);
+            this.Line1.Location = new System.Drawing.Point(74, 27);
             this.Line1.Name = "Line1";
             this.Line1.Size = new System.Drawing.Size(617, 37);
             this.Line1.TabIndex = 7;
             this.Line1.Text = "__________________________________________________";
+            // 
+            // Heading
+            // 
+            this.Heading.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Heading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Heading.Location = new System.Drawing.Point(286, 24);
+            this.Heading.Name = "Heading";
+            this.Heading.Size = new System.Drawing.Size(189, 61);
+            this.Heading.TabIndex = 8;
+            this.Heading.Text = "Color scheme";
+            this.Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InputLabel
             // 
@@ -179,6 +278,38 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "dark text color";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(335, 220);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 38);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "apply changes permanently";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(104, 220);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(225, 38);
+            this.button2.TabIndex = 64;
+            this.button2.Text = "default";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -205,37 +336,179 @@
             this.panel1.Size = new System.Drawing.Size(646, 275);
             this.panel1.TabIndex = 61;
             // 
-            // button2
+            // panel2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(104, 220);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 38);
-            this.button2.TabIndex = 64;
-            this.button2.Text = "default";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.icon1box);
+            this.panel2.Controls.Add(this.icon3box);
+            this.panel2.Controls.Add(this.icon2box);
+            this.panel2.Controls.Add(this.icon8box);
+            this.panel2.Controls.Add(this.icon7box);
+            this.panel2.Controls.Add(this.icon6box);
+            this.panel2.Controls.Add(this.icon4box);
+            this.panel2.Controls.Add(this.icon9box);
+            this.panel2.Controls.Add(this.icon5box);
+            this.panel2.Location = new System.Drawing.Point(60, 441);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(646, 102);
+            this.panel2.TabIndex = 62;
             // 
-            // button1
+            // label8
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(335, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 38);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "apply changes permanently";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.label8.Location = new System.Drawing.Point(72, 379);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(617, 37);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "__________________________________________________";
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.label7.Location = new System.Drawing.Point(298, 377);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 61);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "icon color";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // icon1box
+            // 
+            this.icon1box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon1box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon1box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon1box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon1box.Image = global::MP4toMP3Converter.Properties.Resources.coal_white;
+            this.icon1box.Location = new System.Drawing.Point(33, 23);
+            this.icon1box.Name = "icon1box";
+            this.icon1box.Size = new System.Drawing.Size(55, 55);
+            this.icon1box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon1box.TabIndex = 10;
+            this.icon1box.TabStop = false;
+            this.icon1box.Click += new System.EventHandler(this.icon1box_Click);
+            // 
+            // icon3box
+            // 
+            this.icon3box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon3box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon3box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon3box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon3box.Image = global::MP4toMP3Converter.Properties.Resources.coal_yellow;
+            this.icon3box.Location = new System.Drawing.Point(163, 23);
+            this.icon3box.Name = "icon3box";
+            this.icon3box.Size = new System.Drawing.Size(55, 55);
+            this.icon3box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon3box.TabIndex = 9;
+            this.icon3box.TabStop = false;
+            this.icon3box.Click += new System.EventHandler(this.icon3box_Click);
+            // 
+            // icon2box
+            // 
+            this.icon2box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon2box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon2box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon2box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon2box.Image = global::MP4toMP3Converter.Properties.Resources.coal_orange;
+            this.icon2box.Location = new System.Drawing.Point(98, 23);
+            this.icon2box.Name = "icon2box";
+            this.icon2box.Size = new System.Drawing.Size(55, 55);
+            this.icon2box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon2box.TabIndex = 8;
+            this.icon2box.TabStop = false;
+            this.icon2box.Click += new System.EventHandler(this.icon2box_Click);
+            // 
+            // icon8box
+            // 
+            this.icon8box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon8box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon8box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon8box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon8box.Image = global::MP4toMP3Converter.Properties.Resources.coal_red;
+            this.icon8box.Location = new System.Drawing.Point(488, 23);
+            this.icon8box.Name = "icon8box";
+            this.icon8box.Size = new System.Drawing.Size(55, 55);
+            this.icon8box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon8box.TabIndex = 7;
+            this.icon8box.TabStop = false;
+            this.icon8box.Click += new System.EventHandler(this.icon8box_Click);
+            // 
+            // icon7box
+            // 
+            this.icon7box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon7box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon7box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon7box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon7box.Image = global::MP4toMP3Converter.Properties.Resources.coal_lila;
+            this.icon7box.Location = new System.Drawing.Point(423, 23);
+            this.icon7box.Name = "icon7box";
+            this.icon7box.Size = new System.Drawing.Size(55, 55);
+            this.icon7box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon7box.TabIndex = 6;
+            this.icon7box.TabStop = false;
+            this.icon7box.Click += new System.EventHandler(this.icon7box_Click);
+            // 
+            // icon6box
+            // 
+            this.icon6box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon6box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon6box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon6box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon6box.Image = global::MP4toMP3Converter.Properties.Resources.coal_blue;
+            this.icon6box.Location = new System.Drawing.Point(358, 23);
+            this.icon6box.Name = "icon6box";
+            this.icon6box.Size = new System.Drawing.Size(55, 55);
+            this.icon6box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon6box.TabIndex = 5;
+            this.icon6box.TabStop = false;
+            this.icon6box.Click += new System.EventHandler(this.icon6box_Click);
+            // 
+            // icon4box
+            // 
+            this.icon4box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon4box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon4box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon4box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon4box.Image = global::MP4toMP3Converter.Properties.Resources.coal_green;
+            this.icon4box.Location = new System.Drawing.Point(228, 23);
+            this.icon4box.Name = "icon4box";
+            this.icon4box.Size = new System.Drawing.Size(55, 55);
+            this.icon4box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon4box.TabIndex = 4;
+            this.icon4box.TabStop = false;
+            this.icon4box.Click += new System.EventHandler(this.icon4box_Click);
+            // 
+            // icon9box
+            // 
+            this.icon9box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon9box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon9box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon9box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon9box.Image = global::MP4toMP3Converter.Properties.Resources.coal_black;
+            this.icon9box.Location = new System.Drawing.Point(553, 23);
+            this.icon9box.Name = "icon9box";
+            this.icon9box.Size = new System.Drawing.Size(55, 55);
+            this.icon9box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon9box.TabIndex = 3;
+            this.icon9box.TabStop = false;
+            this.icon9box.Click += new System.EventHandler(this.icon9box_Click);
+            // 
+            // icon5box
+            // 
+            this.icon5box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icon5box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.icon5box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icon5box.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icon5box.Image = global::MP4toMP3Converter.Properties.Resources.coal_brightblue;
+            this.icon5box.Location = new System.Drawing.Point(293, 23);
+            this.icon5box.Name = "icon5box";
+            this.icon5box.Size = new System.Drawing.Size(55, 55);
+            this.icon5box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icon5box.TabIndex = 2;
+            this.icon5box.TabStop = false;
+            this.icon5box.Click += new System.EventHandler(this.icon5box_Click);
             // 
             // color7box2
             // 
@@ -253,7 +526,7 @@
             // color5box2
             // 
             this.color5box2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.color5box2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.color5box2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.color5box2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color5box2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.color5box2.Location = new System.Drawing.Point(360, 22);
@@ -354,89 +627,16 @@
             this.color5box.TabStop = false;
             this.color5box.Click += new System.EventHandler(this.color5box_Click);
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.Heading;
-            this.bunifuDragControl1.Vertical = true;
-            // 
-            // bunifuDragControl2
-            // 
-            this.bunifuDragControl2.Fixed = true;
-            this.bunifuDragControl2.Horizontal = true;
-            this.bunifuDragControl2.TargetControl = this.Line1;
-            this.bunifuDragControl2.Vertical = true;
-            // 
-            // bunifuDragControl3
-            // 
-            this.bunifuDragControl3.Fixed = true;
-            this.bunifuDragControl3.Horizontal = true;
-            this.bunifuDragControl3.TargetControl = this.label1;
-            this.bunifuDragControl3.Vertical = true;
-            // 
-            // bunifuDragControl4
-            // 
-            this.bunifuDragControl4.Fixed = true;
-            this.bunifuDragControl4.Horizontal = true;
-            this.bunifuDragControl4.TargetControl = this.label2;
-            this.bunifuDragControl4.Vertical = true;
-            // 
-            // bunifuDragControl5
-            // 
-            this.bunifuDragControl5.Fixed = true;
-            this.bunifuDragControl5.Horizontal = true;
-            this.bunifuDragControl5.TargetControl = this.label3;
-            this.bunifuDragControl5.Vertical = true;
-            // 
-            // bunifuDragControl6
-            // 
-            this.bunifuDragControl6.Fixed = true;
-            this.bunifuDragControl6.Horizontal = true;
-            this.bunifuDragControl6.TargetControl = this.label4;
-            this.bunifuDragControl6.Vertical = true;
-            // 
-            // bunifuDragControl7
-            // 
-            this.bunifuDragControl7.Fixed = true;
-            this.bunifuDragControl7.Horizontal = true;
-            this.bunifuDragControl7.TargetControl = this.label5;
-            this.bunifuDragControl7.Vertical = true;
-            // 
-            // bunifuDragControl8
-            // 
-            this.bunifuDragControl8.Fixed = true;
-            this.bunifuDragControl8.Horizontal = true;
-            this.bunifuDragControl8.TargetControl = this.label6;
-            this.bunifuDragControl8.Vertical = true;
-            // 
-            // bunifuDragControl9
-            // 
-            this.bunifuDragControl9.Fixed = true;
-            this.bunifuDragControl9.Horizontal = true;
-            this.bunifuDragControl9.TargetControl = this.InputLabel;
-            this.bunifuDragControl9.Vertical = true;
-            // 
-            // bunifuDragControl10
-            // 
-            this.bunifuDragControl10.Fixed = true;
-            this.bunifuDragControl10.Horizontal = true;
-            this.bunifuDragControl10.TargetControl = this;
-            this.bunifuDragControl10.Vertical = true;
-            // 
-            // bunifuDragControl11
-            // 
-            this.bunifuDragControl11.Fixed = true;
-            this.bunifuDragControl11.Horizontal = true;
-            this.bunifuDragControl11.TargetControl = this.panel1;
-            this.bunifuDragControl11.Vertical = true;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(760, 580);
+            this.ClientSize = new System.Drawing.Size(760, 986);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Heading);
             this.Controls.Add(this.Line1);
@@ -445,6 +645,16 @@
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icon1box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon3box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon2box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon8box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon7box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon6box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon4box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon9box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon5box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box)).EndInit();
@@ -460,28 +670,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox color3box;
-        private System.Windows.Forms.PictureBox color1box;
-        private System.Windows.Forms.PictureBox color6box;
-        private System.Windows.Forms.PictureBox color7box;
-        private System.Windows.Forms.PictureBox color4box;
-        private System.Windows.Forms.PictureBox color2box;
-        private System.Windows.Forms.PictureBox color5box;
-        private System.Windows.Forms.Label Heading;
-        private System.Windows.Forms.Label Line1;
-        private System.Windows.Forms.Label InputLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox color5box2;
-        private System.Windows.Forms.PictureBox color7box2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
@@ -493,5 +681,38 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl9;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl10;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl11;
+        private System.Windows.Forms.Label Heading;
+        private System.Windows.Forms.Label Line1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label InputLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox icon1box;
+        private System.Windows.Forms.PictureBox icon3box;
+        private System.Windows.Forms.PictureBox icon2box;
+        private System.Windows.Forms.PictureBox icon8box;
+        private System.Windows.Forms.PictureBox icon7box;
+        private System.Windows.Forms.PictureBox icon6box;
+        private System.Windows.Forms.PictureBox icon4box;
+        private System.Windows.Forms.PictureBox icon9box;
+        private System.Windows.Forms.PictureBox icon5box;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox color7box2;
+        private System.Windows.Forms.PictureBox color5box2;
+        private System.Windows.Forms.PictureBox color7box;
+        private System.Windows.Forms.PictureBox color3box;
+        private System.Windows.Forms.PictureBox color1box;
+        private System.Windows.Forms.PictureBox color6box;
+        private System.Windows.Forms.PictureBox color4box;
+        private System.Windows.Forms.PictureBox color2box;
+        private System.Windows.Forms.PictureBox color5box;
     }
 }

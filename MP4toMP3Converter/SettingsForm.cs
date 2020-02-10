@@ -93,6 +93,53 @@ namespace MP4toMP3Converter
             thread.Start();
         }
 
+
+
+        private void icon1box_Click(object sender, EventArgs e)
+        {
+            iconClick(0);
+        }
+
+        private void icon2box_Click(object sender, EventArgs e)
+        {
+            iconClick(1);
+        }
+
+        private void icon3box_Click(object sender, EventArgs e)
+        {
+            iconClick(2);
+        }
+
+        private void icon4box_Click(object sender, EventArgs e)
+        {
+            iconClick(3);
+        }
+
+        private void icon5box_Click(object sender, EventArgs e)
+        {
+            iconClick(4);
+        }
+
+        private void icon6box_Click(object sender, EventArgs e)
+        {
+            iconClick(5);
+        }
+
+        private void icon7box_Click(object sender, EventArgs e)
+        {
+            iconClick(6);
+        }
+
+        private void icon8box_Click(object sender, EventArgs e)
+        {
+            iconClick(7);
+        }
+
+        private void icon9box_Click(object sender, EventArgs e)
+        {
+            iconClick(8);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string s = null;
@@ -124,6 +171,27 @@ namespace MP4toMP3Converter
             Application.Run(colorSelectForm);
         }
 
+        private void iconClick(byte iconIndex)
+        {
+            MainForm.iconScheme = iconIndex;
+            MainForm.setLine(MainForm.SetupFile, 8, "00" + iconIndex.ToString());
+            MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+
+            PictureBox[] iconPictures = new PictureBox[] { icon1box, icon2box, icon3box, icon4box, icon5box, icon6box, icon7box, icon8box, icon9box };
+
+            foreach (PictureBox iconPicture in iconPictures)
+            {
+                if (iconPicture.Name == "icon" + (MainForm.iconScheme + 1) + "box")
+                {
+                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+                }
+                else
+                {
+                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+                }
+            }
+        }
+
         public static void updateColors(SettingsForm settingsForm)
         {
             settingsForm.color1box.BackColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
@@ -146,8 +214,8 @@ namespace MP4toMP3Converter
             settingsForm.Heading.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
             settingsForm.Line1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
 
-            settingsForm.button1.ForeColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
-            settingsForm.button2.ForeColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
+            settingsForm.button1.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
+            settingsForm.button2.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
 
             settingsForm.label1.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
             settingsForm.label2.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
@@ -193,6 +261,10 @@ namespace MP4toMP3Converter
             settingsForm.f.CloseButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton1.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton2.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.CloseButton.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.DropdownButton1.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.DropdownButton2.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.sub0panel.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
 
             settingsForm.f.Sub1Button1.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
             settingsForm.f.Sub1Button2.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
@@ -237,6 +309,22 @@ namespace MP4toMP3Converter
             color6box.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
             color7box.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
             color7box2.BackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
+
+            this.Size = new Size(760, 580);
+
+            PictureBox[] iconPictures = new PictureBox[] { icon1box, icon2box, icon3box, icon4box, icon5box, icon6box, icon7box, icon8box, icon9box };
+
+            foreach(PictureBox iconPicture in iconPictures)
+            {
+                if (iconPicture.Name == "icon" + (MainForm.iconScheme + 1) + "box")
+                {
+                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+                }
+                else
+                {
+                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+                }
+            }
         }
     }
 }

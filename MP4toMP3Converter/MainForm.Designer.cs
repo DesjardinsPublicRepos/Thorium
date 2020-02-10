@@ -48,7 +48,6 @@
             this.InfoLabel1 = new System.Windows.Forms.Label();
             this.stLabel = new System.Windows.Forms.Label();
             this.FormPanel = new System.Windows.Forms.Panel();
-            this.IconPictureBox = new System.Windows.Forms.PictureBox();
             this.FormPanelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sub0panelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackPanelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -58,6 +57,7 @@
             this.stLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.IconPictureBox = new System.Windows.Forms.PictureBox();
             this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
@@ -362,17 +362,6 @@
             this.FormPanel.Size = new System.Drawing.Size(760, 580);
             this.FormPanel.TabIndex = 25;
             // 
-            // IconPictureBox
-            // 
-            this.IconPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.IconPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.icons8_coal_100px;
-            this.IconPictureBox.Location = new System.Drawing.Point(308, 144);
-            this.IconPictureBox.Name = "IconPictureBox";
-            this.IconPictureBox.Size = new System.Drawing.Size(170, 170);
-            this.IconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IconPictureBox.TabIndex = 5;
-            this.IconPictureBox.TabStop = false;
-            // 
             // FormPanelDragControl
             // 
             this.FormPanelDragControl.Fixed = true;
@@ -434,6 +423,17 @@
             this.bunifuDragControl2.TargetControl = null;
             this.bunifuDragControl2.Vertical = true;
             // 
+            // IconPictureBox
+            // 
+            this.IconPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.IconPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.coal_lila;
+            this.IconPictureBox.Location = new System.Drawing.Point(308, 144);
+            this.IconPictureBox.Name = "IconPictureBox";
+            this.IconPictureBox.Size = new System.Drawing.Size(170, 170);
+            this.IconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IconPictureBox.TabIndex = 5;
+            this.IconPictureBox.TabStop = false;
+            // 
             // OpenOutput
             // 
             this.OpenOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -470,8 +470,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenOutput)).EndInit();
             this.ResumeLayout(false);
-
-
 
         }
 
