@@ -139,6 +139,11 @@ namespace MP4toMP3Converter
             if (ConvertForm.thread != null) ConvertForm.thread.Abort();
             Environment.Exit(1);
         }
+
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
         #endregion
 
         #region SecondaryMethods

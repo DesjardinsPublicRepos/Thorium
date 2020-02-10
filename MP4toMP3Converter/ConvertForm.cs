@@ -196,6 +196,38 @@ namespace MP4toMP3Converter
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (InputData[0] != null)
+            {
+                OutsourcedFunctions.getConvertableFiles(InputData);
+                InputData = InputData.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+                //MainForm.ActiveForm.Enabled = false;
+
+                string OutputFormat = formatDropdown.Text;
+                ProgressState = InputData.Length;
+
+                loadingPopup = new LoadingPopup(convertOptions);
+                thread = new Thread(new ThreadStart(StartLoadingPopup));
+                thread.Start();
+
+                Nito.AspNetBackgroundTasks.BackgroundTaskManager.Run(() =>
+                {
+                    try
+                    {
+                        OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, InputData, convertOptions);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
+                });
+                ItemListBox.Items.Clear();
+            }
+
+        }
+
         private void CustomColors()
         {
             ItemListBox.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
