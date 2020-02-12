@@ -436,5 +436,16 @@ namespace MP4toMP3Converter
                 }
             }
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            if ((m.Msg == 0x114 || m.Msg == 0x115)
+            && (((int)m.WParam & 0xFFFF) == 5))
+            {
+                // Change SB_THUMBTRACK to SB_THUMBPOSITION
+                m.WParam = (IntPtr)(((int)m.WParam & ~0xFFFF) | 4);
+            }
+            base.WndProc(ref m);
+        }
     }
 }

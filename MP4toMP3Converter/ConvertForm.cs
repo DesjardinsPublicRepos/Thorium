@@ -241,7 +241,9 @@ namespace MP4toMP3Converter
                 ItemListBox.Items.Clear();
             }
         }
+        #endregion
 
+        #region init
         private void CustomColors()
         {
             ItemListBox.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
