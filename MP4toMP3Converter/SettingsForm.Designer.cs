@@ -76,6 +76,11 @@
             this.bunifuDragControl12 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl13 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl14 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -96,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon4box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon9box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon5box)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -651,6 +657,69 @@
             this.bunifuDragControl14.TargetControl = this.panel2;
             this.bunifuDragControl14.Vertical = true;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.checkBox2);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.checkBox1);
+            this.panel3.Location = new System.Drawing.Point(52, 574);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(646, 168);
+            this.panel3.TabIndex = 65;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.checkBox1.Location = new System.Drawing.Point(22, 16);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(274, 24);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "use a custom filepath for temp files";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Gray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(22, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(608, 26);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "C:\\tempFile";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.checkBox2.Location = new System.Drawing.Point(22, 88);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(187, 24);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "default output filepath ";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gray;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(21, 117);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(608, 26);
+            this.textBox2.TabIndex = 3;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,6 +727,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(760, 986);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.Heading2);
             this.Controls.Add(this.Line2);
             this.Controls.Add(this.panel2);
@@ -688,6 +758,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon4box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon9box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon5box)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,5 +813,10 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl12;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl13;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl14;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -206,6 +206,7 @@ namespace MP4toMP3Converter
 
             settingsForm.panel1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
             settingsForm.panel2.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.panel3.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
 
             settingsForm.button1.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
             settingsForm.button2.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
@@ -284,6 +285,7 @@ namespace MP4toMP3Converter
 
             panel1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
             panel2.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            panel3.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
 
             button1.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]); 
             button2.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
@@ -330,7 +332,45 @@ namespace MP4toMP3Converter
                 }
             }
 
+            if (MainForm.customFilepathEnalbled[0] == true)
+            {
+                checkBox1.Checked = true;
+                checkBox1_CheckedChanged(null, null);
+            }
+            if (MainForm.customFilepathEnalbled[1] == true)
+            {
+                checkBox2.Checked = true;
+                checkBox2_CheckedChanged(null, null);
+            }
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                textBox1.BackColor = Color.FromArgb(250, 250, 250);
+                textBox1.Enabled = true;
+            }
+            else
+            {
+                textBox1.BackColor = Color.Gray;
+                textBox1.Enabled = false;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                textBox2.BackColor = Color.FromArgb(250, 250, 250);
+                textBox2.Enabled = true;
+            }
+            else
+            {
+                textBox2.BackColor = Color.Gray;
+                textBox2.Enabled = false;
+            }
         }
     }
 }

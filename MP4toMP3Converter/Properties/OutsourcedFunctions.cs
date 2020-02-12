@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using MP4toMP3Converter;
+using System.Net.Mail;
+using System.ComponentModel;
 
 
 namespace MP4toMP3Converter.Properties
@@ -38,22 +40,10 @@ namespace MP4toMP3Converter.Properties
                         }
                         else
                         {
-                            if (MainForm.filepathMode == "publish")
-                            {
-                                converter.ConcatMedia(inputData, @"c:\tempFile" + "." + "mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                                converter.ConvertMedia(@"c:\tempFile" + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                            converter.ConcatMedia(inputData, @MainForm.customTempFilePath + "." + "mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
+                            converter.ConvertMedia(@MainForm.customTempFilePath + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
 
-                                File.Delete(@"c:\tempFile" + "." + "mp4");
-                                break;
-                            }
-                            else
-                            {
-                                converter.ConcatMedia(inputData, Output.Trim() + ("\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4"), "mp4", new NReco.VideoConverter.ConcatSettings());
-                                converter.ConvertMedia(Output.Trim() + "\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
-
-                                File.Delete(Output.Trim() + "\\TempFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + "mp4");
-                                break;
-                            }
+                            File.Delete(@MainForm.customTempFilePath + ".mp4");
                         }
                     }
 

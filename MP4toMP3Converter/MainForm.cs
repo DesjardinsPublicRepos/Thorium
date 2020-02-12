@@ -19,11 +19,12 @@ namespace MP4toMP3Converter
     public partial class MainForm : Form
     {
         #region GlobalVars
-        public static string filepathMode = "publish";
 
         private Form activeForm = null;
         public static string SetupFile = "preferences.txt";
 
+        public static bool[] customFilepathEnalbled = new bool[2] { false, false };
+        public static string customTempFilePath = "C:\tempFile";
         public static byte[] ColorScheme = new byte[27];
         public static byte iconScheme;
 
@@ -76,6 +77,9 @@ namespace MP4toMP3Converter
                     ColorScheme[26] = Convert.ToByte(file[6].Substring(104, 3));
 
                     iconScheme = Convert.ToByte(file[7].Substring(0, 3));
+
+                    if (file[8].Substring(16, 1) == "1") customFilepathEnalbled[0] = true;
+                    if (file[8].Substring(17, 1) == "1") customFilepathEnalbled[1] = true;
                 }
             }
             else
@@ -153,12 +157,13 @@ namespace MP4toMP3Converter
             StreamWriter sw = new StreamWriter(SetupFile);
             sw.WriteLine(" - THIS IS AN AUTOMATICALLY GENERATED FILE BY THORIUM.EXE. -");
             sw.WriteLine(" - DO NOT CHANGE THIS FILE MANUALLY IF YOU DONT KNOW WHAT YOU ARE DOING. - ");
-            sw.WriteLine(" - CHANGING MIGHT CAUSE ISSUES FROM BUGS TO DESTROYING THE PROGRAM. - ");
+            sw.WriteLine(" - IF YOU DID A CHANGE AND THE PROGRAM ISNT WORKING PROPERLY, TRY DELETING THIS FILE. - ");
             sw.WriteLine();
             sw.WriteLine("SetupMode <Default>");
             sw.WriteLine("ColorScheme: ");
             sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
             sw.WriteLine("006");
+            sw.WriteLine("customFilepaths 00");
             sw.Close();
         }
 

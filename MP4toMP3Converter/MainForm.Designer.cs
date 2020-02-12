@@ -43,6 +43,7 @@
             this.Sub1Button1 = new System.Windows.Forms.Button();
             this.DropdownButton1 = new System.Windows.Forms.Button();
             this.sub0panel = new System.Windows.Forms.Panel();
+            this.RestartButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.InfoLabel2 = new System.Windows.Forms.Label();
             this.InfoLabel1 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.OpenOutput = new System.Windows.Forms.PictureBox();
-            this.RestartButton = new System.Windows.Forms.Button();
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -295,6 +295,25 @@
             this.sub0panel.Size = new System.Drawing.Size(260, 129);
             this.sub0panel.TabIndex = 0;
             // 
+            // RestartButton
+            // 
+            this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RestartButton.FlatAppearance.BorderSize = 0;
+            this.RestartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.RestartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RestartButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.RestartButton.Location = new System.Drawing.Point(130, 0);
+            this.RestartButton.Name = "RestartButton";
+            this.RestartButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.RestartButton.Size = new System.Drawing.Size(130, 29);
+            this.RestartButton.TabIndex = 2;
+            this.RestartButton.Text = "Restart";
+            this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RestartButton.UseVisualStyleBackColor = true;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
             // CloseButton
             // 
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -302,12 +321,12 @@
             this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.SystemColors.Control;
             this.CloseButton.Location = new System.Drawing.Point(0, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CloseButton.Size = new System.Drawing.Size(130, 54);
+            this.CloseButton.Size = new System.Drawing.Size(130, 29);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "Close";
             this.CloseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -446,25 +465,6 @@
             this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.OpenOutput.TabIndex = 12;
             this.OpenOutput.TabStop = false;
-            // 
-            // RestartButton
-            // 
-            this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RestartButton.FlatAppearance.BorderSize = 0;
-            this.RestartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.RestartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.RestartButton.Location = new System.Drawing.Point(130, 0);
-            this.RestartButton.Name = "RestartButton";
-            this.RestartButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.RestartButton.Size = new System.Drawing.Size(130, 54);
-            this.RestartButton.TabIndex = 2;
-            this.RestartButton.Text = "Restart";
-            this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RestartButton.UseVisualStyleBackColor = true;
-            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
             // MainForm
             // 
