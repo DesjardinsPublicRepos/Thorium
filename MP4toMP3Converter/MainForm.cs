@@ -24,7 +24,8 @@ namespace MP4toMP3Converter
         public static string SetupFile = "preferences.txt";
 
         public static bool[] customFilepathEnalbled = new bool[2] { false, false };
-        public static string customTempFilePath = "C:\tempFile";
+        public static string[] customFilepaths = new string[2] { "Default", "Default" };
+        //public static string customTempFilePath = "C:\tempFile";
         public static byte[] ColorScheme = new byte[27];
         public static byte iconScheme;
 
@@ -78,8 +79,17 @@ namespace MP4toMP3Converter
 
                     iconScheme = Convert.ToByte(file[7].Substring(0, 3));
 
-                    if (file[8].Substring(16, 1) == "1") customFilepathEnalbled[0] = true;
-                    if (file[8].Substring(17, 1) == "1") customFilepathEnalbled[1] = true;
+                    if (file[8].Trim() != "Default")
+                    {
+                        customFilepathEnalbled[0] = true;
+                        customFilepaths[0] = file[8].Trim();
+                    }
+                    if (file[9].Trim() != "Default")
+                    {
+                        customFilepathEnalbled[1] = true;
+                        customFilepaths[1] = file[9].Trim();
+                    }
+                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
                 }
             }
             else
@@ -163,7 +173,9 @@ namespace MP4toMP3Converter
             sw.WriteLine("ColorScheme: ");
             sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
             sw.WriteLine("006");
-            sw.WriteLine("customFilepaths 00");
+            //sw.WriteLine("customFilepaths 00");
+            sw.WriteLine("Default");
+            sw.WriteLine("Default");
             sw.Close();
         }
 

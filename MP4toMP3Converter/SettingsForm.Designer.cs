@@ -77,10 +77,12 @@
             this.bunifuDragControl13 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl14 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.defaultPathButton = new System.Windows.Forms.PictureBox();
+            this.tmpFilePathButton = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -102,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon9box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon5box)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.defaultPathButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpFilePathButton)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -660,6 +664,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.defaultPathButton);
+            this.panel3.Controls.Add(this.tmpFilePathButton);
             this.panel3.Controls.Add(this.textBox2);
             this.panel3.Controls.Add(this.checkBox2);
             this.panel3.Controls.Add(this.textBox1);
@@ -669,31 +675,45 @@
             this.panel3.Size = new System.Drawing.Size(646, 168);
             this.panel3.TabIndex = 65;
             // 
-            // checkBox1
+            // defaultPathButton
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox1.Location = new System.Drawing.Point(22, 16);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(274, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "use a custom filepath for temp files";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.defaultPathButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.defaultPathButton.BackColor = System.Drawing.Color.Gray;
+            this.defaultPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.defaultPathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
+            this.defaultPathButton.Location = new System.Drawing.Point(594, 117);
+            this.defaultPathButton.Name = "defaultPathButton";
+            this.defaultPathButton.Size = new System.Drawing.Size(36, 26);
+            this.defaultPathButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.defaultPathButton.TabIndex = 51;
+            this.defaultPathButton.TabStop = false;
+            this.defaultPathButton.Click += new System.EventHandler(this.OpenFilepathClicked);
             // 
-            // textBox1
+            // tmpFilePathButton
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Gray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(22, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(608, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "C:\\tempFile";
+            this.tmpFilePathButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tmpFilePathButton.BackColor = System.Drawing.Color.Gray;
+            this.tmpFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tmpFilePathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
+            this.tmpFilePathButton.Location = new System.Drawing.Point(594, 46);
+            this.tmpFilePathButton.Name = "tmpFilePathButton";
+            this.tmpFilePathButton.Size = new System.Drawing.Size(36, 26);
+            this.tmpFilePathButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.tmpFilePathButton.TabIndex = 50;
+            this.tmpFilePathButton.TabStop = false;
+            this.tmpFilePathButton.Click += new System.EventHandler(this.OpenFilepathClicked);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gray;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(21, 117);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(567, 26);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FilePathFieldsKeyDown);
             // 
             // checkBox2
             // 
@@ -709,16 +729,32 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // textBox2
+            // textBox1
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Gray;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(21, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(608, 26);
-            this.textBox2.TabIndex = 3;
+            this.textBox1.BackColor = System.Drawing.Color.Gray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(22, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(566, 26);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "C:\\";
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FilePathFieldsKeyDown);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.checkBox1.Location = new System.Drawing.Point(22, 16);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(274, 24);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "use a custom filepath for temp files";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SettingsForm
             // 
@@ -760,6 +796,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon5box)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.defaultPathButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpFilePathButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -818,5 +856,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.PictureBox defaultPathButton;
+        private System.Windows.Forms.PictureBox tmpFilePathButton;
     }
 }

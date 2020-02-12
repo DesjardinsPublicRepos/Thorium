@@ -56,6 +56,11 @@ namespace MP4toMP3Converter
             {
                 Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
             }
+            
+            if (MainForm.customFilepathEnalbled[0] == true)
+            {
+                Output = MainForm.customFilepaths[1];
+            }
             OutputBox.Text = Output;
 
 
@@ -159,7 +164,12 @@ namespace MP4toMP3Converter
             if (e.KeyValue == (char)13) //=enter
             {
                 AddInputFile(InputBox.Text, System.IO.Path.GetFileName(InputBox.Text));
-                InputBox.Text = null;   
+                InputBox.Text = null;
+                OutputBox.Focus();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
             }
         }
 
@@ -168,6 +178,10 @@ namespace MP4toMP3Converter
             if (e.KeyValue == (char)13) 
             {
                 Output = OutputBox.Text;
+                ConvertButton.Focus();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -226,7 +240,6 @@ namespace MP4toMP3Converter
                 });
                 ItemListBox.Items.Clear();
             }
-
         }
 
         private void CustomColors()

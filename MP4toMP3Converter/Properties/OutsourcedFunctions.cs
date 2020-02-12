@@ -33,6 +33,14 @@ namespace MP4toMP3Converter.Properties
                     }
                     else
                     {
+                        string outPath;
+                        if (MainForm.customFilepathEnalbled[0] == true | MainForm.customFilepaths[0] == "Default")
+                        {
+                            outPath = MainForm.customFilepaths[0];
+                        }
+                        else outPath = "C:\tempFile";
+
+
                         if (format == "mp3")
                         {
                             converter.ConcatMedia(inputData, Output.Trim() + ("\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
@@ -40,10 +48,11 @@ namespace MP4toMP3Converter.Properties
                         }
                         else
                         {
-                            converter.ConcatMedia(inputData, @MainForm.customTempFilePath + "." + "mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                            converter.ConvertMedia(@MainForm.customTempFilePath + "." + "mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                            converter.ConcatMedia(inputData, @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
+                            converter.ConvertMedia(@outPath + "tempFile.mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
 
-                            File.Delete(@MainForm.customTempFilePath + ".mp4");
+                            File.Delete(@outPath + "tempFile.mp4");
+                            break;
                         }
                     }
 

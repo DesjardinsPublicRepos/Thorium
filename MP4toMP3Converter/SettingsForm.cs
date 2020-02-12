@@ -20,14 +20,17 @@ namespace MP4toMP3Converter
         public static byte[] cuColorScheme = new byte[3];
         private MainForm f;
         private Thread thread;
+        private bool initComplete = false;
 
         public SettingsForm(MainForm ff)
         {
             f = ff;
             InitializeComponent();
             CustomColors();
+            initComplete = true;
         }
 
+        #region onClicks
         private void color1box_Click(object sender, EventArgs e)
         {
             colorSelectForm = new ColorSelectForm(this, new byte[3] {0, 1, 2 });
@@ -137,6 +140,7 @@ namespace MP4toMP3Converter
         {
             iconClick(8);
         }
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -190,6 +194,7 @@ namespace MP4toMP3Converter
             }
         }
 
+        #region init
         public static void updateColors(SettingsForm settingsForm)
         {
             settingsForm.color1box.BackColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
@@ -331,45 +336,104 @@ namespace MP4toMP3Converter
                     iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
                 }
             }
-
+            
             if (MainForm.customFilepathEnalbled[0] == true)
-            {
-                checkBox1.Checked = true;
-                checkBox1_CheckedChanged(null, null);
-            }
-            if (MainForm.customFilepathEnalbled[1] == true)
-            {
-                checkBox2.Checked = true;
-                checkBox2_CheckedChanged(null, null);
-            }
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
             {
                 textBox1.BackColor = Color.FromArgb(250, 250, 250);
                 textBox1.Enabled = true;
+                textBox1.Text = MainForm.customFilepaths[0];
+                checkBox1.Checked = true;
             }
-            else
+            if (MainForm.customFilepathEnalbled[1] == true)
             {
-                textBox1.BackColor = Color.Gray;
-                textBox1.Enabled = false;
+                textBox2.BackColor = Color.FromArgb(250, 250, 250);
+                textBox2.Enabled = true;
+                textBox2.Text = MainForm.customFilepaths[1];
+                checkBox2.Checked = true;
+            }
+        }
+        #endregion
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (initComplete == true)
+            {
+                if (checkBox1.Checked == true)
+                {
+                    textBox1.BackColor = Color.FromArgb(250, 250, 250);
+                    textBox1.Enabled = true;
+                    MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+                    MainForm.setLine(MainForm.SetupFile, 9, textBox1.Text);
+                }
+                else
+                {
+                    textBox1.BackColor = Color.Gray;
+                    textBox1.Enabled = false;
+                    MainForm.setLine(MainForm.SetupFile, 9, "Default");
+                }
             }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (initComplete == true)
             {
-                textBox2.BackColor = Color.FromArgb(250, 250, 250);
-                textBox2.Enabled = true;
+                if (checkBox2.Checked == true)
+                {
+                    textBox2.BackColor = Color.FromArgb(250, 250, 250);
+                    textBox2.Enabled = true;
+                    MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+                    MainForm.setLine(MainForm.SetupFile, 10, textBox2.Text);
+                }
+                else
+                {
+                    textBox2.BackColor = Color.Gray;
+                    textBox2.Enabled = false;
+                    MainForm.setLine(MainForm.SetupFile, 10, "Default");
+                }
             }
-            else
+        }
+
+        private void FilePathFieldsKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)13) //=enter
             {
-                textBox2.BackColor = Color.Gray;
-                textBox2.Enabled = false;
+                if (sender == textBox1)
+                {
+                    MainForm.setLine(MainForm.SetupFile, 9, textBox1.Text);
+                    textBox2.Focus();
+                }
+                else if (sender == textBox2)
+                {
+                    MainForm.setLine(MainForm.SetupFile, 10, textBox2.Text);
+                    panel3.Focus();
+                }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+            }
+        }
+
+        private void OpenFilepathClicked(object sender, EventArgs e)
+        {
+            if (sender == defaultPathButton)
+            {
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    textBox2.Text = folderBrowserDialog.SelectedPath;
+                    FilePathFieldsKeyDown(textBox2, new KeyEventArgs(Keys.Enter));
+                }
+            }
+            else if (sender == tmpFilePathButton)
+            {
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = folderBrowserDialog.SelectedPath;
+                    FilePathFieldsKeyDown(textBox1, new KeyEventArgs(Keys.Enter));
+                }
             }
         }
     }
