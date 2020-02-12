@@ -1,4 +1,4 @@
-#Thorium
+#VideoConverter
 
 Converting / combining is working properly, just UI and usability needs to be improved til publish.
 
