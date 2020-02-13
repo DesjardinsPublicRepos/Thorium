@@ -211,37 +211,37 @@ namespace MP4toMP3Converter
         #region init
         private void CustomColors()
         {
-            ItemListBox.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            ItemListBox.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
+            ItemListBox.BackColor = MainForm.getCustomColor(3);
+            ItemListBox.ForeColor = MainForm.getCustomColor(6);
 
-            DragDropLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+            DragDropLabel.ForeColor = MainForm.getCustomColor(3);
 
-            DragDropLabel.BackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
-            formatDropdown.ForeColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
-            InputBox.ForeColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
-            OutputBox.ForeColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
+            DragDropLabel.BackColor = MainForm.getCustomColor(9);
+            formatDropdown.ForeColor = MainForm.getCustomColor(9);
+            InputBox.ForeColor = MainForm.getCustomColor(9);
+            OutputBox.ForeColor = MainForm.getCustomColor(9);
 
-            this.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
+            this.BackColor = MainForm.getCustomColor(7);
 
-            panel1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            panel1.BackColor = MainForm.getCustomColor(8);
 
-            InputBox.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            OutputBox.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            OpenInput.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            OpenOutput.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+            InputBox.BackColor = MainForm.getCustomColor(3);
+            OutputBox.BackColor = MainForm.getCustomColor(3);
+            OpenInput.BackColor = MainForm.getCustomColor(3);
+            OpenOutput.BackColor = MainForm.getCustomColor(3);
 
-            label1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            InputLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            OutputLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+            label1.ForeColor = MainForm.getCustomColor(3);
+            InputLabel.ForeColor = MainForm.getCustomColor(3);
+            OutputLabel.ForeColor = MainForm.getCustomColor(3);
 
-            label1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            InputLabel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            OutputLabel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            label1.BackColor = MainForm.getCustomColor(8);
+            InputLabel.BackColor = MainForm.getCustomColor(8);
+            OutputLabel.BackColor = MainForm.getCustomColor(8);
 
-            formatDropdown.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            ConvertButton.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            ConvertLabel.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            ConvertLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
+            formatDropdown.BackColor = MainForm.getCustomColor(3);
+            ConvertButton.BackColor = MainForm.getCustomColor(3);
+            ConvertLabel.BackColor = MainForm.getCustomColor(3);
+            ConvertLabel.ForeColor = MainForm.getCustomColor(6);
 
             this.Size = new Size(760, 580);
         }

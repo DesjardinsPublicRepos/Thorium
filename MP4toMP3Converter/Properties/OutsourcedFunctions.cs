@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using MP4toMP3Converter;
 using System.Net.Mail;
 using System.ComponentModel;
-
+using System.Drawing;
 
 namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
     {
-        public static void ConvertAll(string Output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, string[] inputData, string settings)
+        public static void ConvertAll(string output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, string[] inputData, string settings)
         {
             for (int i = 0; i < inputData.Length; i++)
             {
@@ -24,11 +24,11 @@ namespace MP4toMP3Converter.Properties
                 {
                     if (settings == "convert")
                     {
-                        converter.ConvertMedia(inputData[i].Trim(), Output.Trim() + ("\\" + ConvertForm.InputName[i].Substring(0, ConvertForm.InputName[i].Length - 4) + "." + format), format);
+                        converter.ConvertMedia(inputData[i].Trim(), output.Trim() + ("\\" + ConvertForm.InputName[i].Substring(0, ConvertForm.InputName[i].Length - 4) + "." + format), format);
                     }
                     else if (settings == "combine")
                     {
-                        converter.ConcatMedia(inputData, Output.Trim() + ("\\CombinedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                        converter.ConcatMedia(inputData, output.Trim() + ("\\CombinedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                         break;
                     }
                     else
@@ -43,13 +43,13 @@ namespace MP4toMP3Converter.Properties
 
                         if (format == "mp3")
                         {
-                            converter.ConcatMedia(inputData, Output.Trim() + ("\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                            converter.ConcatMedia(inputData, output.Trim() + ("\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                             break;
                         }
                         else
                         {
                             converter.ConcatMedia(inputData, @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                            converter.ConvertMedia(@outPath + "tempFile.mp4", Output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                            converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
 
                             File.Delete(@outPath + "tempFile.mp4");
                             break;
@@ -137,7 +137,8 @@ namespace MP4toMP3Converter.Properties
             System.Diagnostics.Process.Start(http);
         }
 
-        public string getThumbnail(string url)
+
+        private string getThumbnail(string url)
         {
             string thumb = string.Empty;
             if (url == "")

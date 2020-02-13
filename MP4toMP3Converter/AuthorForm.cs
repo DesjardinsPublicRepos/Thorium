@@ -58,14 +58,14 @@ namespace MP4toMP3Converter
 
         private void CustomColors()
         {
-            Heading.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            Line1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            InfoLabel1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            linkLabel1.LinkColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            linkLabel2.LinkColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            
-            InfoLabel2.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            Line2.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+            Heading.ForeColor = MainForm.getCustomColor(3);
+            Line1.ForeColor = MainForm.getCustomColor(3);
+            InfoLabel1.ForeColor = MainForm.getCustomColor(3);
+            linkLabel1.LinkColor = MainForm.getCustomColor(3);
+            linkLabel2.LinkColor = MainForm.getCustomColor(3);
+
+            InfoLabel2.ForeColor = MainForm.getCustomColor(4);
+            Line2.ForeColor = MainForm.getCustomColor(4);
 
             if (MainForm.ColorScheme[6] < 236 && MainForm.ColorScheme[7] < 236 && MainForm.ColorScheme[8] < 236)
             {
@@ -74,12 +74,12 @@ namespace MP4toMP3Converter
             }
             else
             {
-                linkLabel1.ActiveLinkColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-                linkLabel2.ActiveLinkColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+                linkLabel1.ActiveLinkColor = MainForm.getCustomColor(3);
+                linkLabel2.ActiveLinkColor = MainForm.getCustomColor(3);
             }
              
-            this.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
-            BackgroundPanel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            this.BackColor = MainForm.getCustomColor(7);
+            BackgroundPanel.BackColor = MainForm.getCustomColor(8);
         }
 
         #endregion

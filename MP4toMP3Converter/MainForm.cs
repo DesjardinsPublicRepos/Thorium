@@ -30,13 +30,13 @@ namespace MP4toMP3Converter
         {
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             UpdateStyles();
+
             readSetup();
             InitializeComponent();
             CustomColors();
-            
-            sub1panel.Visible = false;
-            sub2panel.Visible = false;
         }
+
+        #region onClicks
 
         private void DropdownButton1_Click(object sender, EventArgs e)
         {
@@ -90,7 +90,64 @@ namespace MP4toMP3Converter
         {
             Application.Restart();
         }
-        #region SecondaryMethods
+
+        #endregion
+
+        #region staticSecondaryMethods
+
+        public static string getLine(string fileName, int line)
+        {
+            using (StreamReader streamreader = new StreamReader(fileName))
+            {
+                for (int i = 1; i < line; i++)
+                {
+                    streamreader.ReadLine();
+                }
+                string text = streamreader.ReadLine();
+                streamreader.Close();
+                return text;
+            }
+        }
+
+        public static void setLine(string fileName, int line, string text)
+        {
+            string[] file = File.ReadAllLines(fileName);
+            file[line - 1] = text;
+
+            using (StreamWriter sw = new StreamWriter(fileName))
+            {
+                foreach (string newLines in file)
+                {
+                    sw.WriteLine(newLines);
+                }
+                sw.Close();
+            }
+        }
+
+        public static byte[] DefaultColors()
+        {
+            return new byte[] 
+            {
+                0, 0, 0, //2            1
+                255, 255, 255,//5       2
+                227, 176, 255, //8      3
+                151, 142, 153, //11     4
+                44, 44, 44, //14        5
+                64, 0, 64,  //17        6
+                50, 50, 50,//20         7 
+                64, 64, 64,//23         8
+                111, 74, 113 //26       9
+            };
+        }
+
+        public static Color getCustomColor(byte index)
+        {
+            return Color.FromArgb(ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2]);
+        }
+
+        #endregion
+
+        #region dynamicSecondaryMethods
 
         private void CreateDefaultSetupFile()
         {
@@ -103,52 +160,17 @@ namespace MP4toMP3Converter
             sw.WriteLine("ColorScheme: ");
             sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
             sw.WriteLine("006");
-            //sw.WriteLine("customFilepaths 00");
             sw.WriteLine("Default");
             sw.WriteLine("Default");
             sw.Close();
-        }
-
-        public static string getLine(string fileName, int line)
-        {
-            using (StreamReader sr = new StreamReader(fileName))
-            {
-                for (int i = 1; i < line; i++)
-                {
-                    sr.ReadLine();
-                }
-                string s = sr.ReadLine();
-                sr.Close();
-                return s;
-            }
-        }
-
-        public static void setLine(string fileName, int line, string text)
-        {
-            string[] file = File.ReadAllLines(fileName);
-            file[line - 1] = text;
-
-            using (StreamWriter sw = new StreamWriter(fileName))
-            {
-                foreach (string s in file)
-                {
-                    sw.WriteLine(s);
-                }
-                sw.Close();
-            }
-        }
-
-        private void HideSubMenus()
-        {
-            sub1panel.Visible = false;
-            sub2panel.Visible = false;
         }
 
         private void ShowSubMenus(Panel panel)
         {
             if (panel.Visible == false)
             {
-                HideSubMenus();
+                sub1panel.Visible = false;
+                sub2panel.Visible = false;
                 panel.Visible = true;
             }
             else panel.Visible = false;
@@ -157,9 +179,9 @@ namespace MP4toMP3Converter
         private void OpenChildForm(Form ChildForm)
         {
             if (activeForm != null)
-            //{
+            {
                 activeForm.Close();
-            //}
+            }
             activeForm = ChildForm;
             ChildForm.TopLevel = false;
             ChildForm.FormBorderStyle = FormBorderStyle.None;
@@ -169,6 +191,10 @@ namespace MP4toMP3Converter
             ChildForm.BringToFront();
             ChildForm.Show();
         }
+
+        #endregion
+
+        #region init
 
         private void readSetup()
         {
@@ -234,75 +260,56 @@ namespace MP4toMP3Converter
             }
         }
 
-        public static byte[] DefaultColors()
-        {
-            return new byte[] { 0, 0, 0, 
-                                255, 255, 255, 
-                                227, 176, 255, 
-                                151, 142, 153, 
-                                44, 44, 44, 
-                                64, 0, 64,  
-                                50, 50, 50, 
-                                64, 64, 64,
-                                111, 74, 113};//26
-        }
-
-        public static byte[] getCustomColor(byte index)
-        {
-            return new byte[3] { ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2] };
-        }
-
         private void CustomColors()
         {
-            FormPanel.BackColor = Color.FromArgb(ColorScheme[18], ColorScheme[19], ColorScheme[20]);
-            IconPictureBox.BackColor = Color.FromArgb(ColorScheme[18], ColorScheme[19], ColorScheme[20]);
-            InfoLabel2.BackColor = Color.FromArgb(ColorScheme[18], ColorScheme[19], ColorScheme[20]);
-            InfoLabel1.BackColor = Color.FromArgb(ColorScheme[18], ColorScheme[19], ColorScheme[20]);
-            stLabel.BackColor = Color.FromArgb(ColorScheme[18], ColorScheme[19], ColorScheme[20]);
+            FormPanel.BackColor = getCustomColor(7);
+            IconPictureBox.BackColor = getCustomColor(7);
+            InfoLabel2.BackColor = getCustomColor(7);
+            InfoLabel1.BackColor = getCustomColor(7);
+            stLabel.BackColor = getCustomColor(7);
 
-            Sub1Button1.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            Sub1Button2.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            Sub1Button3.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            Sub2Button1.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            Sub2Button3.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            Sub2Button4.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            sub1panel.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
-            sub2panel.BackColor = Color.FromArgb(ColorScheme[21], ColorScheme[22], ColorScheme[23]);
+            Sub1Button1.BackColor = getCustomColor(8);
+            Sub1Button2.BackColor = getCustomColor(8);
+            Sub1Button3.BackColor = getCustomColor(8);
+            Sub2Button1.BackColor = getCustomColor(8);
+            Sub2Button3.BackColor = getCustomColor(8);
+            Sub2Button4.BackColor = getCustomColor(8);
+            sub1panel.BackColor = getCustomColor(8);
+            sub2panel.BackColor = getCustomColor(8);
 
-            InfoLabel2.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            CloseButton.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            DropdownButton1.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            DropdownButton2.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub1Button1.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub1Button2.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub1Button3.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub2Button1.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub2Button3.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
-            Sub2Button4.ForeColor = Color.FromArgb(ColorScheme[3], ColorScheme[4], ColorScheme[5]);
+            InfoLabel2.ForeColor = getCustomColor(2);
+            CloseButton.ForeColor = getCustomColor(2);
+            DropdownButton1.ForeColor = getCustomColor(2);
+            DropdownButton2.ForeColor = getCustomColor(2);
+            Sub1Button1.ForeColor = getCustomColor(2);
+            Sub1Button2.ForeColor = getCustomColor(2);
+            Sub1Button3.ForeColor = getCustomColor(2);
+            Sub2Button1.ForeColor = getCustomColor(2);
+            Sub2Button3.ForeColor = getCustomColor(2);
+            Sub2Button4.ForeColor = getCustomColor(2);
 
-            InfoLabel1.ForeColor = Color.FromArgb(ColorScheme[6], ColorScheme[7], ColorScheme[8]);
-            stLabel.ForeColor = Color.FromArgb(ColorScheme[6], ColorScheme[7], ColorScheme[8]);
+            InfoLabel1.ForeColor = getCustomColor(3);
+            stLabel.ForeColor = getCustomColor(3);
 
-            CloseButton.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
-            RestartButton.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
-            BackPanel.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
-            DropdownButton1.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
-            DropdownButton2.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
-            sub0panel.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
+            CloseButton.BackColor = getCustomColor(5);
+            RestartButton.BackColor = getCustomColor(5);
+            BackPanel.BackColor = getCustomColor(5);
+            DropdownButton1.BackColor = getCustomColor(5);
+            DropdownButton2.BackColor = getCustomColor(5);
+            sub0panel.BackColor = getCustomColor(5);
 
-            CloseButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
-            RestartButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
-            DropdownButton1.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
-            DropdownButton2.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
+            CloseButton.FlatAppearance.MouseOverBackColor = getCustomColor(6);
+            RestartButton.FlatAppearance.MouseOverBackColor = getCustomColor(6);
+            DropdownButton1.FlatAppearance.MouseOverBackColor = getCustomColor(6);
+            DropdownButton2.FlatAppearance.MouseOverBackColor = getCustomColor(6);
 
-            Sub1Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-            Sub1Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-            Sub1Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-            Sub2Button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-            Sub2Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-            Sub2Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[24], ColorScheme[25], ColorScheme[26]);
-
-            switch(iconScheme)
+            Sub1Button1.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            Sub1Button2.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            Sub1Button3.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            Sub2Button1.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            Sub2Button3.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            Sub2Button4.FlatAppearance.MouseOverBackColor = getCustomColor(9);
+            switch (iconScheme)
             {
                 case 0:
                     IconPictureBox.Image = Properties.Resources.coal_white;
@@ -332,9 +339,13 @@ namespace MP4toMP3Converter
                     IconPictureBox.Image = Resources.coal_black;
                     break;
             }
+            sub1panel.Visible = false;
+            sub2panel.Visible = false;
         }
 
         #endregion
+
+        #region overrides
 
         protected override CreateParams CreateParams
         {
@@ -345,5 +356,7 @@ namespace MP4toMP3Converter
                 return handleParam;
             }
         }
+
+        #endregion
     }
 }
