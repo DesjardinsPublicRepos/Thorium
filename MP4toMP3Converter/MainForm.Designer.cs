@@ -297,6 +297,7 @@
             // 
             // RestartButton
             // 
+            this.RestartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RestartButton.FlatAppearance.BorderSize = 0;
             this.RestartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -304,18 +305,19 @@
             this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.RestartButton.Location = new System.Drawing.Point(130, 0);
+            this.RestartButton.Location = new System.Drawing.Point(64, 0);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.RestartButton.Size = new System.Drawing.Size(130, 29);
+            this.RestartButton.Size = new System.Drawing.Size(64, 29);
             this.RestartButton.TabIndex = 2;
             this.RestartButton.Text = "Restart";
             this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RestartButton.UseVisualStyleBackColor = true;
+            this.RestartButton.UseVisualStyleBackColor = false;
             this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
             // CloseButton
             // 
+            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -326,11 +328,11 @@
             this.CloseButton.Location = new System.Drawing.Point(0, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CloseButton.Size = new System.Drawing.Size(130, 29);
+            this.CloseButton.Size = new System.Drawing.Size(64, 29);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "Close";
             this.CloseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // InfoLabel2

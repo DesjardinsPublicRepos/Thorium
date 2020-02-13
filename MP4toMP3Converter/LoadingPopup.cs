@@ -23,11 +23,10 @@ namespace MP4toMP3Converter
         {
             this.convertOptions = convertOptions;
             InitializeComponent();
-            if (convertOptions == "convert")
-            {
-                InfoLabel1.Text = "Loading... (1/" + Math.Abs(ConvertForm.ProgressState).ToString() + ")";
-            }
+            if (convertOptions == "convert") InfoLabel1.Text = "Loading... (1/" + Math.Abs(ConvertForm.ProgressState).ToString() + ")";
         }
+
+        #region onClicks
 
         private void AbortButton_Click(object sender, EventArgs e)
         {
@@ -36,7 +35,7 @@ namespace MP4toMP3Converter
 
             if (convertOptions == "convert")
             {
-                ConvertForm.converter.Stop(); // thread ends smoothly a few seconds after
+                ConvertForm.converter.Stop(); 
             }
             else
             {
@@ -46,5 +45,7 @@ namespace MP4toMP3Converter
 
             Application.ExitThread();
         }
+
+        #endregion
     }
 }

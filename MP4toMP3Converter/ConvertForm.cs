@@ -19,68 +19,25 @@ namespace MP4toMP3Converter
 {
     public partial class ConvertForm : Form
     {
-        #region GlobalVars
         public static string Output;
-
-        private string convertOptions;
-
         public static string[] InputData = new string[50], InputName = new string[50];
-
         public static LoadingPopup loadingPopup;
         public static NReco.VideoConverter.FFMpegConverter converter = new NReco.VideoConverter.FFMpegConverter();
         public static int ProgressState;
         public static Thread thread;
 
-        #endregion
-
-        #region PrimaryMethods
+        private string convertOptions;
 
         public ConvertForm(string convertOptions)
-
         {
             this.convertOptions = convertOptions;
 
             InitializeComponent();
             CustomColors();
-
-            if (convertOptions != "convert")
-            {
-                ConvertLabel.Text = "combine";
-            }
-
-            if (this.convertOptions != "combine")
-            {
-                Output = "C:\\Users\\" + Environment.UserName + "\\Music";
-            }
-            else
-            {
-                Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
-            }
-            
-            if (MainForm.customFilepathEnalbled[0] == true)
-            {
-                Output = MainForm.customFilepaths[1];
-            }
-            OutputBox.Text = Output;
-
-
-            if (convertOptions == "convert" | convertOptions == "convertCombine")
-            {
-                formatDropdown.SelectedIndex = 3;
-            }
-            else
-            {
-                formatDropdown.Items.Clear();
-                string[] items = new string[] { "mp4", "avi", "flv", "mov", "webm", "ogg", "oga", "ogv" };
-
-                foreach (string item in items)
-                {
-                    formatDropdown.Items.Add(item);
-                }
-
-                formatDropdown.SelectedIndex = 0;
-            }
+            setFilepathMode();
         }
+
+        #region onClicks
 
         private void InputBoxClick(object sender, EventArgs e)
         {
@@ -138,79 +95,6 @@ namespace MP4toMP3Converter
             }
         }
 
-        private void ListBoxDragDrop(object sender, DragEventArgs e)
-        {
-            string[] droppedFiles = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-            foreach (string file in droppedFiles)
-            {
-                AddInputFile(Path.GetFullPath(file), Path.GetFileName(file));
-
-                DragDropLabel.Dispose();
-                GC.Collect();
-            }
-        }
-
-        private void ListBoxDragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
-            {
-                e.Effect = DragDropEffects.All;
-            }
-        }
-
-        private void InputBoxKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)13) //=enter
-            {
-                AddInputFile(InputBox.Text, System.IO.Path.GetFileName(InputBox.Text));
-                InputBox.Text = null;
-                OutputBox.Focus();
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-
-            }
-        }
-
-        private void OutputBoxKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)13) 
-            {
-                Output = OutputBox.Text;
-                ConvertButton.Focus();
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        #endregion
-
-        #region SecondaryMethods
-
-
-        public void StartLoadingPopup()
-        {
-            Application.Run(loadingPopup);
-        }
-
-        private void AddInputFile(string FilePath, string FileName)
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                if (InputData[i] == null)
-                {
-                    InputData[i] = FilePath;
-                    InputName[i] = FileName;
-                    Debug.WriteLine("added '" + FileName + "' to InputData");
-
-                    ItemListBox.Items.Add(Path.GetFileNameWithoutExtension(FilePath));
-                    break; 
-                }
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (InputData[0] != null)
@@ -239,6 +123,87 @@ namespace MP4toMP3Converter
                     }
                 });
                 ItemListBox.Items.Clear();
+            }
+        }
+
+        #endregion
+
+        #region DragDrop
+
+        private void ListBoxDragDrop(object sender, DragEventArgs e)
+        {
+            string[] droppedFiles = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            foreach (string file in droppedFiles)
+            {
+                AddInputFile(Path.GetFullPath(file), Path.GetFileName(file));
+
+                DragDropLabel.Dispose();
+                GC.Collect();
+            }
+        }
+
+        private void ListBoxDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
+
+        #endregion
+
+        #region enterPressed
+
+        private void InputBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)13) //=enter
+            {
+                AddInputFile(InputBox.Text, System.IO.Path.GetFileName(InputBox.Text));
+                InputBox.Text = null;
+                OutputBox.Focus();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+            }
+        }
+
+        private void OutputBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)13) 
+            {
+                Output = OutputBox.Text;
+                ConvertButton.Focus();
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+
+        #endregion
+
+        #region SecondaryMethods
+
+        public void StartLoadingPopup()
+        {
+            Application.Run(loadingPopup);
+        }
+
+        private void AddInputFile(string FilePath, string FileName)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                if (InputData[i] == null)
+                {
+                    InputData[i] = FilePath;
+                    InputName[i] = FileName;
+                    Debug.WriteLine("added '" + FileName + "' to InputData");
+
+                    ItemListBox.Items.Add(Path.GetFileNameWithoutExtension(FilePath));
+                    break; 
+                }
             }
         }
         #endregion
@@ -279,6 +244,48 @@ namespace MP4toMP3Converter
             ConvertLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
 
             this.Size = new Size(760, 580);
+        }
+
+        private void setFilepathMode()
+        {
+
+            if (convertOptions != "convert")
+            {
+                ConvertLabel.Text = "combine";
+            }
+
+            if (this.convertOptions != "combine")
+            {
+                Output = "C:\\Users\\" + Environment.UserName + "\\Music";
+            }
+            else
+            {
+                Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
+            }
+
+            if (MainForm.customFilepathEnalbled[0] == true)
+            {
+                Output = MainForm.customFilepaths[1];
+            }
+            OutputBox.Text = Output;
+
+
+            if (convertOptions == "convert" | convertOptions == "convertCombine")
+            {
+                formatDropdown.SelectedIndex = 3;
+            }
+            else
+            {
+                formatDropdown.Items.Clear();
+                string[] items = new string[] { "mp4", "avi", "flv", "mov", "webm", "ogg", "oga", "ogv" };
+
+                foreach (string item in items)
+                {
+                    formatDropdown.Items.Add(item);
+                }
+
+                formatDropdown.SelectedIndex = 0;
+            }
         }
         #endregion
     }

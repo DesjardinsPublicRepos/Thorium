@@ -140,8 +140,6 @@ namespace MP4toMP3Converter
         {
             iconClick(8);
         }
-        #endregion
-
         private void button1_Click(object sender, EventArgs e)
         {
             string s = null;
@@ -194,53 +192,12 @@ namespace MP4toMP3Converter
             }
         }
 
+        #endregion
+
         #region init
         public static void updateColors(SettingsForm settingsForm)
         {
-            settingsForm.color1box.BackColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
-            settingsForm.color2box.BackColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
-            settingsForm.color3box.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.color4box.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.color5box.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
-            settingsForm.color5box2.BackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
-            settingsForm.color6box.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
-            settingsForm.color7box.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            settingsForm.color7box2.BackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
-
-            settingsForm.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
-
-            settingsForm.panel1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            settingsForm.panel2.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            settingsForm.panel3.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-
-            settingsForm.button1.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.button2.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            
-            settingsForm.Heading.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.Line1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.Heading2.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.Line2.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-
-            settingsForm.button1.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
-            settingsForm.button2.ForeColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
-
-            settingsForm.label1.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.label2.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.label3.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.label4.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.label5.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.label6.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.InputLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-
-            settingsForm.color1box.BackColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
-            settingsForm.color2box.BackColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
-            settingsForm.color3box.BackColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
-            settingsForm.color4box.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
-            settingsForm.color5box.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
-            settingsForm.color5box2.BackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
-            settingsForm.color6box.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
-            settingsForm.color7box.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
-            settingsForm.color7box2.BackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
+            settingsForm.CustomColors();
 
             settingsForm.f.BackPanel.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
 
@@ -254,6 +211,15 @@ namespace MP4toMP3Converter
             settingsForm.f.Sub2Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
             settingsForm.f.Sub2Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[24], MainForm.ColorScheme[25], MainForm.ColorScheme[26]);
 
+            settingsForm.f.Sub1Button1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.Sub1Button2.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.Sub1Button3.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.Sub2Button1.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.Sub2Button3.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.Sub2Button4.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.sub1panel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+            settingsForm.f.sub2panel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+
             settingsForm.f.Sub1Button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
             settingsForm.f.Sub1Button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
             settingsForm.f.Sub1Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
@@ -262,13 +228,16 @@ namespace MP4toMP3Converter
             settingsForm.f.Sub2Button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
 
             settingsForm.f.CloseButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
+            settingsForm.f.RestartButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
             settingsForm.f.DropdownButton1.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
             settingsForm.f.DropdownButton2.FlatAppearance.MouseOverBackColor = Color.FromArgb(MainForm.ColorScheme[15], MainForm.ColorScheme[16], MainForm.ColorScheme[17]);
 
             settingsForm.f.CloseButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.RestartButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton1.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton2.FlatAppearance.MouseDownBackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.CloseButton.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
+            settingsForm.f.RestartButton.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton1.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.DropdownButton2.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
             settingsForm.f.sub0panel.BackColor = Color.FromArgb(MainForm.ColorScheme[12], MainForm.ColorScheme[13], MainForm.ColorScheme[14]);
@@ -280,6 +249,7 @@ namespace MP4toMP3Converter
             settingsForm.f.Sub2Button3.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
             settingsForm.f.Sub2Button4.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
             settingsForm.f.CloseButton.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
+            settingsForm.f.RestartButton.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
             settingsForm.f.DropdownButton1.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
             settingsForm.f.DropdownButton2.ForeColor = Color.FromArgb(MainForm.ColorScheme[3], MainForm.ColorScheme[4], MainForm.ColorScheme[5]);
         }
@@ -299,6 +269,8 @@ namespace MP4toMP3Converter
             Line1.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
             Heading2.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
             Line2.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+            Heading3.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
+            Line3.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
 
             button1.ForeColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
             button2.ForeColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
@@ -309,6 +281,8 @@ namespace MP4toMP3Converter
             label4.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
             label5.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
             label6.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+            checkBox1.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+            checkBox2.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
             InputLabel.ForeColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
 
             color1box.BackColor = Color.FromArgb(MainForm.ColorScheme[0], MainForm.ColorScheme[1], MainForm.ColorScheme[2]);
@@ -354,6 +328,8 @@ namespace MP4toMP3Converter
         }
         #endregion
 
+        #region checkChanged
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (initComplete == true)
@@ -393,6 +369,10 @@ namespace MP4toMP3Converter
                 }
             }
         }
+
+        #endregion
+
+        #region filepaths
 
         private void FilePathFieldsKeyDown(object sender, KeyEventArgs e)
         {
@@ -437,6 +417,10 @@ namespace MP4toMP3Converter
             }
         }
 
+        #endregion
+
+        #region ovverrides
+
         protected override void WndProc(ref Message m)
         {
             if ((m.Msg == 0x114 || m.Msg == 0x115)
@@ -447,5 +431,7 @@ namespace MP4toMP3Converter
             }
             base.WndProc(ref m);
         }
+
+        #endregion
     }
 }

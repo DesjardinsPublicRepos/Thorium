@@ -20,6 +20,8 @@ namespace MP4toMP3Converter
             CustomColors();
         }
 
+        #region onClicks
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OutsourcedFunctions.LoadWebsite("https://github.com/DesjardinsPublicRepos");
@@ -50,6 +52,10 @@ namespace MP4toMP3Converter
             OutsourcedFunctions.LoadWebsite("https://github.com/StephenCleary/AspNetBackgroundTasks");
         }
 
+        #endregion
+
+        #region init
+
         private void CustomColors()
         {
             Heading.ForeColor = Color.FromArgb(MainForm.ColorScheme[6], MainForm.ColorScheme[7], MainForm.ColorScheme[8]);
@@ -75,5 +81,7 @@ namespace MP4toMP3Converter
             this.BackColor = Color.FromArgb(MainForm.ColorScheme[18], MainForm.ColorScheme[19], MainForm.ColorScheme[20]);
             BackgroundPanel.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
         }
+
+        #endregion
     }
 }

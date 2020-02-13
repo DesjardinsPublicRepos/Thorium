@@ -18,87 +18,19 @@ namespace MP4toMP3Converter
 {
     public partial class MainForm : Form
     {
-        #region GlobalVars
-
-        private Form activeForm = null;
         public static string SetupFile = "preferences.txt";
-
         public static bool[] customFilepathEnalbled = new bool[2] { false, false };
         public static string[] customFilepaths = new string[2] { "Default", "Default" };
-        //public static string customTempFilePath = "C:\tempFile";
         public static byte[] ColorScheme = new byte[27];
         public static byte iconScheme;
 
-        #endregion
-
-        #region PrimaryMethods
+        private Form activeForm = null;
 
         public MainForm()
         {
-            this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
-            this.UpdateStyles();
-            
-            if (File.Exists(SetupFile) == true)
-            {
-                if (getLine(SetupFile, 5).Substring(11, 7) == "Default")
-                {
-                    ColorScheme = DefaultColors();
-                    iconScheme = 6;
-                }
-                else
-                {
-                    string[] file = File.ReadAllLines(SetupFile);
-
-                    ColorScheme[0] = Convert.ToByte(file[6].Substring(0, 3));
-                    ColorScheme[1] = Convert.ToByte(file[6].Substring(4, 3));
-                    ColorScheme[2] = Convert.ToByte(file[6].Substring(8, 3));
-                    ColorScheme[3] = Convert.ToByte(file[6].Substring(12, 3));
-                    ColorScheme[4] = Convert.ToByte(file[6].Substring(16, 3));
-                    ColorScheme[5] = Convert.ToByte(file[6].Substring(20, 3));
-                    ColorScheme[6] = Convert.ToByte(file[6].Substring(24, 3));
-                    ColorScheme[7] = Convert.ToByte(file[6].Substring(28, 3));
-                    ColorScheme[8] = Convert.ToByte(file[6].Substring(32, 3));
-                    ColorScheme[9] = Convert.ToByte(file[6].Substring(36, 3));
-                    ColorScheme[10] = Convert.ToByte(file[6].Substring(40, 3));
-                    ColorScheme[11] = Convert.ToByte(file[6].Substring(44, 3));
-                    ColorScheme[12] = Convert.ToByte(file[6].Substring(48, 3));
-                    ColorScheme[13] = Convert.ToByte(file[6].Substring(52, 3));
-                    ColorScheme[14] = Convert.ToByte(file[6].Substring(56, 3));
-                    ColorScheme[15] = Convert.ToByte(file[6].Substring(60, 3));
-                    ColorScheme[16] = Convert.ToByte(file[6].Substring(64, 3));
-                    ColorScheme[17] = Convert.ToByte(file[6].Substring(68, 3));
-                    ColorScheme[18] = Convert.ToByte(file[6].Substring(72, 3));
-                    ColorScheme[19] = Convert.ToByte(file[6].Substring(76, 3));
-                    ColorScheme[20] = Convert.ToByte(file[6].Substring(80, 3));
-                    ColorScheme[21] = Convert.ToByte(file[6].Substring(84, 3));
-                    ColorScheme[22] = Convert.ToByte(file[6].Substring(88, 3));
-                    ColorScheme[23] = Convert.ToByte(file[6].Substring(92, 3));
-                    ColorScheme[24] = Convert.ToByte(file[6].Substring(96, 3));
-                    ColorScheme[25] = Convert.ToByte(file[6].Substring(100, 3));
-                    ColorScheme[26] = Convert.ToByte(file[6].Substring(104, 3));
-
-                    iconScheme = Convert.ToByte(file[7].Substring(0, 3));
-
-                    if (file[8].Trim() != "Default")
-                    {
-                        customFilepathEnalbled[0] = true;
-                        customFilepaths[0] = file[8].Trim();
-                    }
-                    if (file[9].Trim() != "Default")
-                    {
-                        customFilepathEnalbled[1] = true;
-                        customFilepaths[1] = file[9].Trim();
-                    }
-                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
-                }
-            }
-            else
-            {
-                CreateDefaultSetupFile();
-                ColorScheme = DefaultColors();
-                iconScheme = 6;
-            }
-            
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+            UpdateStyles();
+            readSetup();
             InitializeComponent();
             CustomColors();
             
@@ -158,8 +90,6 @@ namespace MP4toMP3Converter
         {
             Application.Restart();
         }
-        #endregion
-
         #region SecondaryMethods
 
         private void CreateDefaultSetupFile()
@@ -240,6 +170,70 @@ namespace MP4toMP3Converter
             ChildForm.Show();
         }
 
+        private void readSetup()
+        {
+            if (File.Exists(SetupFile) == true)
+            {
+                if (getLine(SetupFile, 5).Substring(11, 7) == "Default")
+                {
+                    ColorScheme = DefaultColors();
+                    iconScheme = 6;
+                }
+                else
+                {
+                    string[] file = File.ReadAllLines(SetupFile);
+
+                    ColorScheme[0] = Convert.ToByte(file[6].Substring(0, 3));
+                    ColorScheme[1] = Convert.ToByte(file[6].Substring(4, 3));
+                    ColorScheme[2] = Convert.ToByte(file[6].Substring(8, 3));
+                    ColorScheme[3] = Convert.ToByte(file[6].Substring(12, 3));
+                    ColorScheme[4] = Convert.ToByte(file[6].Substring(16, 3));
+                    ColorScheme[5] = Convert.ToByte(file[6].Substring(20, 3));
+                    ColorScheme[6] = Convert.ToByte(file[6].Substring(24, 3));
+                    ColorScheme[7] = Convert.ToByte(file[6].Substring(28, 3));
+                    ColorScheme[8] = Convert.ToByte(file[6].Substring(32, 3));
+                    ColorScheme[9] = Convert.ToByte(file[6].Substring(36, 3));
+                    ColorScheme[10] = Convert.ToByte(file[6].Substring(40, 3));
+                    ColorScheme[11] = Convert.ToByte(file[6].Substring(44, 3));
+                    ColorScheme[12] = Convert.ToByte(file[6].Substring(48, 3));
+                    ColorScheme[13] = Convert.ToByte(file[6].Substring(52, 3));
+                    ColorScheme[14] = Convert.ToByte(file[6].Substring(56, 3));
+                    ColorScheme[15] = Convert.ToByte(file[6].Substring(60, 3));
+                    ColorScheme[16] = Convert.ToByte(file[6].Substring(64, 3));
+                    ColorScheme[17] = Convert.ToByte(file[6].Substring(68, 3));
+                    ColorScheme[18] = Convert.ToByte(file[6].Substring(72, 3));
+                    ColorScheme[19] = Convert.ToByte(file[6].Substring(76, 3));
+                    ColorScheme[20] = Convert.ToByte(file[6].Substring(80, 3));
+                    ColorScheme[21] = Convert.ToByte(file[6].Substring(84, 3));
+                    ColorScheme[22] = Convert.ToByte(file[6].Substring(88, 3));
+                    ColorScheme[23] = Convert.ToByte(file[6].Substring(92, 3));
+                    ColorScheme[24] = Convert.ToByte(file[6].Substring(96, 3));
+                    ColorScheme[25] = Convert.ToByte(file[6].Substring(100, 3));
+                    ColorScheme[26] = Convert.ToByte(file[6].Substring(104, 3));
+
+                    iconScheme = Convert.ToByte(file[7].Substring(0, 3));
+
+                    if (file[8].Trim() != "Default")
+                    {
+                        customFilepathEnalbled[0] = true;
+                        customFilepaths[0] = file[8].Trim();
+                    }
+                    if (file[9].Trim() != "Default")
+                    {
+                        customFilepathEnalbled[1] = true;
+                        customFilepaths[1] = file[9].Trim();
+                    }
+                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
+                }
+            }
+            else
+            {
+                CreateDefaultSetupFile();
+                ColorScheme = DefaultColors();
+                iconScheme = 6;
+            }
+        }
+
         public static byte[] DefaultColors()
         {
             return new byte[] { 0, 0, 0, 
@@ -290,12 +284,14 @@ namespace MP4toMP3Converter
             stLabel.ForeColor = Color.FromArgb(ColorScheme[6], ColorScheme[7], ColorScheme[8]);
 
             CloseButton.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
+            RestartButton.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
             BackPanel.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
             DropdownButton1.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
             DropdownButton2.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
             sub0panel.BackColor = Color.FromArgb(ColorScheme[12], ColorScheme[13], ColorScheme[14]);
 
             CloseButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
+            RestartButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
             DropdownButton1.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
             DropdownButton2.FlatAppearance.MouseOverBackColor = Color.FromArgb(ColorScheme[15], ColorScheme[16], ColorScheme[17]);
 
@@ -351,11 +347,3 @@ namespace MP4toMP3Converter
         }
     }
 }
-
-/*
-
- transparent in WPF??
-
-
-    ffMpeg.GetVideoThumbnail(pathToVideoFile, "video_thumbnail.jpg");
-     */

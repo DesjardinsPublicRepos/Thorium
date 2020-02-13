@@ -22,10 +22,12 @@ namespace MP4toMP3Converter
             this.settingsForm = settingsForm;
             byteArray = b;
             InitializeComponent();
-            this.textBox1.Text = MainForm.ColorScheme[b[0]].ToString();
-            this.textBox2.Text = MainForm.ColorScheme[b[1]].ToString();
-            this.textBox3.Text = MainForm.ColorScheme[b[2]].ToString();
+            textBox1.Text = MainForm.ColorScheme[b[0]].ToString();
+            textBox2.Text = MainForm.ColorScheme[b[1]].ToString();
+            textBox3.Text = MainForm.ColorScheme[b[2]].ToString();
         }
+
+        #region onClicks
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -41,60 +43,59 @@ namespace MP4toMP3Converter
 
 
             SettingsForm.updateColors(settingsForm);
-            this.Close();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(textBox1.Text) < 256)
-                {
-                    pictureBox1.BackColor = Color.FromArgb(Convert.ToByte(textBox1.Text), pictureBox1.BackColor.G, pictureBox1.BackColor.B);
-                }
-                if (textBox1.Text.Length > 2 | Convert.ToInt32(textBox1.Text) > 25)
-                {
-                    textBox2.Focus();
-                }
-            }
-            catch (FormatException) { }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(textBox2.Text) < 256)
-                {
-                    pictureBox1.BackColor = Color.FromArgb(pictureBox1.BackColor.R, Convert.ToByte(textBox2.Text), pictureBox1.BackColor.B);
-                }
-                if (textBox2.Text.Length > 2 | Convert.ToInt32(textBox2.Text) > 25)
-                {
-                    textBox3.Focus();
-                }
-            }
-            catch (FormatException) { }
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(textBox3.Text) < 256)
-                {
-                    pictureBox1.BackColor = Color.FromArgb(pictureBox1.BackColor.R, pictureBox1.BackColor.G, Convert.ToByte(textBox3.Text));
-                }
-                if (textBox3.Text.Length > 2 | Convert.ToInt32(textBox3.Text) > 25)
-                {
-                    button1.Focus();
-                }
-            }
-            catch (FormatException) { }
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region TextBoxesTextChanged
+
+        private void TextBoxesTextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender == textBox1)
+                {
+                   if (Convert.ToInt32(textBox1.Text) < 256)
+                   {
+                       pictureBox1.BackColor = Color.FromArgb(Convert.ToByte(textBox1.Text), pictureBox1.BackColor.G, pictureBox1.BackColor.B);
+                   }
+                   if (textBox1.Text.Length > 2 | Convert.ToInt32(textBox1.Text) > 25)
+                   {
+                       textBox2.Focus();
+                   }
+                }
+                else if (sender == textBox2)
+                {
+                   if (Convert.ToInt32(textBox2.Text) < 256)
+                   {
+                       pictureBox1.BackColor = Color.FromArgb(pictureBox1.BackColor.R, Convert.ToByte(textBox2.Text), pictureBox1.BackColor.B);
+                   }
+                   if (textBox2.Text.Length > 2 | Convert.ToInt32(textBox2.Text) > 25)
+                   {
+                       textBox3.Focus();
+                   }
+                }
+                else if (sender == textBox3)
+                {
+                    if (Convert.ToInt32(textBox3.Text) < 256)
+                    {
+                        pictureBox1.BackColor = Color.FromArgb(pictureBox1.BackColor.R, pictureBox1.BackColor.G, Convert.ToByte(textBox3.Text));
+                    }
+                    if (textBox3.Text.Length > 2 | Convert.ToInt32(textBox3.Text) > 25)
+                    {
+                        button1.Focus();
+                    }
+                }
+            }
+            catch(Exception) { }
+        }
+
+        #endregion
     }
 }

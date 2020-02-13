@@ -83,6 +83,15 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Heading3 = new System.Windows.Forms.Label();
+            this.Line3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl15 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl16 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl17 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl18 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl19 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl20 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -478,7 +487,7 @@
             this.panel2.Controls.Add(this.icon4box);
             this.panel2.Controls.Add(this.icon9box);
             this.panel2.Controls.Add(this.icon5box);
-            this.panel2.Location = new System.Drawing.Point(53, 441);
+            this.panel2.Location = new System.Drawing.Point(53, 443);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(646, 102);
             this.panel2.TabIndex = 62;
@@ -633,7 +642,7 @@
             // 
             this.Heading2.Font = new System.Drawing.Font("Noto Sans", 20F);
             this.Heading2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Heading2.Location = new System.Drawing.Point(295, 377);
+            this.Heading2.Location = new System.Drawing.Point(296, 377);
             this.Heading2.Name = "Heading2";
             this.Heading2.Size = new System.Drawing.Size(162, 61);
             this.Heading2.TabIndex = 64;
@@ -670,7 +679,7 @@
             this.panel3.Controls.Add(this.checkBox2);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Location = new System.Drawing.Point(52, 574);
+            this.panel3.Location = new System.Drawing.Point(52, 618);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(646, 168);
             this.panel3.TabIndex = 65;
@@ -756,6 +765,77 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // Heading3
+            // 
+            this.Heading3.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Heading3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Heading3.Location = new System.Drawing.Point(256, 551);
+            this.Heading3.Name = "Heading3";
+            this.Heading3.Size = new System.Drawing.Size(236, 61);
+            this.Heading3.TabIndex = 67;
+            this.Heading3.Text = "custom filepaths";
+            this.Heading3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Line3
+            // 
+            this.Line3.AutoSize = true;
+            this.Line3.Font = new System.Drawing.Font("Noto Sans", 20F);
+            this.Line3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Line3.Location = new System.Drawing.Point(72, 554);
+            this.Line3.Name = "Line3";
+            this.Line3.Size = new System.Drawing.Size(617, 37);
+            this.Line3.TabIndex = 66;
+            this.Line3.Text = "__________________________________________________";
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(272, 795);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 40);
+            this.panel4.TabIndex = 68;
+            // 
+            // bunifuDragControl15
+            // 
+            this.bunifuDragControl15.Fixed = true;
+            this.bunifuDragControl15.Horizontal = true;
+            this.bunifuDragControl15.TargetControl = this.panel3;
+            this.bunifuDragControl15.Vertical = true;
+            // 
+            // bunifuDragControl16
+            // 
+            this.bunifuDragControl16.Fixed = true;
+            this.bunifuDragControl16.Horizontal = true;
+            this.bunifuDragControl16.TargetControl = this.checkBox1;
+            this.bunifuDragControl16.Vertical = true;
+            // 
+            // bunifuDragControl17
+            // 
+            this.bunifuDragControl17.Fixed = true;
+            this.bunifuDragControl17.Horizontal = true;
+            this.bunifuDragControl17.TargetControl = this.checkBox2;
+            this.bunifuDragControl17.Vertical = true;
+            // 
+            // bunifuDragControl18
+            // 
+            this.bunifuDragControl18.Fixed = true;
+            this.bunifuDragControl18.Horizontal = true;
+            this.bunifuDragControl18.TargetControl = this.panel4;
+            this.bunifuDragControl18.Vertical = true;
+            // 
+            // bunifuDragControl19
+            // 
+            this.bunifuDragControl19.Fixed = true;
+            this.bunifuDragControl19.Horizontal = true;
+            this.bunifuDragControl19.TargetControl = this.Line3;
+            this.bunifuDragControl19.Vertical = true;
+            // 
+            // bunifuDragControl20
+            // 
+            this.bunifuDragControl20.Fixed = true;
+            this.bunifuDragControl20.Horizontal = true;
+            this.bunifuDragControl20.TargetControl = this.Heading3;
+            this.bunifuDragControl20.Vertical = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -763,6 +843,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(760, 986);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.Heading3);
+            this.Controls.Add(this.Line3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.Heading2);
             this.Controls.Add(this.Line2);
@@ -858,5 +941,14 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox defaultPathButton;
         private System.Windows.Forms.PictureBox tmpFilePathButton;
+        private System.Windows.Forms.Label Heading3;
+        private System.Windows.Forms.Label Line3;
+        private System.Windows.Forms.Panel panel4;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl15;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl16;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl17;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl18;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl19;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl20;
     }
 }
