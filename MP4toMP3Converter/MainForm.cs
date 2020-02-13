@@ -90,7 +90,16 @@ namespace MP4toMP3Converter
         {
             Application.Restart();
         }
+        /*
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OutsourcedFunctions.sendMail("desjardinslegedz@outlook.de", "desjardinslegedz@icloud.com", "test beep boop", "this is a test", "smtp-mail.outlook.com", "Desjardinslegedz@outlook.de", "(desjardins2)");
+        }*/
 
+        private void Sub2Button4_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MailForm());
+        }
         #endregion
 
         #region staticSecondaryMethods
@@ -358,5 +367,6 @@ namespace MP4toMP3Converter
         }
 
         #endregion
+
     }
 }

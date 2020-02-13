@@ -17,7 +17,7 @@ namespace MP4toMP3Converter
 {
     public partial class LoadingPopup : Form
     {
-        private string convertOptions;
+        private readonly string convertOptions;
 
         public LoadingPopup(string convertOptions)
         {

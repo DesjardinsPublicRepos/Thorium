@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using MP4toMP3Converter;
-using System.Net.Mail;
 using System.ComponentModel;
 using System.Drawing;
+
+using System.Net;
+using System.Net.Mail;
+using System.Web;
 
 namespace MP4toMP3Converter.Properties
 {
@@ -135,6 +138,35 @@ namespace MP4toMP3Converter.Properties
         public static void LoadWebsite(string http)
         {
             System.Diagnostics.Process.Start(http);
+        }
+
+        public static void sendMail(string sender, string reciever, string subject, string body, string smtp, string userName, string password)
+        {
+            try
+            {
+                MailMessage mailMessage = new MailMessage(sender, reciever, subject, body);
+                SmtpClient smtpClient = new SmtpClient(smtp);
+
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential(userName, password);
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(mailMessage);
+                //MessageBox.Show("mail sent", "Success", MessageBoxButtons.OK);
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                MessageBox.Show("Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e, "Oops, something went wrong there!", MessageBoxButtons.OK);
+            }
+        }
+
+        public static Control GetControlByName(string name, Form form)
+        {
+            foreach (Control c in form.Controls)
+                if (c.Name == name)
+                    return c;
+
+            return null;
         }
 
 

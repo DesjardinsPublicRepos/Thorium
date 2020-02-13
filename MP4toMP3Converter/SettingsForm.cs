@@ -16,9 +16,9 @@ namespace MP4toMP3Converter
     public partial class SettingsForm : Form
     {
         private ColorSelectForm colorSelectForm;
-        private MainForm f;
+        private readonly MainForm f;
         private Thread thread;
-        private bool initComplete = false;
+        private readonly bool initComplete = false;
 
         public SettingsForm(MainForm ff)
         {

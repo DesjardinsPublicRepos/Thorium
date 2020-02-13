@@ -14,8 +14,8 @@ namespace MP4toMP3Converter
 {
     public partial class ColorSelectForm : Form
     {
-        private SettingsForm settingsForm;
-        private byte[] byteArray;
+        private readonly SettingsForm settingsForm;
+        private readonly byte[] byteArray;
 
         public ColorSelectForm(SettingsForm settingsForm, byte[] b)
         {
@@ -26,7 +26,7 @@ namespace MP4toMP3Converter
             textBox2.Text = MainForm.ColorScheme[b[1]].ToString();
             textBox3.Text = MainForm.ColorScheme[b[2]].ToString();
         }
-
+        
         #region onClicks
 
         private void button1_Click(object sender, EventArgs e)

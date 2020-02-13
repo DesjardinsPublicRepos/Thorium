@@ -26,7 +26,7 @@ namespace MP4toMP3Converter
         public static int ProgressState;
         public static Thread thread;
 
-        private string convertOptions;
+        private readonly string convertOptions;
 
         public ConvertForm(string convertOptions)
         {

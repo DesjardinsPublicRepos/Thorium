@@ -112,9 +112,10 @@
             this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
             this.Sub2Button4.TabIndex = 5;
-            this.Sub2Button4.Text = "search for Updates";
+            this.Sub2Button4.Text = "contact";
             this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub2Button4.UseVisualStyleBackColor = true;
+            this.Sub2Button4.Click += new System.EventHandler(this.Sub2Button4_Click);
             // 
             // Sub2Button3
             // 
