@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
+using MP4toMP3Converter.Properties;
+
 namespace MP4toMP3Converter
 {
     public partial class SettingsForm : Form
@@ -138,31 +140,6 @@ namespace MP4toMP3Converter
         {
             iconClick(8);
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string s = null;
-            foreach (byte b in MainForm.ColorScheme)
-            {
-                if (b < 10)
-                {
-                    s += "00" + b.ToString() + " ";
-                }
-                else if (b < 100)
-                {
-                    s +="0" + b.ToString() + " ";
-                }
-                else s += b.ToString() + " ";
-            }
-
-            MainForm.setLine(MainForm.SetupFile, 7, s);
-            MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MainForm.ColorScheme = MainForm.DefaultColors();
-            updateColors(this);
-        }
 
         private void startColorForm()
         {
@@ -190,75 +167,184 @@ namespace MP4toMP3Converter
             }
         }
 
+        private void SettingsFormButtonClicked(object sender, EventArgs e)
+        {
+            if (sender == setDefaultButton)
+            {
+                MainForm.ColorScheme = MainForm.DefaultColors();
+                updateColors(this);
+            }
+            else if (sender == applyChangesButton)
+            {
+                string s = null;
+                foreach (byte b in MainForm.ColorScheme)
+                {
+                    if (b < 10)
+                    {
+                        s += "00" + b.ToString() + " ";
+                    }
+                    else if (b < 100)
+                    {
+                        s += "0" + b.ToString() + " ";
+                    }
+                    else s += b.ToString() + " ";
+                }
+
+                MainForm.setLine(MainForm.SetupFile, 7, s);
+                MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+            }
+
+        }
+
         #endregion
 
         #region checkChanged
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxesCheckChanged(object sender, EventArgs e)
         {
-            if (initComplete == true)
+            var checkBox = (CheckBox)sender;
+
+            if (checkBox == checkBox2)
             {
-                if (checkBox1.Checked == true)
+                if (initComplete == true)
                 {
-                    textBox1.BackColor = Color.FromArgb(250, 250, 250);
-                    textBox1.Enabled = true;
-                    MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-                    MainForm.setLine(MainForm.SetupFile, 9, textBox1.Text);
+                    if (checkBox2.Checked == true)
+                    {
+                        changeLabelStyle(TempFilesLabel, true);
+                        MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+                        MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
+                        MainForm.customFilepathEnalbled[0] = true;
+                        MainForm.customFilepaths[0] = TempFilesLabel.Text;
+                    }
+                    else
+                    {
+                        changeLabelStyle(TempFilesLabel, false);
+                        MainForm.setLine(MainForm.SetupFile, 9, "Default");
+                        MainForm.customFilepathEnalbled[0] = false;
+                        MainForm.customFilepaths[0] = "Default";
+                    }
                 }
-                else
+            }
+            else if (checkBox == checkBox3)
+            {
+                if (initComplete == true)
                 {
-                    textBox1.BackColor = Color.Gray;
-                    textBox1.Enabled = false;
-                    MainForm.setLine(MainForm.SetupFile, 9, "Default");
+                    if (checkBox3.Checked == true)
+                    {
+                        changeLabelStyle(OutputPathLabel, true);
+                        if (OutputPathLabel.Text.Substring(0, 8) == "..users\\")
+                        {
+                            MainForm.setLine(MainForm.SetupFile, 10, "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7));
+                            MainForm.customFilepaths[1] = "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7);
+                            MainForm.customFilepathEnalbled[1] = true;
+                        }
+                        else
+                        {
+                            MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
+                            MainForm.customFilepathEnalbled[1] = true;
+                            MainForm.customFilepaths[1] = OutputPathLabel.Text;
+                        }
+                    }
+                    else
+                    {
+                        changeLabelStyle(OutputPathLabel, false);
+                        MainForm.setLine(MainForm.SetupFile, 10, "Default");
+                        MainForm.customFilepathEnalbled[1] = false;
+                        MainForm.customFilepaths[1] = "Default";                  
+                    }
+                }
+            }
+            else if (checkBox == checkBox1)
+            {
+                if (initComplete == true)
+                {
+                    if (checkBox1.Checked == false)
+                    {
+                        backPanel.Location = new Point(32, 291);
+
+                        color2box.Visible = false;
+                        color3box.Visible = false;
+                        color4box.Visible = false;
+                        color5box.Visible = false;
+                        color5box2.Visible = false;
+                        color6box.Visible = false;
+                        color7box.Visible = false;
+                        color7box2.Visible = false;
+                        sub1heading1.Visible = false;
+                        sub1heading2.Visible = false;
+                        setDefaultButton.Visible = false;
+                        applyChangesButton.Visible = false;
+
+                        MainForm.ColorScheme = MainForm.DefaultColors();
+                        updateColors(this);
+
+                        MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Disabled");
+                        SettingsFormButtonClicked(applyChangesButton, null);
+                    }
+                    else
+                    {
+                        backPanel.Location = new Point(32, 362);
+
+                        color2box.Visible = true;
+                        color3box.Visible = true;
+                        color4box.Visible = true;
+                        color5box.Visible = true;
+                        color5box2.Visible = true;
+                        color6box.Visible = true;
+                        color7box.Visible = true;
+                        color7box2.Visible = true;
+                        sub1heading1.Visible = true;
+                        sub1heading2.Visible = true;
+                        setDefaultButton.Visible = true;
+                        applyChangesButton.Visible = true;
+                        MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Enabled.");
+                    }
                 }
             }
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void changeLabelStyle(Bunifu.Framework.UI.BunifuMaterialTextbox textbox, bool enabled)
         {
-            if (initComplete == true)
+            if (enabled == true)
             {
-                if (checkBox2.Checked == true)
+                textbox.ForeColor = MainForm.getCustomColor(2);
+                textbox.HintForeColor = MainForm.getCustomColor(2);
+                textbox.LineIdleColor = MainForm.getCustomColor(4);
+                textbox.LineFocusedColor = MainForm.getCustomColor(3);
+                textbox.LineMouseHoverColor = MainForm.getCustomColor(3);
+            }
+            else
+            {
+                textbox.ForeColor = MainForm.getCustomColor(7);
+                textbox.HintForeColor = MainForm.getCustomColor(7);
+                textbox.LineIdleColor = MainForm.getCustomColor(7);
+                textbox.LineFocusedColor = MainForm.getCustomColor(7);
+                textbox.LineMouseHoverColor = MainForm.getCustomColor(7);
+            }
+
+            textbox.Enabled = enabled;
+
+            if (textbox == TempFilesLabel)
+            {
+                tmpFilePathButton.Enabled = enabled;
+                if (enabled == false)
                 {
-                    textBox2.BackColor = Color.FromArgb(250, 250, 250);
-                    textBox2.Enabled = true;
-                    MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-                    MainForm.setLine(MainForm.SetupFile, 10, textBox2.Text);
+                    textbox.Text = "C:\\";
                 }
-                else
+            }
+            else if (textbox == OutputPathLabel)
+            {
+                defaultPathButton.Enabled = enabled;
+                if (enabled == false)
                 {
-                    textBox2.BackColor = Color.Gray;
-                    textBox2.Enabled = false;
-                    MainForm.setLine(MainForm.SetupFile, 10, "Default");
+                    textbox.Text = "..users\\Music\\";
                 }
             }
         }
-
         #endregion
 
         #region filepaths
-
-        private void FilePathFieldsKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)13) //=enter
-            {
-                if (sender == textBox1)
-                {
-                    MainForm.setLine(MainForm.SetupFile, 9, textBox1.Text);
-                    textBox2.Focus();
-                }
-                else if (sender == textBox2)
-                {
-                    MainForm.setLine(MainForm.SetupFile, 10, textBox2.Text);
-                    panel3.Focus();
-                }
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-
-            }
-        }
-
+      
         private void OpenFilepathClicked(object sender, EventArgs e)
         {
             if (sender == defaultPathButton)
@@ -266,8 +352,8 @@ namespace MP4toMP3Converter
                 FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox2.Text = folderBrowserDialog.SelectedPath;
-                    FilePathFieldsKeyDown(textBox2, new KeyEventArgs(Keys.Enter));
+                    OutputPathLabel.Text = folderBrowserDialog.SelectedPath;
+                    LabelKeyDown(OutputPathLabel, new KeyEventArgs(Keys.Enter));
                 }
             }
             else if (sender == tmpFilePathButton)
@@ -275,12 +361,81 @@ namespace MP4toMP3Converter
                 FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox1.Text = folderBrowserDialog.SelectedPath;
-                    FilePathFieldsKeyDown(textBox1, new KeyEventArgs(Keys.Enter));
+                    TempFilesLabel.Text = folderBrowserDialog.SelectedPath;
+                    LabelKeyDown(TempFilesLabel, new KeyEventArgs(Keys.Enter));
                 }
             }
         }
 
+        private void LabelKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)13) //=enter
+            {
+                if (sender == TempFilesLabel)
+                {
+                    if (OutputPathLabel.Enabled == true)
+                    {
+                        OutputPathLabel.Focus();
+                    }
+                    else panel3.Focus();
+                }
+                else if (sender == OutputPathLabel)
+                {
+                    panel3.Focus();
+                }
+                
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void LableEnter(object sender, EventArgs e)
+        {
+            var textbox = (Bunifu.Framework.UI.BunifuMaterialTextbox)sender;
+            if (textbox.Text == "C:\\" | textbox.Text == "..users\\Music\\")
+            textbox.Text = null;
+        }
+
+        private void LabelLeave(object sender, EventArgs e)
+        {
+            var textbox = (Bunifu.Framework.UI.BunifuMaterialTextbox)sender;
+
+            if (sender == TempFilesLabel && textbox.Text == "")
+            {
+                textbox.Text = "C:\\";
+            }
+            if (sender == OutputPathLabel && textbox.Text == "")
+            {
+                textbox.Text = "..users\\Music\\";
+            }
+
+            if (sender == TempFilesLabel)
+            {
+                MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
+                MainForm.customFilepaths[0] = TempFilesLabel.Text;
+            }
+            else if (sender == OutputPathLabel)
+            {
+                try
+                {
+                    if (OutputPathLabel.Text.Substring(0, 8) == "..users\\")
+                    {
+                        MainForm.setLine(MainForm.SetupFile, 10, "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7));
+                        MainForm.customFilepaths[1] = "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7);
+                    }
+                    else
+                    {
+                        MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
+                        MainForm.customFilepaths[1] = OutputPathLabel.Text;
+                    }
+                }
+                catch (Exception)
+                {
+                    MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
+                    MainForm.customFilepaths[1] = OutputPathLabel.Text;
+                }
+            }
+        }
         #endregion
 
         #region init
@@ -352,30 +507,30 @@ namespace MP4toMP3Converter
             panel2.BackColor = MainForm.getCustomColor(8);
             panel3.BackColor = MainForm.getCustomColor(8);
 
-            button1.BackColor = MainForm.getCustomColor(3);
-            button2.BackColor = MainForm.getCustomColor(3);
 
-            Heading.ForeColor = MainForm.getCustomColor(3);
-            Line1.ForeColor = MainForm.getCustomColor(3);
-            Heading2.ForeColor = MainForm.getCustomColor(3);
-            Line2.ForeColor = MainForm.getCustomColor(3);
-            Heading3.ForeColor = MainForm.getCustomColor(3);
-            Line3.ForeColor = MainForm.getCustomColor(3);
+            setDefaultButton.BackColor = MainForm.getCustomColor(8);
+            setDefaultButton.Activecolor = MainForm.getCustomColor(8);
+            setDefaultButton.Normalcolor = MainForm.getCustomColor(8);
+            setDefaultButton.OnHovercolor = MainForm.getCustomColor(6);
+            setDefaultButton.ForeColor = MainForm.getCustomColor(2);
 
-            button1.ForeColor = MainForm.getCustomColor(1);
-            button2.ForeColor = MainForm.getCustomColor(1);
+            applyChangesButton.BackColor = MainForm.getCustomColor(8);
+            applyChangesButton.Activecolor = MainForm.getCustomColor(8);
+            applyChangesButton.Normalcolor = MainForm.getCustomColor(8);
+            applyChangesButton.OnHovercolor = MainForm.getCustomColor(6);
+            applyChangesButton.ForeColor = MainForm.getCustomColor(2);
 
-            label1.ForeColor = MainForm.getCustomColor(4);
-            label2.ForeColor = MainForm.getCustomColor(4);
-            label3.ForeColor = MainForm.getCustomColor(4);
-            label4.ForeColor = MainForm.getCustomColor(4);
-            label5.ForeColor = MainForm.getCustomColor(4);
-            label6.ForeColor = MainForm.getCustomColor(4);
-            checkBox1.ForeColor = MainForm.getCustomColor(4);
+            Heading1.ForeColor = MainForm.getCustomColor(2);
+            Heading2.ForeColor = MainForm.getCustomColor(2);
+            Heading3.ForeColor = MainForm.getCustomColor(2);
+            
+
+            sub1heading2.ForeColor = MainForm.getCustomColor(4);
+            sub1heading1.ForeColor = MainForm.getCustomColor(4);
             checkBox2.ForeColor = MainForm.getCustomColor(4);
-            InputLabel.ForeColor = MainForm.getCustomColor(4);
+            checkBox3.ForeColor = MainForm.getCustomColor(4);
+            checkBox1.ForeColor = MainForm.getCustomColor(4);
 
-            color1box.BackColor = MainForm.getCustomColor(1);
             color2box.BackColor = MainForm.getCustomColor(2);
             color3box.BackColor = MainForm.getCustomColor(3);
             color4box.BackColor = MainForm.getCustomColor(4);
@@ -401,24 +556,52 @@ namespace MP4toMP3Converter
                 }
             }
             
-            if (MainForm.customFilepathEnalbled[0] == true)
+            if (MainForm.customFilepathEnalbled[0] == false)
             {
-                textBox1.BackColor = Color.FromArgb(250, 250, 250);
-                textBox1.Enabled = true;
-                textBox1.Text = MainForm.customFilepaths[0];
-                checkBox1.Checked = true;
+                changeLabelStyle(TempFilesLabel, false);
             }
-            if (MainForm.customFilepathEnalbled[1] == true)
+            else
             {
-                textBox2.BackColor = Color.FromArgb(250, 250, 250);
-                textBox2.Enabled = true;
-                textBox2.Text = MainForm.customFilepaths[1];
+                TempFilesLabel.Text = MainForm.customFilepaths[0];
                 checkBox2.Checked = true;
+                tmpFilePathButton.Enabled = true;
+            }
+            if (MainForm.customFilepathEnalbled[1] == false)
+            {
+                changeLabelStyle(OutputPathLabel, false);
+            }
+            else
+            {
+                OutputPathLabel.Text = MainForm.customFilepaths[1];
+                checkBox3.Checked = true;
+                defaultPathButton.Enabled = true;
+            }
+            
+            if (MainForm.getLine(MainForm.SetupFile, 6).Substring(13, 8) == "Disabled")
+            {
+                if (initComplete == false)
+                {
+                    checkBox1.Checked = false;
+                    color2box.Visible = false;
+                    color3box.Visible = false;
+                    color4box.Visible = false;
+                    color5box.Visible = false;
+                    color5box2.Visible = false;
+                    color6box.Visible = false;
+                    color7box.Visible = false;
+                    color7box2.Visible = false;
+                    sub1heading1.Visible = false;
+                    sub1heading2.Visible = false;
+                    setDefaultButton.Visible = false;
+                    applyChangesButton.Visible = false;
+
+                    backPanel.Location = new Point(32, 291);
+                }
             }
         }
         #endregion
 
-        #region ovverrides
+        #region overrides
 
         protected override void WndProc(ref Message m)
         {
@@ -432,5 +615,6 @@ namespace MP4toMP3Converter
         }
 
         #endregion
+
     }
 }

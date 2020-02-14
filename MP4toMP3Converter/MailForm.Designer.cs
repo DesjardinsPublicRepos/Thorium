@@ -33,12 +33,12 @@
             this.PasswordBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.SubjectBox = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.sendButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BodyTextBox2 = new System.Windows.Forms.TextBox();
             this.BodyTextBox = new System.Windows.Forms.TextBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.Heading = new System.Windows.Forms.Label();
             this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.SuspendLayout();
             // 
@@ -62,6 +62,8 @@
             this.MailBox.Text = "E - Mail";
             this.MailBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MailBox.Enter += new System.EventHandler(this.TextboxesEnter);
+            this.MailBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxesKeyDown);
+            this.MailBox.Leave += new System.EventHandler(this.TextBoxesLeave);
             // 
             // PasswordBox
             // 
@@ -83,6 +85,8 @@
             this.PasswordBox.Text = "Password";
             this.PasswordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PasswordBox.Enter += new System.EventHandler(this.TextboxesEnter);
+            this.PasswordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxesKeyDown);
+            this.PasswordBox.Leave += new System.EventHandler(this.TextBoxesLeave);
             // 
             // SubjectBox
             // 
@@ -104,6 +108,8 @@
             this.SubjectBox.Text = "Subject";
             this.SubjectBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SubjectBox.Enter += new System.EventHandler(this.TextboxesEnter);
+            this.SubjectBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxesKeyDown);
+            this.SubjectBox.Leave += new System.EventHandler(this.TextBoxesLeave);
             // 
             // sendButton
             // 
@@ -127,7 +133,7 @@
             this.sendButton.IconVisible = true;
             this.sendButton.IconZoom = 90D;
             this.sendButton.IsTab = false;
-            this.sendButton.Location = new System.Drawing.Point(505, 502);
+            this.sendButton.Location = new System.Drawing.Point(505, 471);
             this.sendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sendButton.Name = "sendButton";
             this.sendButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -140,19 +146,19 @@
             this.sendButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.sendButton.Textcolor = System.Drawing.Color.White;
             this.sendButton.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.sendButton.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.sendButton.Click += new System.EventHandler(this.sendButtonClick);
             // 
-            // textBox1
+            // BodyTextBox2
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(28, 139);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(406, 413);
-            this.textBox1.TabIndex = 8;
+            this.BodyTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BodyTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BodyTextBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BodyTextBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.BodyTextBox2.Location = new System.Drawing.Point(28, 139);
+            this.BodyTextBox2.Multiline = true;
+            this.BodyTextBox2.Name = "BodyTextBox2";
+            this.BodyTextBox2.Size = new System.Drawing.Size(406, 413);
+            this.BodyTextBox2.TabIndex = 8;
             // 
             // BodyTextBox
             // 
@@ -181,24 +187,24 @@
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
-            this.bunifuElipse2.TargetControl = this.textBox1;
+            this.bunifuElipse2.TargetControl = this.BodyTextBox2;
             // 
-            // label1
+            // Heading
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(26, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 42);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Send me an E - Mail";
+            this.Heading.AutoSize = true;
+            this.Heading.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Heading.ForeColor = System.Drawing.Color.White;
+            this.Heading.Location = new System.Drawing.Point(26, 11);
+            this.Heading.Name = "Heading";
+            this.Heading.Size = new System.Drawing.Size(352, 42);
+            this.Heading.TabIndex = 10;
+            this.Heading.Text = "Send me an E - Mail";
             // 
             // bunifuDragControl4
             // 
             this.bunifuDragControl4.Fixed = true;
             this.bunifuDragControl4.Horizontal = true;
-            this.bunifuDragControl4.TargetControl = this.label1;
+            this.bunifuDragControl4.TargetControl = this.Heading;
             this.bunifuDragControl4.Vertical = true;
             // 
             // MailForm
@@ -207,9 +213,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(760, 580);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Heading);
             this.Controls.Add(this.BodyTextBox);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BodyTextBox2);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.SubjectBox);
             this.Controls.Add(this.PasswordBox);
@@ -227,12 +233,12 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox PasswordBox;
         private Bunifu.Framework.UI.BunifuMaterialTextbox SubjectBox;
         private Bunifu.Framework.UI.BunifuFlatButton sendButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox BodyTextBox2;
         private System.Windows.Forms.TextBox BodyTextBox;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Heading;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
     }
 }

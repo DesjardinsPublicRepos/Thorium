@@ -166,7 +166,7 @@ namespace MP4toMP3Converter
             sw.WriteLine(" - IF YOU DID A CHANGE AND THE PROGRAM ISNT WORKING PROPERLY, TRY DELETING THIS FILE. - ");
             sw.WriteLine();
             sw.WriteLine("SetupMode <Default>");
-            sw.WriteLine("ColorScheme: ");
+            sw.WriteLine("ColorScheme: Disabled"); 
             sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
             sw.WriteLine("006");
             sw.WriteLine("Default");
@@ -288,6 +288,7 @@ namespace MP4toMP3Converter
 
             InfoLabel2.ForeColor = getCustomColor(2);
             CloseButton.ForeColor = getCustomColor(2);
+            RestartButton.ForeColor = getCustomColor(2);
             DropdownButton1.ForeColor = getCustomColor(2);
             DropdownButton2.ForeColor = getCustomColor(2);
             Sub1Button1.ForeColor = getCustomColor(2);

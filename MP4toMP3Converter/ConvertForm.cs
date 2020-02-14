@@ -209,6 +209,7 @@ namespace MP4toMP3Converter
         #endregion
 
         #region init
+
         private void CustomColors()
         {
             ItemListBox.BackColor = MainForm.getCustomColor(3);
@@ -263,7 +264,7 @@ namespace MP4toMP3Converter
                 Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
             }
 
-            if (MainForm.customFilepathEnalbled[0] == true)
+            if (MainForm.customFilepathEnalbled[1] == true)
             {
                 Output = MainForm.customFilepaths[1];
             }

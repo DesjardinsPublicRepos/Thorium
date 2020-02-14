@@ -19,9 +19,12 @@ namespace MP4toMP3Converter
         public MailForm()
         {
             InitializeComponent();
+            CustomColors();
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        #region onClicks
+
+        private void sendButtonClick(object sender, EventArgs e)
         {
             try
             {
@@ -32,6 +35,10 @@ namespace MP4toMP3Converter
                 MessageBox.Show("Please check if your inputted data is correct. Maybe the Name of the exception helps: " + ee, "Oops, something went wrong there!", MessageBoxButtons.OK);
             }
         }
+
+        #endregion
+
+        #region Textboxes
 
         private void TextboxesEnter(object sender, EventArgs e)
         {
@@ -48,5 +55,83 @@ namespace MP4toMP3Converter
                 PasswordBox.isPassword = true;
             }
         }
+
+        private void TextBoxesKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)13) //=enter
+            {
+                if (sender == SubjectBox)
+                {
+                    MailBox.Focus();
+                }
+                else if (sender == MailBox)
+                {
+                    PasswordBox.Focus();
+                }
+                else if (sender == PasswordBox)
+                {
+                    BodyTextBox.Focus();
+                }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void TextBoxesLeave(object sender, EventArgs e)
+        {
+            if (sender == SubjectBox && SubjectBox.Text == "")
+            {
+                SubjectBox.Text = "Subject";
+            }
+            else if (sender == MailBox && MailBox.Text == "")
+            {
+                MailBox.Text = "E - Mail";
+            }
+            else if (sender == PasswordBox && PasswordBox.Text == "")
+            {
+                PasswordBox.isPassword = false;
+                PasswordBox.Text = "Password";
+            }
+        }
+
+        #endregion
+
+        #region init
+
+        private void CustomColors()
+        {
+            this.BackColor = MainForm.getCustomColor(7);
+
+            Heading.ForeColor = MainForm.getCustomColor(2);
+
+            SubjectBox.ForeColor = MainForm.getCustomColor(2);
+            SubjectBox.LineIdleColor = MainForm.getCustomColor(4);
+            SubjectBox.LineFocusedColor = MainForm.getCustomColor(3);
+            SubjectBox.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            MailBox.ForeColor = MainForm.getCustomColor(2);
+            MailBox.LineIdleColor = MainForm.getCustomColor(4);
+            MailBox.LineFocusedColor = MainForm.getCustomColor(3);
+            MailBox.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            PasswordBox.ForeColor = MainForm.getCustomColor(2);
+            PasswordBox.LineIdleColor = MainForm.getCustomColor(4);
+            PasswordBox.LineFocusedColor = MainForm.getCustomColor(3);
+            PasswordBox.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            BodyTextBox.BackColor = MainForm.getCustomColor(8);
+            BodyTextBox.ForeColor = MainForm.getCustomColor(2);
+
+            BodyTextBox2.BackColor = MainForm.getCustomColor(8);
+            
+            sendButton.BackColor = MainForm.getCustomColor(8);
+            sendButton.Activecolor = MainForm.getCustomColor(8);
+            sendButton.Normalcolor = MainForm.getCustomColor(8);
+            sendButton.OnHovercolor = MainForm.getCustomColor(6);
+            sendButton.ForeColor = MainForm.getCustomColor(2);
+        }
+
+        #endregion
     }
 }

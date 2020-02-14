@@ -30,33 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Heading = new System.Windows.Forms.Label();
+            this.Heading1 = new System.Windows.Forms.Label();
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.Line1 = new System.Windows.Forms.Label();
+            this.Heading2 = new System.Windows.Forms.Label();
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.bunifuDragControl5 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.bunifuDragControl6 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label4 = new System.Windows.Forms.Label();
+            this.Heading3 = new System.Windows.Forms.Label();
             this.bunifuDragControl7 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label5 = new System.Windows.Forms.Label();
+            this.sub1heading2 = new System.Windows.Forms.Label();
             this.bunifuDragControl8 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.bunifuDragControl9 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.InputLabel = new System.Windows.Forms.Label();
+            this.sub1heading1 = new System.Windows.Forms.Label();
             this.bunifuDragControl10 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl11 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.color7box2 = new System.Windows.Forms.PictureBox();
             this.color5box2 = new System.Windows.Forms.PictureBox();
             this.color7box = new System.Windows.Forms.PictureBox();
             this.color3box = new System.Windows.Forms.PictureBox();
-            this.color1box = new System.Windows.Forms.PictureBox();
             this.color6box = new System.Windows.Forms.PictureBox();
             this.color4box = new System.Windows.Forms.PictureBox();
             this.color2box = new System.Windows.Forms.PictureBox();
@@ -71,33 +61,33 @@
             this.icon4box = new System.Windows.Forms.PictureBox();
             this.icon9box = new System.Windows.Forms.PictureBox();
             this.icon5box = new System.Windows.Forms.PictureBox();
-            this.Line2 = new System.Windows.Forms.Label();
-            this.Heading2 = new System.Windows.Forms.Label();
-            this.bunifuDragControl12 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuDragControl13 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl14 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.OutputPathLabel = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.defaultPathButton = new System.Windows.Forms.PictureBox();
+            this.TempFilesLabel = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tmpFilePathButton = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.Heading3 = new System.Windows.Forms.Label();
-            this.Line3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuDragControl15 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl16 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl17 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl18 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl19 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl20 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.setDefaultButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.applyChangesButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.backPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color3box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color1box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color6box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color4box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color2box)).BeginInit();
@@ -115,176 +105,102 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.defaultPathButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpFilePathButton)).BeginInit();
+            this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
             // 
             this.bunifuDragControl1.Fixed = true;
             this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.Heading;
+            this.bunifuDragControl1.TargetControl = this.Heading1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // Heading
+            // Heading1
             // 
-            this.Heading.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Heading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Heading.Location = new System.Drawing.Point(283, 24);
-            this.Heading.Name = "Heading";
-            this.Heading.Size = new System.Drawing.Size(189, 61);
-            this.Heading.TabIndex = 8;
-            this.Heading.Text = "Color scheme";
-            this.Heading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Heading1.AutoSize = true;
+            this.Heading1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Heading1.ForeColor = System.Drawing.Color.White;
+            this.Heading1.Location = new System.Drawing.Point(48, 44);
+            this.Heading1.Name = "Heading1";
+            this.Heading1.Size = new System.Drawing.Size(255, 42);
+            this.Heading1.TabIndex = 69;
+            this.Heading1.Text = "Color scheme";
             // 
             // bunifuDragControl2
             // 
             this.bunifuDragControl2.Fixed = true;
             this.bunifuDragControl2.Horizontal = true;
-            this.bunifuDragControl2.TargetControl = this.Line1;
+            this.bunifuDragControl2.TargetControl = this.Heading2;
             this.bunifuDragControl2.Vertical = true;
             // 
-            // Line1
+            // Heading2
             // 
-            this.Line1.AutoSize = true;
-            this.Line1.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Line1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Line1.Location = new System.Drawing.Point(67, 27);
-            this.Line1.Name = "Line1";
-            this.Line1.Size = new System.Drawing.Size(617, 37);
-            this.Line1.TabIndex = 7;
-            this.Line1.Text = "__________________________________________________";
+            this.Heading2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Heading2.AutoSize = true;
+            this.Heading2.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Heading2.ForeColor = System.Drawing.Color.White;
+            this.Heading2.Location = new System.Drawing.Point(18, 20);
+            this.Heading2.Name = "Heading2";
+            this.Heading2.Size = new System.Drawing.Size(203, 42);
+            this.Heading2.TabIndex = 70;
+            this.Heading2.Text = "Icon colors";
             // 
             // bunifuDragControl3
             // 
             this.bunifuDragControl3.Fixed = true;
             this.bunifuDragControl3.Horizontal = true;
-            this.bunifuDragControl3.TargetControl = this.label1;
+            this.bunifuDragControl3.TargetControl = this.Heading3;
             this.bunifuDragControl3.Vertical = true;
             // 
-            // label1
+            // Heading3
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(420, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 20);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "main background color";
-            // 
-            // bunifuDragControl4
-            // 
-            this.bunifuDragControl4.Fixed = true;
-            this.bunifuDragControl4.Horizontal = true;
-            this.bunifuDragControl4.TargetControl = this.label2;
-            this.bunifuDragControl4.Vertical = true;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(417, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 20);
-            this.label2.TabIndex = 56;
-            this.label2.Text = " bright background color";
-            // 
-            // bunifuDragControl5
-            // 
-            this.bunifuDragControl5.Fixed = true;
-            this.bunifuDragControl5.Horizontal = true;
-            this.bunifuDragControl5.TargetControl = this.label3;
-            this.bunifuDragControl5.Vertical = true;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label3.Location = new System.Drawing.Point(118, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 20);
-            this.label3.TabIndex = 57;
-            this.label3.Text = " main color";
-            // 
-            // bunifuDragControl6
-            // 
-            this.bunifuDragControl6.Fixed = true;
-            this.bunifuDragControl6.Horizontal = true;
-            this.bunifuDragControl6.TargetControl = this.label4;
-            this.bunifuDragControl6.Vertical = true;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label4.Location = new System.Drawing.Point(118, 171);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 20);
-            this.label4.TabIndex = 58;
-            this.label4.Text = " secondary text color";
+            this.Heading3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Heading3.AutoSize = true;
+            this.Heading3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Heading3.ForeColor = System.Drawing.Color.White;
+            this.Heading3.Location = new System.Drawing.Point(15, 209);
+            this.Heading3.Name = "Heading3";
+            this.Heading3.Size = new System.Drawing.Size(300, 42);
+            this.Heading3.TabIndex = 71;
+            this.Heading3.Text = "Custom filepaths";
             // 
             // bunifuDragControl7
             // 
             this.bunifuDragControl7.Fixed = true;
             this.bunifuDragControl7.Horizontal = true;
-            this.bunifuDragControl7.TargetControl = this.label5;
+            this.bunifuDragControl7.TargetControl = this.sub1heading2;
             this.bunifuDragControl7.Vertical = true;
             // 
-            // label5
+            // sub1heading2
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label5.Location = new System.Drawing.Point(117, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 20);
-            this.label5.TabIndex = 59;
-            this.label5.Text = " bright text color";
+            this.sub1heading2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sub1heading2.AutoSize = true;
+            this.sub1heading2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sub1heading2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.sub1heading2.Location = new System.Drawing.Point(348, 54);
+            this.sub1heading2.Name = "sub1heading2";
+            this.sub1heading2.Size = new System.Drawing.Size(251, 33);
+            this.sub1heading2.TabIndex = 59;
+            this.sub1heading2.Text = "highlighting colors";
             // 
             // bunifuDragControl8
             // 
             this.bunifuDragControl8.Fixed = true;
             this.bunifuDragControl8.Horizontal = true;
-            this.bunifuDragControl8.TargetControl = this.label6;
+            this.bunifuDragControl8.TargetControl = this.sub1heading1;
             this.bunifuDragControl8.Vertical = true;
             // 
-            // label6
+            // sub1heading1
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.label6.Location = new System.Drawing.Point(119, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 20);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "dark text color";
-            // 
-            // bunifuDragControl9
-            // 
-            this.bunifuDragControl9.Fixed = true;
-            this.bunifuDragControl9.Horizontal = true;
-            this.bunifuDragControl9.TargetControl = this.InputLabel;
-            this.bunifuDragControl9.Vertical = true;
-            // 
-            // InputLabel
-            // 
-            this.InputLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.InputLabel.AutoSize = true;
-            this.InputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.InputLabel.Location = new System.Drawing.Point(421, 32);
-            this.InputLabel.Name = "InputLabel";
-            this.InputLabel.Size = new System.Drawing.Size(166, 20);
-            this.InputLabel.TabIndex = 54;
-            this.InputLabel.Text = "dark background color";
+            this.sub1heading1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sub1heading1.AutoSize = true;
+            this.sub1heading1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sub1heading1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.sub1heading1.Location = new System.Drawing.Point(42, 54);
+            this.sub1heading1.Name = "sub1heading1";
+            this.sub1heading1.Size = new System.Drawing.Size(198, 33);
+            this.sub1heading1.TabIndex = 60;
+            this.sub1heading1.Text = "primary colors";
             // 
             // bunifuDragControl10
             // 
@@ -303,60 +219,38 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.color7box2);
             this.panel1.Controls.Add(this.color5box2);
             this.panel1.Controls.Add(this.color7box);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.sub1heading1);
             this.panel1.Controls.Add(this.color3box);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.color1box);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.sub1heading2);
             this.panel1.Controls.Add(this.color6box);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.color4box);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.color2box);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.color5box);
-            this.panel1.Controls.Add(this.InputLabel);
-            this.panel1.Location = new System.Drawing.Point(53, 97);
+            this.panel1.Location = new System.Drawing.Point(55, 109);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 275);
+            this.panel1.Size = new System.Drawing.Size(646, 179);
             this.panel1.TabIndex = 61;
             // 
-            // button2
+            // checkBox1
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(94, 220);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 38);
-            this.button2.TabIndex = 64;
-            this.button2.Text = "default";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(325, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 38);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "apply changes permanently";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.checkBox1.Location = new System.Drawing.Point(18, 13);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(142, 21);
+            this.checkBox1.TabIndex = 65;
+            this.checkBox1.Text = "use custom colors";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBoxesCheckChanged);
             // 
             // color7box2
             // 
@@ -364,7 +258,7 @@
             this.color7box2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.color7box2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color7box2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color7box2.Location = new System.Drawing.Point(360, 114);
+            this.color7box2.Location = new System.Drawing.Point(449, 106);
             this.color7box2.Name = "color7box2";
             this.color7box2.Size = new System.Drawing.Size(40, 40);
             this.color7box2.TabIndex = 62;
@@ -377,7 +271,7 @@
             this.color5box2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.color5box2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color5box2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color5box2.Location = new System.Drawing.Point(360, 22);
+            this.color5box2.Location = new System.Drawing.Point(403, 106);
             this.color5box2.Name = "color5box2";
             this.color5box2.Size = new System.Drawing.Size(40, 40);
             this.color5box2.TabIndex = 61;
@@ -390,7 +284,7 @@
             this.color7box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.color7box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color7box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color7box.Location = new System.Drawing.Point(314, 114);
+            this.color7box.Location = new System.Drawing.Point(124, 104);
             this.color7box.Name = "color7box";
             this.color7box.Size = new System.Drawing.Size(40, 40);
             this.color7box.TabIndex = 3;
@@ -403,25 +297,12 @@
             this.color3box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.color3box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color3box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color3box.Location = new System.Drawing.Point(56, 114);
+            this.color3box.Location = new System.Drawing.Point(495, 106);
             this.color3box.Name = "color3box";
             this.color3box.Size = new System.Drawing.Size(40, 40);
             this.color3box.TabIndex = 0;
             this.color3box.TabStop = false;
             this.color3box.Click += new System.EventHandler(this.color3box_Click);
-            // 
-            // color1box
-            // 
-            this.color1box.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.color1box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.color1box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.color1box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color1box.Location = new System.Drawing.Point(56, 22);
-            this.color1box.Name = "color1box";
-            this.color1box.Size = new System.Drawing.Size(40, 40);
-            this.color1box.TabIndex = 1;
-            this.color1box.TabStop = false;
-            this.color1box.Click += new System.EventHandler(this.color1box_Click);
             // 
             // color6box
             // 
@@ -429,7 +310,7 @@
             this.color6box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.color6box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color6box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color6box.Location = new System.Drawing.Point(314, 68);
+            this.color6box.Location = new System.Drawing.Point(78, 104);
             this.color6box.Name = "color6box";
             this.color6box.Size = new System.Drawing.Size(40, 40);
             this.color6box.TabIndex = 2;
@@ -442,7 +323,7 @@
             this.color4box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.color4box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color4box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color4box.Location = new System.Drawing.Point(56, 160);
+            this.color4box.Location = new System.Drawing.Point(170, 104);
             this.color4box.Name = "color4box";
             this.color4box.Size = new System.Drawing.Size(40, 40);
             this.color4box.TabIndex = 4;
@@ -455,7 +336,7 @@
             this.color2box.BackColor = System.Drawing.Color.White;
             this.color2box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color2box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color2box.Location = new System.Drawing.Point(56, 68);
+            this.color2box.Location = new System.Drawing.Point(216, 104);
             this.color2box.Name = "color2box";
             this.color2box.Size = new System.Drawing.Size(40, 40);
             this.color2box.TabIndex = 5;
@@ -468,7 +349,7 @@
             this.color5box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.color5box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.color5box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.color5box.Location = new System.Drawing.Point(314, 22);
+            this.color5box.Location = new System.Drawing.Point(32, 104);
             this.color5box.Name = "color5box";
             this.color5box.Size = new System.Drawing.Size(40, 40);
             this.color5box.TabIndex = 6;
@@ -477,6 +358,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.icon1box);
             this.panel2.Controls.Add(this.icon3box);
@@ -487,7 +369,7 @@
             this.panel2.Controls.Add(this.icon4box);
             this.panel2.Controls.Add(this.icon9box);
             this.panel2.Controls.Add(this.icon5box);
-            this.panel2.Location = new System.Drawing.Point(53, 443);
+            this.panel2.Location = new System.Drawing.Point(23, 83);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(646, 102);
             this.panel2.TabIndex = 62;
@@ -627,42 +509,6 @@
             this.icon5box.TabStop = false;
             this.icon5box.Click += new System.EventHandler(this.icon5box_Click);
             // 
-            // Line2
-            // 
-            this.Line2.AutoSize = true;
-            this.Line2.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Line2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Line2.Location = new System.Drawing.Point(65, 379);
-            this.Line2.Name = "Line2";
-            this.Line2.Size = new System.Drawing.Size(617, 37);
-            this.Line2.TabIndex = 63;
-            this.Line2.Text = "__________________________________________________";
-            // 
-            // Heading2
-            // 
-            this.Heading2.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Heading2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Heading2.Location = new System.Drawing.Point(296, 377);
-            this.Heading2.Name = "Heading2";
-            this.Heading2.Size = new System.Drawing.Size(162, 61);
-            this.Heading2.TabIndex = 64;
-            this.Heading2.Text = "icon colors";
-            this.Heading2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bunifuDragControl12
-            // 
-            this.bunifuDragControl12.Fixed = true;
-            this.bunifuDragControl12.Horizontal = true;
-            this.bunifuDragControl12.TargetControl = this.Heading2;
-            this.bunifuDragControl12.Vertical = true;
-            // 
-            // bunifuDragControl13
-            // 
-            this.bunifuDragControl13.Fixed = true;
-            this.bunifuDragControl13.Horizontal = true;
-            this.bunifuDragControl13.TargetControl = this.Line2;
-            this.bunifuDragControl13.Vertical = true;
-            // 
             // bunifuDragControl14
             // 
             this.bunifuDragControl14.Fixed = true;
@@ -672,23 +518,48 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.OutputPathLabel);
             this.panel3.Controls.Add(this.defaultPathButton);
+            this.panel3.Controls.Add(this.TempFilesLabel);
             this.panel3.Controls.Add(this.tmpFilePathButton);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.checkBox3);
             this.panel3.Controls.Add(this.checkBox2);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Location = new System.Drawing.Point(52, 618);
+            this.panel3.Location = new System.Drawing.Point(22, 273);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(646, 168);
             this.panel3.TabIndex = 65;
+            // 
+            // OutputPathLabel
+            // 
+            this.OutputPathLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.OutputPathLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.OutputPathLabel.ForeColor = System.Drawing.Color.White;
+            this.OutputPathLabel.HintForeColor = System.Drawing.Color.White;
+            this.OutputPathLabel.HintText = "";
+            this.OutputPathLabel.isPassword = false;
+            this.OutputPathLabel.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.OutputPathLabel.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.OutputPathLabel.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.OutputPathLabel.LineThickness = 3;
+            this.OutputPathLabel.Location = new System.Drawing.Point(19, 110);
+            this.OutputPathLabel.Margin = new System.Windows.Forms.Padding(4);
+            this.OutputPathLabel.Name = "OutputPathLabel";
+            this.OutputPathLabel.Size = new System.Drawing.Size(406, 33);
+            this.OutputPathLabel.TabIndex = 75;
+            this.OutputPathLabel.Text = "..users\\Music\\";
+            this.OutputPathLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.OutputPathLabel.Enter += new System.EventHandler(this.LableEnter);
+            this.OutputPathLabel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LabelKeyDown);
+            this.OutputPathLabel.Leave += new System.EventHandler(this.LabelLeave);
             // 
             // defaultPathButton
             // 
             this.defaultPathButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.defaultPathButton.BackColor = System.Drawing.Color.Gray;
             this.defaultPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.defaultPathButton.Enabled = false;
             this.defaultPathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
             this.defaultPathButton.Location = new System.Drawing.Point(594, 117);
             this.defaultPathButton.Name = "defaultPathButton";
@@ -698,11 +569,35 @@
             this.defaultPathButton.TabStop = false;
             this.defaultPathButton.Click += new System.EventHandler(this.OpenFilepathClicked);
             // 
+            // TempFilesLabel
+            // 
+            this.TempFilesLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TempFilesLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.TempFilesLabel.ForeColor = System.Drawing.Color.White;
+            this.TempFilesLabel.HintForeColor = System.Drawing.Color.White;
+            this.TempFilesLabel.HintText = "";
+            this.TempFilesLabel.isPassword = false;
+            this.TempFilesLabel.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.TempFilesLabel.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.TempFilesLabel.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.TempFilesLabel.LineThickness = 3;
+            this.TempFilesLabel.Location = new System.Drawing.Point(19, 48);
+            this.TempFilesLabel.Margin = new System.Windows.Forms.Padding(4);
+            this.TempFilesLabel.Name = "TempFilesLabel";
+            this.TempFilesLabel.Size = new System.Drawing.Size(406, 33);
+            this.TempFilesLabel.TabIndex = 74;
+            this.TempFilesLabel.Text = "C:\\";
+            this.TempFilesLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TempFilesLabel.Enter += new System.EventHandler(this.LableEnter);
+            this.TempFilesLabel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LabelKeyDown);
+            this.TempFilesLabel.Leave += new System.EventHandler(this.LabelLeave);
+            // 
             // tmpFilePathButton
             // 
             this.tmpFilePathButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tmpFilePathButton.BackColor = System.Drawing.Color.Gray;
             this.tmpFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tmpFilePathButton.Enabled = false;
             this.tmpFilePathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
             this.tmpFilePathButton.Location = new System.Drawing.Point(594, 46);
             this.tmpFilePathButton.Name = "tmpFilePathButton";
@@ -712,87 +607,33 @@
             this.tmpFilePathButton.TabStop = false;
             this.tmpFilePathButton.Click += new System.EventHandler(this.OpenFilepathClicked);
             // 
-            // textBox2
+            // checkBox3
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Gray;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(21, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(567, 26);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FilePathFieldsKeyDown);
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
+            this.checkBox3.Location = new System.Drawing.Point(22, 88);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(213, 25);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "default output filepath ";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBoxesCheckChanged);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox2.Location = new System.Drawing.Point(22, 88);
+            this.checkBox2.Location = new System.Drawing.Point(22, 16);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(187, 24);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "default output filepath ";
+            this.checkBox2.Size = new System.Drawing.Size(298, 25);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "use a custom filepath for temp files";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Gray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(22, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(566, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "C:\\";
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FilePathFieldsKeyDown);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox1.Location = new System.Drawing.Point(22, 16);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(274, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "use a custom filepath for temp files";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // Heading3
-            // 
-            this.Heading3.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Heading3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Heading3.Location = new System.Drawing.Point(256, 551);
-            this.Heading3.Name = "Heading3";
-            this.Heading3.Size = new System.Drawing.Size(236, 61);
-            this.Heading3.TabIndex = 67;
-            this.Heading3.Text = "custom filepaths";
-            this.Heading3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Line3
-            // 
-            this.Line3.AutoSize = true;
-            this.Line3.Font = new System.Drawing.Font("Noto Sans", 20F);
-            this.Line3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Line3.Location = new System.Drawing.Point(72, 554);
-            this.Line3.Name = "Line3";
-            this.Line3.Size = new System.Drawing.Size(617, 37);
-            this.Line3.TabIndex = 66;
-            this.Line3.Text = "__________________________________________________";
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(272, 795);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 40);
-            this.panel4.TabIndex = 68;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBoxesCheckChanged);
             // 
             // bunifuDragControl15
             // 
@@ -805,36 +646,145 @@
             // 
             this.bunifuDragControl16.Fixed = true;
             this.bunifuDragControl16.Horizontal = true;
-            this.bunifuDragControl16.TargetControl = this.checkBox1;
+            this.bunifuDragControl16.TargetControl = this.checkBox2;
             this.bunifuDragControl16.Vertical = true;
             // 
             // bunifuDragControl17
             // 
             this.bunifuDragControl17.Fixed = true;
             this.bunifuDragControl17.Horizontal = true;
-            this.bunifuDragControl17.TargetControl = this.checkBox2;
+            this.bunifuDragControl17.TargetControl = this.checkBox3;
             this.bunifuDragControl17.Vertical = true;
             // 
             // bunifuDragControl18
             // 
             this.bunifuDragControl18.Fixed = true;
             this.bunifuDragControl18.Horizontal = true;
-            this.bunifuDragControl18.TargetControl = this.panel4;
             this.bunifuDragControl18.Vertical = true;
             // 
             // bunifuDragControl19
             // 
             this.bunifuDragControl19.Fixed = true;
             this.bunifuDragControl19.Horizontal = true;
-            this.bunifuDragControl19.TargetControl = this.Line3;
+            this.bunifuDragControl19.TargetControl = null;
             this.bunifuDragControl19.Vertical = true;
             // 
             // bunifuDragControl20
             // 
             this.bunifuDragControl20.Fixed = true;
             this.bunifuDragControl20.Horizontal = true;
-            this.bunifuDragControl20.TargetControl = this.Heading3;
+            this.bunifuDragControl20.TargetControl = null;
             this.bunifuDragControl20.Vertical = true;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this.panel1;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 5;
+            this.bunifuElipse2.TargetControl = this.panel2;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 5;
+            this.bunifuElipse3.TargetControl = this.panel3;
+            // 
+            // setDefaultButton
+            // 
+            this.setDefaultButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.setDefaultButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.setDefaultButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.setDefaultButton.BorderRadius = 0;
+            this.setDefaultButton.ButtonText = "default ";
+            this.setDefaultButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.setDefaultButton.DisabledColor = System.Drawing.Color.Gray;
+            this.setDefaultButton.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.setDefaultButton.Iconcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.setDefaultButton.Iconimage = null;
+            this.setDefaultButton.Iconimage_right = null;
+            this.setDefaultButton.Iconimage_right_Selected = null;
+            this.setDefaultButton.Iconimage_Selected = null;
+            this.setDefaultButton.IconMarginLeft = 0;
+            this.setDefaultButton.IconMarginRight = 0;
+            this.setDefaultButton.IconRightVisible = true;
+            this.setDefaultButton.IconRightZoom = 0D;
+            this.setDefaultButton.IconVisible = true;
+            this.setDefaultButton.IconZoom = 90D;
+            this.setDefaultButton.IsTab = false;
+            this.setDefaultButton.Location = new System.Drawing.Point(151, 311);
+            this.setDefaultButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.setDefaultButton.Name = "setDefaultButton";
+            this.setDefaultButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.setDefaultButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.setDefaultButton.OnHoverTextColor = System.Drawing.Color.White;
+            this.setDefaultButton.selected = false;
+            this.setDefaultButton.Size = new System.Drawing.Size(219, 45);
+            this.setDefaultButton.TabIndex = 72;
+            this.setDefaultButton.Text = "default ";
+            this.setDefaultButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.setDefaultButton.Textcolor = System.Drawing.Color.White;
+            this.setDefaultButton.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.setDefaultButton.Click += new System.EventHandler(this.SettingsFormButtonClicked);
+            // 
+            // applyChangesButton
+            // 
+            this.applyChangesButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.applyChangesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.applyChangesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.applyChangesButton.BorderRadius = 0;
+            this.applyChangesButton.ButtonText = "apply changes permanently";
+            this.applyChangesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.applyChangesButton.DisabledColor = System.Drawing.Color.Gray;
+            this.applyChangesButton.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.applyChangesButton.Iconcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.applyChangesButton.Iconimage = null;
+            this.applyChangesButton.Iconimage_right = null;
+            this.applyChangesButton.Iconimage_right_Selected = null;
+            this.applyChangesButton.Iconimage_Selected = null;
+            this.applyChangesButton.IconMarginLeft = 0;
+            this.applyChangesButton.IconMarginRight = 0;
+            this.applyChangesButton.IconRightVisible = true;
+            this.applyChangesButton.IconRightZoom = 0D;
+            this.applyChangesButton.IconVisible = true;
+            this.applyChangesButton.IconZoom = 90D;
+            this.applyChangesButton.IsTab = false;
+            this.applyChangesButton.Location = new System.Drawing.Point(378, 311);
+            this.applyChangesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.applyChangesButton.Name = "applyChangesButton";
+            this.applyChangesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.applyChangesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.applyChangesButton.OnHoverTextColor = System.Drawing.Color.White;
+            this.applyChangesButton.selected = false;
+            this.applyChangesButton.Size = new System.Drawing.Size(219, 45);
+            this.applyChangesButton.TabIndex = 73;
+            this.applyChangesButton.Text = "apply changes permanently";
+            this.applyChangesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.applyChangesButton.Textcolor = System.Drawing.Color.White;
+            this.applyChangesButton.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.applyChangesButton.Click += new System.EventHandler(this.SettingsFormButtonClicked);
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 5;
+            this.bunifuElipse4.TargetControl = this.applyChangesButton;
+            // 
+            // bunifuElipse5
+            // 
+            this.bunifuElipse5.ElipseRadius = 5;
+            this.bunifuElipse5.TargetControl = this.setDefaultButton;
+            // 
+            // backPanel
+            // 
+            this.backPanel.Controls.Add(this.panel2);
+            this.backPanel.Controls.Add(this.panel3);
+            this.backPanel.Controls.Add(this.Heading3);
+            this.backPanel.Controls.Add(this.Heading2);
+            this.backPanel.Location = new System.Drawing.Point(32, 362);
+            this.backPanel.Name = "backPanel";
+            this.backPanel.Size = new System.Drawing.Size(688, 494);
+            this.backPanel.TabIndex = 74;
             // 
             // SettingsForm
             // 
@@ -842,17 +792,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(760, 986);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.Heading3);
-            this.Controls.Add(this.Line3);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.Heading2);
-            this.Controls.Add(this.Line2);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(760, 1100);
+            this.Controls.Add(this.backPanel);
+            this.Controls.Add(this.applyChangesButton);
+            this.Controls.Add(this.setDefaultButton);
+            this.Controls.Add(this.Heading1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.Heading);
-            this.Controls.Add(this.Line1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsForm";
             this.Text = "Form1";
@@ -862,7 +807,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color7box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color3box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color1box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color6box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color4box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.color2box)).EndInit();
@@ -881,6 +825,8 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.defaultPathButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpFilePathButton)).EndInit();
+            this.backPanel.ResumeLayout(false);
+            this.backPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -890,25 +836,12 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl5;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl6;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl7;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl8;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl9;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl10;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl11;
-        private System.Windows.Forms.Label Heading;
-        private System.Windows.Forms.Label Line1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label InputLabel;
-        private System.Windows.Forms.Label Heading2;
-        private System.Windows.Forms.Label Line2;
+        private System.Windows.Forms.Label sub1heading2;
+        private System.Windows.Forms.Label sub1heading1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox icon1box;
         private System.Windows.Forms.PictureBox icon3box;
@@ -920,35 +853,39 @@
         private System.Windows.Forms.PictureBox icon9box;
         private System.Windows.Forms.PictureBox icon5box;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox color7box2;
         private System.Windows.Forms.PictureBox color5box2;
         private System.Windows.Forms.PictureBox color7box;
         private System.Windows.Forms.PictureBox color3box;
-        private System.Windows.Forms.PictureBox color1box;
         private System.Windows.Forms.PictureBox color6box;
         private System.Windows.Forms.PictureBox color4box;
         private System.Windows.Forms.PictureBox color2box;
         private System.Windows.Forms.PictureBox color5box;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl12;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl13;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl14;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox defaultPathButton;
         private System.Windows.Forms.PictureBox tmpFilePathButton;
-        private System.Windows.Forms.Label Heading3;
-        private System.Windows.Forms.Label Line3;
-        private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl15;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl16;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl17;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl18;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl19;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl20;
+        private System.Windows.Forms.Label Heading2;
+        private System.Windows.Forms.Label Heading1;
+        private System.Windows.Forms.Label Heading3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Bunifu.Framework.UI.BunifuFlatButton applyChangesButton;
+        private Bunifu.Framework.UI.BunifuFlatButton setDefaultButton;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox OutputPathLabel;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox TempFilesLabel;
+        private System.Windows.Forms.Panel backPanel;
     }
 }
