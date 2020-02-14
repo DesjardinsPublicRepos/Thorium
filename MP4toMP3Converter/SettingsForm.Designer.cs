@@ -83,6 +83,9 @@
             this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.backPanel = new System.Windows.Forms.Panel();
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -543,7 +546,7 @@
             this.OutputPathLabel.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.OutputPathLabel.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.OutputPathLabel.LineThickness = 3;
-            this.OutputPathLabel.Location = new System.Drawing.Point(19, 110);
+            this.OutputPathLabel.Location = new System.Drawing.Point(19, 114);
             this.OutputPathLabel.Margin = new System.Windows.Forms.Padding(4);
             this.OutputPathLabel.Name = "OutputPathLabel";
             this.OutputPathLabel.Size = new System.Drawing.Size(406, 33);
@@ -561,7 +564,7 @@
             this.defaultPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.defaultPathButton.Enabled = false;
             this.defaultPathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
-            this.defaultPathButton.Location = new System.Drawing.Point(594, 117);
+            this.defaultPathButton.Location = new System.Drawing.Point(594, 121);
             this.defaultPathButton.Name = "defaultPathButton";
             this.defaultPathButton.Size = new System.Drawing.Size(36, 26);
             this.defaultPathButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -581,7 +584,7 @@
             this.TempFilesLabel.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.TempFilesLabel.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.TempFilesLabel.LineThickness = 3;
-            this.TempFilesLabel.Location = new System.Drawing.Point(19, 48);
+            this.TempFilesLabel.Location = new System.Drawing.Point(19, 38);
             this.TempFilesLabel.Margin = new System.Windows.Forms.Padding(4);
             this.TempFilesLabel.Name = "TempFilesLabel";
             this.TempFilesLabel.Size = new System.Drawing.Size(406, 33);
@@ -599,7 +602,7 @@
             this.tmpFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tmpFilePathButton.Enabled = false;
             this.tmpFilePathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
-            this.tmpFilePathButton.Location = new System.Drawing.Point(594, 46);
+            this.tmpFilePathButton.Location = new System.Drawing.Point(594, 36);
             this.tmpFilePathButton.Name = "tmpFilePathButton";
             this.tmpFilePathButton.Size = new System.Drawing.Size(36, 26);
             this.tmpFilePathButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -613,7 +616,7 @@
             this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox3.Location = new System.Drawing.Point(22, 88);
+            this.checkBox3.Location = new System.Drawing.Point(22, 92);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(213, 25);
             this.checkBox3.TabIndex = 2;
@@ -660,6 +663,7 @@
             // 
             this.bunifuDragControl18.Fixed = true;
             this.bunifuDragControl18.Horizontal = true;
+            this.bunifuDragControl18.TargetControl = null;
             this.bunifuDragControl18.Vertical = true;
             // 
             // bunifuDragControl19
@@ -786,6 +790,23 @@
             this.backPanel.Size = new System.Drawing.Size(688, 494);
             this.backPanel.TabIndex = 74;
             // 
+            // bunifuElipse6
+            // 
+            this.bunifuElipse6.ElipseRadius = 3;
+            this.bunifuElipse6.TargetControl = this.tmpFilePathButton;
+            // 
+            // bunifuElipse7
+            // 
+            this.bunifuElipse7.ElipseRadius = 3;
+            this.bunifuElipse7.TargetControl = this.setDefaultButton;
+            // 
+            // bunifuDragControl4
+            // 
+            this.bunifuDragControl4.Fixed = true;
+            this.bunifuDragControl4.Horizontal = true;
+            this.bunifuDragControl4.TargetControl = this.backPanel;
+            this.bunifuDragControl4.Vertical = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -887,5 +908,8 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox OutputPathLabel;
         private Bunifu.Framework.UI.BunifuMaterialTextbox TempFilesLabel;
         private System.Windows.Forms.Panel backPanel;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
     }
 }

@@ -58,8 +58,9 @@
             this.InfoLabel2DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.stLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.OpenOutput = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -112,7 +113,7 @@
             this.Sub2Button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.Sub2Button4.Size = new System.Drawing.Size(260, 45);
             this.Sub2Button4.TabIndex = 5;
-            this.Sub2Button4.Text = "contact";
+            this.Sub2Button4.Text = "contact me";
             this.Sub2Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sub2Button4.UseVisualStyleBackColor = true;
             this.Sub2Button4.Click += new System.EventHandler(this.Sub2Button4_Click);
@@ -288,6 +289,7 @@
             // 
             // sub0panel
             // 
+            this.sub0panel.Controls.Add(this.panel1);
             this.sub0panel.Controls.Add(this.RestartButton);
             this.sub0panel.Controls.Add(this.CloseButton);
             this.sub0panel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -298,7 +300,7 @@
             // 
             // RestartButton
             // 
-            this.RestartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.RestartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RestartButton.FlatAppearance.BorderSize = 0;
             this.RestartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -306,7 +308,7 @@
             this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.RestartButton.Location = new System.Drawing.Point(64, 0);
+            this.RestartButton.Location = new System.Drawing.Point(65, 0);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RestartButton.Size = new System.Drawing.Size(64, 29);
@@ -318,7 +320,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
@@ -352,11 +354,11 @@
             // 
             this.InfoLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InfoLabel1.AutoSize = true;
-            this.InfoLabel1.Font = new System.Drawing.Font("Noto Sans", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.InfoLabel1.Location = new System.Drawing.Point(71, 453);
+            this.InfoLabel1.Location = new System.Drawing.Point(64, 467);
             this.InfoLabel1.Name = "InfoLabel1";
-            this.InfoLabel1.Size = new System.Drawing.Size(610, 37);
+            this.InfoLabel1.Size = new System.Drawing.Size(623, 33);
             this.InfoLabel1.TabIndex = 3;
             this.InfoLabel1.Text = "A hackable video converter for the 21   Century";
             // 
@@ -364,11 +366,11 @@
             // 
             this.stLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.stLabel.AutoSize = true;
-            this.stLabel.Font = new System.Drawing.Font("Noto Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.stLabel.Location = new System.Drawing.Point(544, 453);
+            this.stLabel.Location = new System.Drawing.Point(548, 463);
             this.stLabel.Name = "stLabel";
-            this.stLabel.Size = new System.Drawing.Size(28, 26);
+            this.stLabel.Size = new System.Drawing.Size(29, 25);
             this.stLabel.TabIndex = 4;
             this.stLabel.Text = "st";
             // 
@@ -450,13 +452,6 @@
             this.IconPictureBoxDragControl.TargetControl = this.IconPictureBox;
             this.IconPictureBoxDragControl.Vertical = true;
             // 
-            // bunifuDragControl2
-            // 
-            this.bunifuDragControl2.Fixed = true;
-            this.bunifuDragControl2.Horizontal = true;
-            this.bunifuDragControl2.TargetControl = null;
-            this.bunifuDragControl2.Vertical = true;
-            // 
             // OpenOutput
             // 
             this.OpenOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -468,6 +463,21 @@
             this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.OpenOutput.TabIndex = 12;
             this.OpenOutput.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel1.Location = new System.Drawing.Point(131, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(129, 29);
+            this.panel1.TabIndex = 3;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel1;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // MainForm
             // 
@@ -526,9 +536,10 @@
         public Bunifu.Framework.UI.BunifuDragControl InfoLabel2DragControl;
         public Bunifu.Framework.UI.BunifuDragControl stLabelDragControl;
         public Bunifu.Framework.UI.BunifuDragControl IconPictureBoxDragControl;
-        public Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         public System.Windows.Forms.Button Sub2Button4;
         public System.Windows.Forms.Button RestartButton;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }
 

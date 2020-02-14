@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
+using MP4toMP3Converter.Properties;
+
 namespace MP4toMP3Converter
 {
     public partial class ColorSelectForm : Form
@@ -96,6 +98,25 @@ namespace MP4toMP3Converter
             catch(Exception) { }
         }
 
+        private void TextBoxesKeyDown(object sender, KeyEventArgs e)
+        {
+            if (OutsourcedFunctions.enterHandling(e) == true)
+            {
+                if (sender == textBox1)
+                {
+                    textBox2.Focus();
+                }
+                else if (sender == textBox2)
+                {
+                    textBox3.Focus();
+                }
+                else if (sender == textBox3)
+                {
+                    button1.Focus();
+                }
+            }
+        }
         #endregion
+
     }
 }

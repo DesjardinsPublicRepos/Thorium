@@ -90,11 +90,6 @@ namespace MP4toMP3Converter
         {
             Application.Restart();
         }
-        /*
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OutsourcedFunctions.sendMail("desjardinslegedz@outlook.de", "desjardinslegedz@icloud.com", "test beep boop", "this is a test", "smtp-mail.outlook.com", "Desjardinslegedz@outlook.de", "(desjardins2)");
-        }*/
 
         private void Sub2Button4_Click(object sender, EventArgs e)
         {
@@ -271,6 +266,8 @@ namespace MP4toMP3Converter
 
         private void CustomColors()
         {
+            panel1.BackColor = getCustomColor(7);
+
             FormPanel.BackColor = getCustomColor(7);
             IconPictureBox.BackColor = getCustomColor(7);
             InfoLabel2.BackColor = getCustomColor(7);
@@ -301,8 +298,8 @@ namespace MP4toMP3Converter
             InfoLabel1.ForeColor = getCustomColor(3);
             stLabel.ForeColor = getCustomColor(3);
 
-            CloseButton.BackColor = getCustomColor(5);
-            RestartButton.BackColor = getCustomColor(5);
+            CloseButton.BackColor = getCustomColor(7);
+            RestartButton.BackColor = getCustomColor(7);
             BackPanel.BackColor = getCustomColor(5);
             DropdownButton1.BackColor = getCustomColor(5);
             DropdownButton2.BackColor = getCustomColor(5);
@@ -353,7 +350,7 @@ namespace MP4toMP3Converter
             sub2panel.Visible = false;
         }
 
-        #endregion
+#endregion
 
         #region overrides
 
@@ -367,7 +364,7 @@ namespace MP4toMP3Converter
             }
         }
 
-        #endregion
+#endregion
 
     }
 }

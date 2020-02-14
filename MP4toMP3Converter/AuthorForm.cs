@@ -58,28 +58,25 @@ namespace MP4toMP3Converter
 
         private void CustomColors()
         {
-            Heading.ForeColor = MainForm.getCustomColor(3);
-            Line1.ForeColor = MainForm.getCustomColor(3);
-            InfoLabel1.ForeColor = MainForm.getCustomColor(3);
-            linkLabel1.LinkColor = MainForm.getCustomColor(3);
-            linkLabel2.LinkColor = MainForm.getCustomColor(3);
+            Heading.ForeColor = MainForm.getCustomColor(2);
+
+            this.BackColor = MainForm.getCustomColor(7);
+
+            BackgroundPanel.BackColor = MainForm.getCustomColor(8);
+
+            InfoLabel1.ForeColor = MainForm.getCustomColor(4);
 
             InfoLabel2.ForeColor = MainForm.getCustomColor(4);
-            Line2.ForeColor = MainForm.getCustomColor(4);
 
-            if (MainForm.ColorScheme[6] < 236 && MainForm.ColorScheme[7] < 236 && MainForm.ColorScheme[8] < 236)
-            {
-                linkLabel1.ActiveLinkColor = Color.FromArgb(MainForm.ColorScheme[6] + 20, MainForm.ColorScheme[7] + 20, MainForm.ColorScheme[8] + 20);
-                linkLabel2.ActiveLinkColor = Color.FromArgb(MainForm.ColorScheme[6] + 20, MainForm.ColorScheme[7] + 20, MainForm.ColorScheme[8] + 20);
-            }
-            else
-            {
-                linkLabel1.ActiveLinkColor = MainForm.getCustomColor(3);
-                linkLabel2.ActiveLinkColor = MainForm.getCustomColor(3);
-            }
-             
-            this.BackColor = MainForm.getCustomColor(7);
-            BackgroundPanel.BackColor = MainForm.getCustomColor(8);
+            linkLabel1.LinkColor = MainForm.getCustomColor(3);
+            linkLabel1.ForeColor = MainForm.getCustomColor(4);
+            linkLabel1.VisitedLinkColor = MainForm.getCustomColor(9);
+            linkLabel1.ActiveLinkColor = MainForm.getCustomColor(9);
+
+            linkLabel2.LinkColor = MainForm.getCustomColor(3);
+            linkLabel2.ForeColor = MainForm.getCustomColor(4);
+            linkLabel2.VisitedLinkColor = MainForm.getCustomColor(9);
+            linkLabel2.ActiveLinkColor = MainForm.getCustomColor(9);
         }
 
         #endregion

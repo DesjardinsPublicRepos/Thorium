@@ -369,7 +369,7 @@ namespace MP4toMP3Converter
 
         private void LabelKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (char)13) //=enter
+            if (OutsourcedFunctions.enterHandling(e) == true) 
             {
                 if (sender == TempFilesLabel)
                 {
@@ -383,9 +383,6 @@ namespace MP4toMP3Converter
                 {
                     panel3.Focus();
                 }
-                
-                e.Handled = true;
-                e.SuppressKeyPress = true;
             }
         }
 
@@ -507,24 +504,24 @@ namespace MP4toMP3Converter
             panel2.BackColor = MainForm.getCustomColor(8);
             panel3.BackColor = MainForm.getCustomColor(8);
 
-
             setDefaultButton.BackColor = MainForm.getCustomColor(8);
             setDefaultButton.Activecolor = MainForm.getCustomColor(8);
             setDefaultButton.Normalcolor = MainForm.getCustomColor(8);
             setDefaultButton.OnHovercolor = MainForm.getCustomColor(6);
             setDefaultButton.ForeColor = MainForm.getCustomColor(2);
+            setDefaultButton.OnHoverTextColor = MainForm.getCustomColor(2);
 
             applyChangesButton.BackColor = MainForm.getCustomColor(8);
             applyChangesButton.Activecolor = MainForm.getCustomColor(8);
             applyChangesButton.Normalcolor = MainForm.getCustomColor(8);
             applyChangesButton.OnHovercolor = MainForm.getCustomColor(6);
             applyChangesButton.ForeColor = MainForm.getCustomColor(2);
+            applyChangesButton.OnHoverTextColor = MainForm.getCustomColor(2);
 
             Heading1.ForeColor = MainForm.getCustomColor(2);
             Heading2.ForeColor = MainForm.getCustomColor(2);
             Heading3.ForeColor = MainForm.getCustomColor(2);
             
-
             sub1heading2.ForeColor = MainForm.getCustomColor(4);
             sub1heading1.ForeColor = MainForm.getCustomColor(4);
             checkBox2.ForeColor = MainForm.getCustomColor(4);

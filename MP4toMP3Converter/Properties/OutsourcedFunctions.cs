@@ -145,13 +145,11 @@ namespace MP4toMP3Converter.Properties
             try
             {
                 MailMessage mailMessage = new MailMessage(sender, reciever, subject, body);
-                SmtpClient smtpClient = new SmtpClient(smtp);
+                SmtpClient smtpClient = new SmtpClient(smtp, 587);
 
-                smtpClient.Port = 587;
                 smtpClient.Credentials = new NetworkCredential(userName, password);
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(mailMessage);
-                //MessageBox.Show("mail sent", "Success", MessageBoxButtons.OK);
             }
             catch(Exception e)
             {
@@ -159,7 +157,7 @@ namespace MP4toMP3Converter.Properties
                 MessageBox.Show("Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e, "Oops, something went wrong there!", MessageBoxButtons.OK);
             }
         }
-
+        
         public static Control GetControlByName(string name, Form form)
         {
             foreach (Control c in form.Controls)
@@ -168,7 +166,6 @@ namespace MP4toMP3Converter.Properties
 
             return null;
         }
-
 
         private string getThumbnail(string url)
         {
@@ -214,6 +211,15 @@ namespace MP4toMP3Converter.Properties
             {
                 return false;
             }
+        }
+
+        public static bool enterHandling(KeyEventArgs e)
+        {
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+
+            if (e.KeyValue == (char)13) return true; 
+            else return false;
         }
     }
 }

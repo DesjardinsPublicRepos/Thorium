@@ -61,7 +61,7 @@ namespace MP4toMP3Converter
             {
                 Output = folderBrowserDialog.SelectedPath;
             }
-            OutputBox.Text = Output;
+            OutputPathLabel.Text = Output;
         }
 
         private void ConvertButtonClick(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace MP4toMP3Converter
                         OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, InputData, convertOptions);
                     }
                     catch (Exception ex)
-                    { 
+                    {
                         Debug.WriteLine(ex);
                     }
                 });
@@ -101,8 +101,6 @@ namespace MP4toMP3Converter
             {
                 OutsourcedFunctions.getConvertableFiles(InputData);
                 InputData = InputData.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-
-                //MainForm.ActiveForm.Enabled = false;
 
                 string OutputFormat = formatDropdown.Text;
                 ProgressState = InputData.Length;
@@ -157,30 +155,21 @@ namespace MP4toMP3Converter
 
         private void InputBoxKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (char)13) //=enter
+            if (OutsourcedFunctions.enterHandling(e) == true) 
             {
-                AddInputFile(InputBox.Text, System.IO.Path.GetFileName(InputBox.Text));
-                InputBox.Text = null;
-                OutputBox.Focus();
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-
+                AddInputFile(InputPathLabel.Text, System.IO.Path.GetFileName(InputPathLabel.Text));
+                InputPathLabel.Text = null;
             }
         }
 
         private void OutputBoxKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (char)13) 
+            if (OutsourcedFunctions.enterHandling(e) == true) 
             {
-                Output = OutputBox.Text;
+                Output = OutputPathLabel.Text;
                 ConvertButton.Focus();
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
             }
         }
-
 
         #endregion
 
@@ -212,37 +201,50 @@ namespace MP4toMP3Converter
 
         private void CustomColors()
         {
-            ItemListBox.BackColor = MainForm.getCustomColor(3);
-            ItemListBox.ForeColor = MainForm.getCustomColor(6);
+            ItemListBox.BackColor = MainForm.getCustomColor(8);
+            ItemListBox.ForeColor = MainForm.getCustomColor(2);
 
-            DragDropLabel.ForeColor = MainForm.getCustomColor(3);
-
-            DragDropLabel.BackColor = MainForm.getCustomColor(9);
-            formatDropdown.ForeColor = MainForm.getCustomColor(9);
-            InputBox.ForeColor = MainForm.getCustomColor(9);
-            OutputBox.ForeColor = MainForm.getCustomColor(9);
+            DragDropLabel.ForeColor = MainForm.getCustomColor(5);
+            DragDropLabel.BackColor = MainForm.getCustomColor(3);
 
             this.BackColor = MainForm.getCustomColor(7);
 
-            panel1.BackColor = MainForm.getCustomColor(8);
+            formatDropdown.ForeColor = MainForm.getCustomColor(5);
+            formatDropdown.BackColor = MainForm.getCustomColor(4);
 
-            InputBox.BackColor = MainForm.getCustomColor(3);
-            OutputBox.BackColor = MainForm.getCustomColor(3);
-            OpenInput.BackColor = MainForm.getCustomColor(3);
-            OpenOutput.BackColor = MainForm.getCustomColor(3);
+            ConvertButton.BackColor = MainForm.getCustomColor(8);
+            ConvertButton.Activecolor = MainForm.getCustomColor(8);
+            ConvertButton.Normalcolor = MainForm.getCustomColor(8);
+            ConvertButton.OnHovercolor = MainForm.getCustomColor(6);
+            ConvertButton.Textcolor = MainForm.getCustomColor(2);
+            ConvertButton.OnHoverTextColor = MainForm.getCustomColor(2);
 
-            label1.ForeColor = MainForm.getCustomColor(3);
-            InputLabel.ForeColor = MainForm.getCustomColor(3);
+            OutpuFormatLabel.ForeColor = MainForm.getCustomColor(4);
+            OutpuFormatLabel.BackColor = MainForm.getCustomColor(7);
+
+            OutputLabel.BackColor = MainForm.getCustomColor(7);
             OutputLabel.ForeColor = MainForm.getCustomColor(3);
 
-            label1.BackColor = MainForm.getCustomColor(8);
-            InputLabel.BackColor = MainForm.getCustomColor(8);
-            OutputLabel.BackColor = MainForm.getCustomColor(8);
+            InputLabel.BackColor = MainForm.getCustomColor(7);
+            InputLabel.ForeColor = MainForm.getCustomColor(3);
 
-            formatDropdown.BackColor = MainForm.getCustomColor(3);
-            ConvertButton.BackColor = MainForm.getCustomColor(3);
-            ConvertLabel.BackColor = MainForm.getCustomColor(3);
-            ConvertLabel.ForeColor = MainForm.getCustomColor(6);
+            OpenInput.BackColor = MainForm.getCustomColor(4);
+
+            OpenOutput.BackColor = MainForm.getCustomColor(4);
+
+            InputPathLabel.ForeColor = MainForm.getCustomColor(2);
+            InputPathLabel.HintForeColor = MainForm.getCustomColor(2);
+            InputPathLabel.BackColor = MainForm.getCustomColor(7);
+            InputPathLabel.LineFocusedColor = MainForm.getCustomColor(3);
+            InputPathLabel.LineIdleColor = MainForm.getCustomColor(4);
+            InputPathLabel.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            OutputPathLabel.ForeColor = MainForm.getCustomColor(2);
+            OutputPathLabel.HintForeColor = MainForm.getCustomColor(2);
+            OutputPathLabel.BackColor = MainForm.getCustomColor(7);
+            OutputPathLabel.LineFocusedColor = MainForm.getCustomColor(3);
+            OutputPathLabel.LineIdleColor = MainForm.getCustomColor(4);
+            OutputPathLabel.LineMouseHoverColor = MainForm.getCustomColor(3);
 
             this.Size = new Size(760, 580);
         }
@@ -252,7 +254,7 @@ namespace MP4toMP3Converter
 
             if (convertOptions != "convert")
             {
-                ConvertLabel.Text = "combine";
+                ConvertButton.Text = "combine";
             }
 
             if (this.convertOptions != "combine")
@@ -261,14 +263,14 @@ namespace MP4toMP3Converter
             }
             else
             {
-                Output = "C:\\Users\\" + Environment.UserName + "\\Downloads";
+                Output = "C:\\Users\\" + Environment.UserName + "\\Videos";
             }
 
             if (MainForm.customFilepathEnalbled[1] == true)
             {
                 Output = MainForm.customFilepaths[1];
             }
-            OutputBox.Text = Output;
+            OutputPathLabel.Text = Output;
 
 
             if (convertOptions == "convert" | convertOptions == "convertCombine")

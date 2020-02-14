@@ -58,7 +58,7 @@ namespace MP4toMP3Converter
 
         private void TextBoxesKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (char)13) //=enter
+            if (OutsourcedFunctions.enterHandling(e) == true) 
             {
                 if (sender == SubjectBox)
                 {
@@ -72,9 +72,6 @@ namespace MP4toMP3Converter
                 {
                     BodyTextBox.Focus();
                 }
-
-                e.Handled = true;
-                e.SuppressKeyPress = true;
             }
         }
 
