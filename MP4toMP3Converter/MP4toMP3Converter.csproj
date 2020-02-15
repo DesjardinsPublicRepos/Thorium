@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Thorium</ProductName>
     <PublisherName>Desjardins</PublisherName>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>20</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -183,6 +183,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\GOTHIC_745063ed9142edcdcdfaeed69c36e6d2.ttf" />
     <None Include="Resources\Settings-icon.png" />
   </ItemGroup>
   <ItemGroup>

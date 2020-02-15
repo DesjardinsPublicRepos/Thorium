@@ -215,10 +215,12 @@ namespace MP4toMP3Converter.Properties
 
         public static bool enterHandling(KeyEventArgs e)
         {
-            e.Handled = true;
-            e.SuppressKeyPress = true;
-
-            if (e.KeyValue == (char)13) return true; 
+            if (e.KeyValue == (char)13)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                return true;
+            }
             else return false;
         }
     }
