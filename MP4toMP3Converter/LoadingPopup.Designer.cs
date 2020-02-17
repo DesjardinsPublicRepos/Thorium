@@ -54,11 +54,11 @@
             // InfoLabel2
             // 
             this.InfoLabel2.AutoSize = true;
-            this.InfoLabel2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoLabel2.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.InfoLabel2.ForeColor = System.Drawing.Color.Gray;
             this.InfoLabel2.Location = new System.Drawing.Point(47, 89);
             this.InfoLabel2.Name = "InfoLabel2";
-            this.InfoLabel2.Size = new System.Drawing.Size(103, 20);
+            this.InfoLabel2.Size = new System.Drawing.Size(102, 21);
             this.InfoLabel2.TabIndex = 1;
             this.InfoLabel2.Text = "Please wait.";
             // 
@@ -76,7 +76,7 @@
             this.AbortButton.ButtonText = "abort process";
             this.AbortButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AbortButton.DisabledColor = System.Drawing.Color.Gray;
-            this.AbortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.AbortButton.Iconcolor = System.Drawing.Color.Transparent;
             this.AbortButton.Iconimage = null;
             this.AbortButton.Iconimage_right = null;
@@ -124,11 +124,11 @@
             // InfoLabel1
             // 
             this.InfoLabel1.AutoSize = true;
-            this.InfoLabel1.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoLabel1.Font = new System.Drawing.Font("Century Gothic", 20F);
             this.InfoLabel1.ForeColor = System.Drawing.Color.Gray;
             this.InfoLabel1.Location = new System.Drawing.Point(46, 34);
             this.InfoLabel1.Name = "InfoLabel1";
-            this.InfoLabel1.Size = new System.Drawing.Size(212, 28);
+            this.InfoLabel1.Size = new System.Drawing.Size(212, 33);
             this.InfoLabel1.TabIndex = 5;
             this.InfoLabel1.Text = "Loading... (1/1)";
             // 

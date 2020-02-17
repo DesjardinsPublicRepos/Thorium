@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 using MP4toMP3Converter.Properties;
 
@@ -16,10 +17,14 @@ namespace MP4toMP3Converter
 {
     public partial class MailForm : Form
     {
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
         public MailForm()
         {
             InitializeComponent();
             CustomColors();
+            fontInit();
         }
 
         #region onClicks
@@ -127,6 +132,25 @@ namespace MP4toMP3Converter
             sendButton.Normalcolor = MainForm.getCustomColor(8);
             sendButton.OnHovercolor = MainForm.getCustomColor(6);
             sendButton.ForeColor = MainForm.getCustomColor(2);
+        }
+
+        private void fontInit()
+        {
+            PrivateFontCollection fonts = new PrivateFontCollection();
+            byte[] fontData = Resources.CG;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint dummy = 0;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            OutsourcedFunctions o = new OutsourcedFunctions();
+
+            o.changeFont(new Control[] { Heading }, new Font(fonts.Families[0], 26.25f));
+
+            o.changeFont(new Control[] { SubjectBox, MailBox, PasswordBox, BodyTextBox, sendButton }, new Font(fonts.Families[0], 9.75f));
         }
 
         #endregion

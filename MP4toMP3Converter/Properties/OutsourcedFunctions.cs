@@ -15,6 +15,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 
+using System.Drawing.Text;
+
 namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
@@ -236,6 +238,14 @@ namespace MP4toMP3Converter.Properties
                 return true;
             }
             else return false;
+        }
+
+        public void changeFont(Control[] controls, Font font)
+        {
+            foreach (Control c in controls)
+            {
+                c.Font = font;
+            }
         }
     }
 }

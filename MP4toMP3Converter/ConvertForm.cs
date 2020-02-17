@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Mail;
+using System.Drawing.Text;
 
 using MP4toMP3Converter.Properties;
 
@@ -28,6 +28,9 @@ namespace MP4toMP3Converter
 
         private readonly string convertOptions;
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
         public ConvertForm(string convertOptions)
         {
             this.convertOptions = convertOptions;
@@ -35,6 +38,7 @@ namespace MP4toMP3Converter
             InitializeComponent();
             CustomColors();
             setFilepathMode();
+            fontInit();
         }
 
         #region onClicks
@@ -289,6 +293,27 @@ namespace MP4toMP3Converter
 
                 formatDropdown.SelectedIndex = 0;
             }
+        }
+
+        private void fontInit()
+        {
+            PrivateFontCollection fonts = new PrivateFontCollection();
+            byte[] fontData = Resources.CG;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint dummy = 0;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            OutsourcedFunctions o = new OutsourcedFunctions();
+
+            o.changeFont(new Control[] { DragDropLabel, ItemListBox }, new Font(fonts.Families[0], 11.25f));
+
+            o.changeFont(new Control[] { InputPathLabel, OutputPathLabel, OutpuFormatLabel, formatDropdown, OutputPathLabel, ConvertButton}, new Font(fonts.Families[0], 9.75f));
+
+            o.changeFont(new Control[] { InputLabel, OutputLabel }, new Font(fonts.Families[0], 8.25f));
         }
         #endregion
     }

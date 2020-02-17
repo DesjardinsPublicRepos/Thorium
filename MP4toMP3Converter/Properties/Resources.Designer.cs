@@ -91,6 +91,16 @@ namespace MP4toMP3Converter.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] CG {
+            get {
+                object obj = ResourceManager.GetObject("CG", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap coal_black {
@@ -261,6 +271,16 @@ namespace MP4toMP3Converter.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] mss {
+            get {
+                object obj = ResourceManager.GetObject("mss", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap newLoad {
@@ -277,6 +297,16 @@ namespace MP4toMP3Converter.Properties {
             get {
                 object obj = ResourceManager.GetObject("Pichon-Icons8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] Playball {
+            get {
+                object obj = ResourceManager.GetObject("Playball", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

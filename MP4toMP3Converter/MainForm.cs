@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
+
 
 using MP4toMP3Converter.Properties;
 
@@ -26,6 +28,11 @@ namespace MP4toMP3Converter
 
         private Form activeForm = null;
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+
         public MainForm()
         {
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
@@ -34,6 +41,7 @@ namespace MP4toMP3Converter
             readSetup();
             InitializeComponent();
             CustomColors();
+            fontInit();
         }
 
         #region onClicks
@@ -350,7 +358,42 @@ namespace MP4toMP3Converter
             sub2panel.Visible = false;
         }
 
-#endregion
+        private void fontInit()
+        {
+
+            byte[] fontData = Resources.mss;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint uint1 = 0;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fonts.AddMemoryFont(fontPtr, Resources.mss.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.mss.Length, IntPtr.Zero, ref uint1);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            OutsourcedFunctions o = new OutsourcedFunctions();
+
+            o.changeFont(new Control[] { DropdownButton1, DropdownButton2,Sub1Button1, Sub1Button2, Sub1Button3}, new Font(fonts.Families[0], 11.25f));
+
+            o.changeFont(new Control[] { RestartButton, CloseButton }, new Font(fonts.Families[0], 8.25f));
+
+            o.changeFont(new Control[] { stLabel }, new Font(fonts.Families[0], 15.75f));
+
+            o.changeFont(new Control[] { InfoLabel1 }, new Font(fonts.Families[0], 21.75f));
+
+            byte[] fontData0 = Resources.Playball;
+            IntPtr fontPtr0 = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint uint2 = 1;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData0, 0, fontPtr0, fontData0.Length);
+            fonts.AddMemoryFont(fontPtr0, Resources.Playball.Length);
+            AddFontMemResourceEx(fontPtr0, (uint)Properties.Resources.Playball.Length, IntPtr.Zero, ref uint2);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr0);
+
+            o.changeFont(new Control[] { InfoLabel2 }, new Font(fonts.Families[1], 48f));
+
+        }
+
+        #endregion
 
         #region overrides
 

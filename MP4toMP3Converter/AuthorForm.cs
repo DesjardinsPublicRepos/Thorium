@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
+
 
 using MP4toMP3Converter.Properties;
 
@@ -14,10 +16,14 @@ namespace MP4toMP3Converter
 {
     public partial class AuthorForm : Form
     {
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
         public AuthorForm()
         {
             InitializeComponent();
             CustomColors();
+            fontInit();
         }
 
         #region onClicks
@@ -79,6 +85,31 @@ namespace MP4toMP3Converter
             linkLabel2.ActiveLinkColor = MainForm.getCustomColor(9);
         }
 
+        private void fontInit()
+        {
+
+            PrivateFontCollection fonts = new PrivateFontCollection();
+            byte[] fontData = Resources.CG;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint dummy = 0;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            OutsourcedFunctions o = new OutsourcedFunctions();
+
+            o.changeFont(new Control[] { InfoLabel1, linkLabel1, linkLabel2, InfoLabel2 }, new Font(fonts.Families[0], 15f));
+
+            o.changeFont(new Control[] { Heading }, new Font(fonts.Families[0], 26.25f));
+        }
+
         #endregion
+
+        private void InfoLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

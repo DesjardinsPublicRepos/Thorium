@@ -62,13 +62,13 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Magenta;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Noto Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.linkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(21, 17);
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
             this.linkLabel1.Location = new System.Drawing.Point(22, 75);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(451, 33);
+            this.linkLabel1.Size = new System.Drawing.Size(477, 31);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Here you can find my my GitHub account and ";
@@ -119,27 +119,28 @@
             // InfoLabel2
             // 
             this.InfoLabel2.AutoSize = true;
-            this.InfoLabel2.Font = new System.Drawing.Font("Noto Sans", 15F);
+            this.InfoLabel2.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.InfoLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.InfoLabel2.Location = new System.Drawing.Point(23, 131);
             this.InfoLabel2.Name = "InfoLabel2";
-            this.InfoLabel2.Size = new System.Drawing.Size(555, 54);
+            this.InfoLabel2.Size = new System.Drawing.Size(564, 46);
             this.InfoLabel2.TabIndex = 12;
             this.InfoLabel2.Text = "When creating this programm, i used ressources from the \r\nfollowing sources:";
             this.InfoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InfoLabel2.Click += new System.EventHandler(this.InfoLabel2_Click);
             // 
             // linkLabel2
             // 
             this.linkLabel2.ActiveLinkColor = System.Drawing.Color.Magenta;
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel2.Font = new System.Drawing.Font("Noto Sans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.linkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.linkLabel2.LinkArea = new System.Windows.Forms.LinkArea(0, 12);
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.linkLabel2.Location = new System.Drawing.Point(449, 76);
+            this.linkLabel2.Location = new System.Drawing.Point(484, 75);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(121, 33);
+            this.linkLabel2.Size = new System.Drawing.Size(122, 31);
             this.linkLabel2.TabIndex = 4;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "this project.";
@@ -149,11 +150,12 @@
             // 
             // InfoLabel1
             // 
-            this.InfoLabel1.Font = new System.Drawing.Font("Noto Sans", 15F);
+            this.InfoLabel1.AutoSize = true;
+            this.InfoLabel1.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.InfoLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.InfoLabel1.Location = new System.Drawing.Point(23, 25);
             this.InfoLabel1.Name = "InfoLabel1";
-            this.InfoLabel1.Size = new System.Drawing.Size(466, 27);
+            this.InfoLabel1.Size = new System.Drawing.Size(469, 23);
             this.InfoLabel1.TabIndex = 2;
             this.InfoLabel1.Text = "I´m Desjardins, a 17 - year old German student.";
             this.InfoLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

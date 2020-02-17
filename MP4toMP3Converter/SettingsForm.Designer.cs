@@ -121,11 +121,11 @@
             // Heading1
             // 
             this.Heading1.AutoSize = true;
-            this.Heading1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Heading1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
             this.Heading1.ForeColor = System.Drawing.Color.White;
             this.Heading1.Location = new System.Drawing.Point(48, 44);
             this.Heading1.Name = "Heading1";
-            this.Heading1.Size = new System.Drawing.Size(255, 42);
+            this.Heading1.Size = new System.Drawing.Size(232, 39);
             this.Heading1.TabIndex = 69;
             this.Heading1.Text = "Color scheme";
             // 
@@ -614,11 +614,11 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox3.Location = new System.Drawing.Point(22, 92);
+            this.checkBox3.Location = new System.Drawing.Point(22, 94);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(213, 25);
+            this.checkBox3.Size = new System.Drawing.Size(178, 21);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "default output filepath ";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -628,11 +628,11 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
-            this.checkBox2.Location = new System.Drawing.Point(22, 16);
+            this.checkBox2.Location = new System.Drawing.Point(22, 18);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(298, 25);
+            this.checkBox2.Size = new System.Drawing.Size(253, 21);
             this.checkBox2.TabIndex = 0;
             this.checkBox2.Text = "use a custom filepath for temp files";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -813,7 +813,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(760, 1100);
+            this.ClientSize = new System.Drawing.Size(760, 909);
             this.Controls.Add(this.backPanel);
             this.Controls.Add(this.applyChangesButton);
             this.Controls.Add(this.setDefaultButton);

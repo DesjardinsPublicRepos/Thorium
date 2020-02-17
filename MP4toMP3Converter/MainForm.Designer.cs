@@ -43,6 +43,7 @@
             this.Sub1Button1 = new System.Windows.Forms.Button();
             this.DropdownButton1 = new System.Windows.Forms.Button();
             this.sub0panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.RestartButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.InfoLabel2 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.stLabelDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.OpenOutput = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
@@ -95,7 +95,7 @@
             this.sub2panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.sub2panel.Location = new System.Drawing.Point(0, 364);
             this.sub2panel.Name = "sub2panel";
-            this.sub2panel.Size = new System.Drawing.Size(260, 139);
+            this.sub2panel.Size = new System.Drawing.Size(260, 135);
             this.sub2panel.TabIndex = 3;
             // 
             // Sub2Button4
@@ -298,6 +298,14 @@
             this.sub0panel.Size = new System.Drawing.Size(260, 129);
             this.sub0panel.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel1.Location = new System.Drawing.Point(131, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(129, 29);
+            this.panel1.TabIndex = 3;
+            // 
             // RestartButton
             // 
             this.RestartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -463,14 +471,6 @@
             this.OpenOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.OpenOutput.TabIndex = 12;
             this.OpenOutput.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Location = new System.Drawing.Point(131, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(129, 29);
-            this.panel1.TabIndex = 3;
             // 
             // bunifuDragControl1
             // 

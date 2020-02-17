@@ -1,15 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Drawing.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 using MP4toMP3Converter.Properties;
 
@@ -22,15 +15,20 @@ namespace MP4toMP3Converter
         private Thread thread;
         private readonly bool initComplete = false;
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
         public SettingsForm(MainForm ff)
         {
             f = ff;
             InitializeComponent();
             CustomColors();
+            fontInit();
             initComplete = true;
         }
 
         #region onClicks
+
         private void color1box_Click(object sender, EventArgs e)
         {
             colorSelectForm = new ColorSelectForm(this, new byte[3] {0, 1, 2 });
@@ -595,6 +593,27 @@ namespace MP4toMP3Converter
                     backPanel.Location = new Point(32, 291);
                 }
             }
+        }
+
+        private void fontInit()
+        {
+            PrivateFontCollection fonts = new PrivateFontCollection();
+            byte[] fontData = Resources.CG;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            uint dummy = 0;
+
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            OutsourcedFunctions o = new OutsourcedFunctions();
+
+            o.changeFont(new Control[] { Heading1, Heading2, Heading3 }, new Font(fonts.Families[0], 26.25f));
+
+            o.changeFont(new Control[] { checkBox1, checkBox2, checkBox3, TempFilesLabel, OutputPathLabel, applyChangesButton, setDefaultButton }, new Font(fonts.Families[0], 9.75f));
+
+            o.changeFont(new Control[] { sub1heading1, sub1heading2 }, new Font(fonts.Families[0], 20.25f));
         }
         #endregion
 
