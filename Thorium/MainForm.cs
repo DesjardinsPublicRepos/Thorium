@@ -30,7 +30,7 @@ namespace MP4toMP3Converter
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private PrivateFontCollection fonts = new PrivateFontCollection();
+        private readonly PrivateFontCollection fonts = new PrivateFontCollection();
 
 
         public MainForm()

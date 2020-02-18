@@ -77,7 +77,7 @@ namespace MP4toMP3Converter.Properties
             closePopup(loadingPopup);
         }
 
-        public static void getConvertableFiles(string[] inputData)
+        public static void getConvertableFiles(string[] inputData, string[] inputName)
         {
             for (int i = 0; i < 50; i++)
             {
@@ -86,6 +86,7 @@ namespace MP4toMP3Converter.Properties
                     if (File.Exists("@" + inputData[i]) == true | IsVideo(Path.GetExtension(inputData[i].Trim())) == false)
                     {
                         inputData[i] = null;
+                        inputName[i] = null;
                     }
                 }
             }
@@ -148,10 +149,11 @@ namespace MP4toMP3Converter.Properties
             try
             {
                 MailMessage mailMessage = new MailMessage(sender, reciever, subject, body);
-                SmtpClient smtpClient = new SmtpClient(smtp, 587);
-
-                smtpClient.Credentials = new NetworkCredential(userName, password);
-                smtpClient.EnableSsl = true;
+                SmtpClient smtpClient = new SmtpClient(smtp, 587)
+                {
+                    Credentials = new NetworkCredential(userName, password),
+                    EnableSsl = true
+                };
                 smtpClient.Send(mailMessage);
             }
             catch(Exception e)

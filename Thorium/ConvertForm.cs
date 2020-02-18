@@ -72,8 +72,9 @@ namespace MP4toMP3Converter
         {
             if (InputData[0] != null)
             {
-                OutsourcedFunctions.getConvertableFiles(InputData);
+                OutsourcedFunctions.getConvertableFiles(InputData, InputName);
                 InputData = InputData.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                InputName = InputName.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
                 string OutputFormat = formatDropdown.Text;
                 ProgressState = InputData.Length;
