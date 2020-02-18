@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="MP4toMP3Converter.exe.manifest" size="6092">
+    <dependentAssembly dependencyType="install" codebase="MP4toMP3Converter.exe.manifest" size="5423">
       <assemblyIdentity name="MP4toMP3Converter.exe" version="1.0.0.22" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GvvI2JRJGbd2w8I7tG7F3Yf1dyAb0VIYAml8kC8brzk=</dsig:DigestValue>
+        <dsig:DigestValue>DyW1Ha4gDwqBg16TGlFV0nQ8hqBiqgcRwmT7TynGgYM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

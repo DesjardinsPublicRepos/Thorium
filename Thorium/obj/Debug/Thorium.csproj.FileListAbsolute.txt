@@ -29,9 +29,7 @@ C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\MP4toMP3Converter.applica
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\MP4toMP3Converter.exe
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\MP4toMP3Converter.pdb
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\Bunifu_UI_v1.5.3.dll
-C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\Nito.AspNetBackgroundTasks.dll
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\NReco.VideoConverter.dll
-C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\Nito.AspNetBackgroundTasks.xml
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\NReco.VideoConverter.xml
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.csprojAssemblyReference.cache
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.AuthorForm.resources

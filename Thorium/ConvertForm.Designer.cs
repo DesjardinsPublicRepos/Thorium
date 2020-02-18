@@ -89,6 +89,7 @@
             // 
             // DragDropLabel
             // 
+            this.DragDropLabel.AllowDrop = true;
             this.DragDropLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DragDropLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
@@ -101,6 +102,8 @@
             this.DragDropLabel.TabIndex = 58;
             this.DragDropLabel.Text = "Drag and Drop here";
             this.DragDropLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DragDropLabel.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListBoxDragDrop);
+            this.DragDropLabel.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBoxDragEnter);
             // 
             // InputLabelDragControl
             // 
@@ -187,6 +190,7 @@
             this.formatDropdown.Name = "formatDropdown";
             this.formatDropdown.Size = new System.Drawing.Size(69, 24);
             this.formatDropdown.TabIndex = 46;
+            this.formatDropdown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutputBoxKeyDown);
             // 
             // ConvertButton
             // 

@@ -55,26 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MP4toMP3Converter.exe" size="1415624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MP4toMP3Converter.exe" size="1417160">
       <assemblyIdentity name="MP4toMP3Converter" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LHo6TynTehPFfDDEW1shGTUqE7jaSq9eSEuEbmjO/WQ=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nito.AspNetBackgroundTasks.dll" size="7168">
-      <assemblyIdentity name="Nito.AspNetBackgroundTasks" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ICNKz9jgrTRtF+i52SmmidQbBLIX4TFGI+wat+vRq8Q=</dsig:DigestValue>
+        <dsig:DigestValue>D4ik1T46VRGUxGfirGUGAoGKTf7gaQgS3OAq9zBRZGA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

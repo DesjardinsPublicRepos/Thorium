@@ -16,6 +16,7 @@ using System.Net.Mail;
 using System.Web;
 
 using System.Drawing.Text;
+using System.Web.Hosting;
 
 namespace MP4toMP3Converter.Properties
 {
@@ -248,4 +249,132 @@ namespace MP4toMP3Converter.Properties
             }
         }
     }
+
+    #region BackgroundTasks
+
+    public sealed class tasks : IRegisteredObject
+    {
+        private readonly CancellationTokenSource abort;
+
+        private readonly AsyncCountdownEvent count;
+
+        private readonly Task completed;
+
+        public tasks()
+        {
+            abort = new CancellationTokenSource();
+            count = new AsyncCountdownEvent(1);
+            abort.Token.Register(() => count.Signal(), useSynchronizationContext: false);
+
+            HostingEnvironment.RegisterObject(this);
+
+            completed = count.WaitAsync().ContinueWith(
+                _ => HostingEnvironment.UnregisterObject(this),
+                CancellationToken.None,
+                TaskContinuationOptions.ExecuteSynchronously,
+                TaskScheduler.Default);
+        }
+
+        public CancellationToken Abort { get { return abort.Token; } }
+
+        void IRegisteredObject.Stop(bool immediate)
+        {
+            abort.Cancel();
+
+            if (immediate)
+                completed.Wait();
+        }
+
+        private void Register(Task task)
+        {
+            count.AddCount();
+
+            task.ContinueWith(
+                _ => count.Signal(),
+                CancellationToken.None,
+                TaskContinuationOptions.ExecuteSynchronously,
+                TaskScheduler.Default);
+        }
+
+        public void Run(Func<Task> operation)
+        {
+            Register(Task.Run(operation));
+        }
+
+        public void Run(Action operation)
+        {
+            Register(Task.Run(operation));
+        }
+    }
+
+    [DebuggerDisplay("CurrentCount = {count}")]
+    [DebuggerTypeProxy(typeof(DebugView))]
+
+    public sealed class AsyncCountdownEvent
+    {
+        private readonly TaskCompletionSource<object> tcs;
+
+        private int count;
+
+        public AsyncCountdownEvent(int countt)
+        {
+            tcs = new TaskCompletionSource<object>();
+            count = countt;
+        }
+
+        public Task WaitAsync()
+        {
+            return tcs.Task;
+        }
+
+        private void ModifyCount(int signalCount)
+        {
+            if (Interlocked.Add(ref count, signalCount) == 0)
+                tcs.TrySetResult(null);
+        }
+
+        public void AddCount()
+        {
+            ModifyCount(1);
+        }
+
+        public void Signal()
+        {
+            ModifyCount(-1);
+        }
+
+        [DebuggerNonUserCode]
+        private sealed class DebugView
+        {
+            private readonly AsyncCountdownEvent ce;
+
+            public DebugView(AsyncCountdownEvent cee)
+            {
+                ce = cee;
+            }
+
+            public int CurrentCount { get { return ce.count; } }
+
+            public Task Task { get { return ce.tcs.Task; } }
+        }
+    }
+
+    public static class BGTasks
+    {
+        private static readonly tasks Instance = new tasks();
+
+        public static CancellationToken Abort { get { return Instance.Abort; } }
+
+        public static void Run(Func<Task> operation)
+        {
+            Instance.Run(operation);
+        }
+
+        public static void Run(Action operation)
+        {
+            Instance.Run(operation);
+        }
+    }
+
+    #endregion
 }
