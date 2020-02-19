@@ -111,7 +111,7 @@ namespace MP4toMP3Converter
 
         #region staticSecondaryMethods
 
-        public static string getLine(string fileName, int line)
+        public static string/*object*/ getLine(string fileName, int line/*byte index*/)
         {
             using (StreamReader streamreader = new StreamReader(fileName))
             {
@@ -123,12 +123,38 @@ namespace MP4toMP3Converter
                 streamreader.Close();
                 return text;
             }
-
-            using(BinaryReader binaryReader = new BinaryReader(new FileStream(SetupFile, FileMode.Open)))
+            /*
+            using(BinaryReader binaryReader = new BinaryReader(new FileStream("C:\\users\\fabian\\downloads\\test.bin", FileMode.Open)))
             {
-                binaryReader.Read();
-                //...
+                for (int i = 0; i < index + 1; i++) binaryReader.Read();
+
+                var mForm = new MainForm();
+                return mForm.readNextObject(index, binaryReader);
+                
+                
+            }*/
+        }
+
+        private object readNextObject(byte index, BinaryReader binaryReader)
+        {
+            object obj = new object();
+
+            if (setupFileTypes[index] == typeof(bool))
+            {
+                obj = binaryReader.ReadBoolean();
             }
+            else if (setupFileTypes[index] == typeof(byte))
+            {
+                obj = binaryReader.ReadByte();
+            }
+            else if (setupFileTypes[index] == typeof(string))
+            {
+                obj = binaryReader.ReadString();
+            }
+            else Debug.WriteLine("something went wrong there");
+
+            Debug.WriteLine(index + " " + obj.ToString());
+            return obj;
         }
 
         private object[] getCurrentSetup(string file)
@@ -139,28 +165,13 @@ namespace MP4toMP3Converter
 
                 for(int i = 0; i < 32; i++)
                 {
-                    if (setupFileTypes[i] == typeof(bool))
-                    {
-                        newObjects[i] = binaryReader.ReadBoolean();
-                    }
-                    else if (setupFileTypes[i] == typeof(byte))
-                    {
-                        newObjects[i] = binaryReader.ReadByte();
-                    }
-                    else if (setupFileTypes[i] == typeof(string))
-                    {
-                        newObjects[i] = binaryReader.ReadString();
-                    }
-                    else Debug.WriteLine("something went wrong there");
-
-                    Debug.WriteLine(i + " " + newObjects[i].ToString());
+                    newObjects[i] = readNextObject(Convert.ToByte(i), binaryReader);
                 }
-
                 return newObjects;
             }
         }
 
-        public static void setLine(string fileName, int line, string text/*, byte fileIndex*/)
+        public static void setLine(string fileName, int line,/* byte fileIndex, object newObject*/ string text)
         {
             string[] file = File.ReadAllLines(fileName);
             file[line - 1] = text;
@@ -174,11 +185,12 @@ namespace MP4toMP3Converter
                 sw.Close();
             }
             return;
+            /*
+            var mForm = new MainForm();
+            object[] oldObjects = mForm.getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin");
 
-            using (BinaryWriter binaryWriter = new BinaryWriter(new FileStream(SetupFile, FileMode.Create)))
-            {
-                binaryWriter.Write("");
-            }
+            oldObjects[fileIndex] = newObject;
+            writeBinary("C:\\users\\fabian\\downloads\\test.bin", oldObjects);*/
         }
 
         public static byte[] DefaultColors()
@@ -227,12 +239,12 @@ namespace MP4toMP3Converter
 
                         foreach(byte b in tempArray)
                         {
-                            Debug.WriteLine(b.ToString());
                             bw.Write(b);
                         }
                     }
                 }
             }
+
             using(BinaryReader br = new BinaryReader(new FileStream(file, FileMode.Open)))
             {
                 Debug.WriteLine(br.ReadInt32());
@@ -493,18 +505,9 @@ namespace MP4toMP3Converter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            writeBinary("C:\\users\\fabian\\downloads\\test.bin", new object[] { true, false,
-                /*Convert.ToByte(255), Convert.ToByte(255), Convert.ToByte(255),//5       2
-                Convert.ToByte(227), Convert.ToByte(176), Convert.ToByte(255), //8      3
-                Convert.ToByte(151), Convert.ToByte(142), Convert.ToByte(153), //11     4
-                Convert.ToByte(44), Convert.ToByte(44), Convert.ToByte(44), //14        5
-                Convert.ToByte(64), Convert.ToByte(0), Convert.ToByte(64),  //17        6
-                Convert.ToByte(50), Convert.ToByte(50), Convert.ToByte(50),//20         7 
-                Convert.ToByte(64), Convert.ToByte(64), Convert.ToByte(64),//23         8
-                Convert.ToByte(111), Convert.ToByte(74), Convert.ToByte(113), */DefaultColors(), 
-                Convert.ToByte(67), "tztztz", "fdfdg"}) ;
+            writeBinary("C:\\users\\fabian\\downloads\\test.bin", new object[] { true, false, DefaultColors(), Convert.ToByte(67), "Default", "Default"}) ;
 
-            Debug.WriteLine(getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin"));
+            getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin");
         }
     }
 }
