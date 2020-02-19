@@ -618,9 +618,9 @@
             this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.checkBox3.Location = new System.Drawing.Point(22, 94);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(178, 21);
+            this.checkBox3.Size = new System.Drawing.Size(218, 21);
             this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "default output filepath ";
+            this.checkBox3.Text = "use a custom output filepath ";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBoxesCheckChanged);
             // 

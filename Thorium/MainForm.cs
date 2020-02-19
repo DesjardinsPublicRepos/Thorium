@@ -15,12 +15,14 @@ using System.Drawing.Text;
 
 
 using MP4toMP3Converter.Properties;
+using System.Collections;
 
 namespace MP4toMP3Converter
 {
     public partial class MainForm : Form
     {
         public static string SetupFile = "preferences.txt";
+
         public static bool[] customFilepathEnalbled = new bool[2] { false, false };
         public static string[] customFilepaths = new string[2] { "Default", "Default" };
         public static byte[] ColorScheme = new byte[27];
@@ -32,6 +34,8 @@ namespace MP4toMP3Converter
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
         private readonly PrivateFontCollection fonts = new PrivateFontCollection();
 
+        private Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
+                                                     typeof(byte), typeof(string), typeof(string) };
 
         public MainForm()
         {
@@ -119,9 +123,44 @@ namespace MP4toMP3Converter
                 streamreader.Close();
                 return text;
             }
+
+            using(BinaryReader binaryReader = new BinaryReader(new FileStream(SetupFile, FileMode.Open)))
+            {
+                binaryReader.Read();
+                //...
+            }
         }
 
-        public static void setLine(string fileName, int line, string text)
+        private object[] getCurrentSetup(string file)
+        {
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(file, FileMode.Open)))
+            {
+                object[] newObjects = new object[32];
+
+                for(int i = 0; i < 32; i++)
+                {
+                    if (setupFileTypes[i] == typeof(bool))
+                    {
+                        newObjects[i] = binaryReader.ReadBoolean();
+                    }
+                    else if (setupFileTypes[i] == typeof(byte))
+                    {
+                        newObjects[i] = binaryReader.ReadByte();
+                    }
+                    else if (setupFileTypes[i] == typeof(string))
+                    {
+                        newObjects[i] = binaryReader.ReadString();
+                    }
+                    else Debug.WriteLine("something went wrong there");
+
+                    Debug.WriteLine(i + " " + newObjects[i].ToString());
+                }
+
+                return newObjects;
+            }
+        }
+
+        public static void setLine(string fileName, int line, string text/*, byte fileIndex*/)
         {
             string[] file = File.ReadAllLines(fileName);
             file[line - 1] = text;
@@ -133,6 +172,12 @@ namespace MP4toMP3Converter
                     sw.WriteLine(newLines);
                 }
                 sw.Close();
+            }
+            return;
+
+            using (BinaryWriter binaryWriter = new BinaryWriter(new FileStream(SetupFile, FileMode.Create)))
+            {
+                binaryWriter.Write("");
             }
         }
 
@@ -154,7 +199,44 @@ namespace MP4toMP3Converter
 
         public static Color getCustomColor(byte index)
         {
+            //return Color.FromArgb(ColorScheme[(index - 2) * 3], ColorScheme[((index - 2) * 3) + 1], ColorScheme[((index - 2) * 3) + 2]);
             return Color.FromArgb(ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2]);
+        }
+
+        public static void writeBinary(string file, object[] objects)
+        {
+            using(BinaryWriter bw = new BinaryWriter(new FileStream(file, FileMode.Create)))
+            {
+                foreach (object o in objects)
+                {
+                    if (o.GetType() == typeof(bool))
+                    {
+                        bw.Write(Convert.ToBoolean(o));
+                    }
+                    else if (o.GetType() == typeof(string))
+                    {
+                        bw.Write(o.ToString());
+                    }
+                    else if (o.GetType() ==  typeof(byte))
+                    {
+                        bw.Write(Convert.ToByte(o));
+                    }
+                    else if(o.GetType() == typeof(byte[]))
+                    {
+                        var tempArray = o as IEnumerable;
+
+                        foreach(byte b in tempArray)
+                        {
+                            Debug.WriteLine(b.ToString());
+                            bw.Write(b);
+                        }
+                    }
+                }
+            }
+            using(BinaryReader br = new BinaryReader(new FileStream(file, FileMode.Open)))
+            {
+                Debug.WriteLine(br.ReadInt32());
+            }
         }
 
         #endregion
@@ -407,7 +489,22 @@ namespace MP4toMP3Converter
             }
         }
 
-#endregion
+        #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            writeBinary("C:\\users\\fabian\\downloads\\test.bin", new object[] { true, false,
+                /*Convert.ToByte(255), Convert.ToByte(255), Convert.ToByte(255),//5       2
+                Convert.ToByte(227), Convert.ToByte(176), Convert.ToByte(255), //8      3
+                Convert.ToByte(151), Convert.ToByte(142), Convert.ToByte(153), //11     4
+                Convert.ToByte(44), Convert.ToByte(44), Convert.ToByte(44), //14        5
+                Convert.ToByte(64), Convert.ToByte(0), Convert.ToByte(64),  //17        6
+                Convert.ToByte(50), Convert.ToByte(50), Convert.ToByte(50),//20         7 
+                Convert.ToByte(64), Convert.ToByte(64), Convert.ToByte(64),//23         8
+                Convert.ToByte(111), Convert.ToByte(74), Convert.ToByte(113), */DefaultColors(), 
+                Convert.ToByte(67), "tztztz", "fdfdg"}) ;
+
+            Debug.WriteLine(getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin"));
+        }
     }
 }
