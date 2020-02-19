@@ -36,6 +36,7 @@ namespace MP4toMP3Converter
 
         private Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
                                                      typeof(byte), typeof(string), typeof(string) };
+        private string binary = "C:\\users\\fabian\\downloads\\test.bin";
 
         public MainForm()
         {
@@ -124,7 +125,7 @@ namespace MP4toMP3Converter
                 return text;
             }
             /*
-            using(BinaryReader binaryReader = new BinaryReader(new FileStream("C:\\users\\fabian\\downloads\\test.bin", FileMode.Open)))
+            using(BinaryReader binaryReader = new BinaryReader(new FileStream(binary, FileMode.Open)))
             {
                 for (int i = 0; i < index + 1; i++) binaryReader.Read();
 
@@ -187,10 +188,10 @@ namespace MP4toMP3Converter
             return;
             /*
             var mForm = new MainForm();
-            object[] oldObjects = mForm.getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin");
+            object[] oldObjects = mForm.getCurrentSetup(binary);
 
             oldObjects[fileIndex] = newObject;
-            writeBinary("C:\\users\\fabian\\downloads\\test.bin", oldObjects);*/
+            writeBinary(binary, oldObjects);*/
         }
 
         public static byte[] DefaultColors()
@@ -364,6 +365,51 @@ namespace MP4toMP3Converter
                 ColorScheme = DefaultColors();
                 iconScheme = 6;
             }
+            
+            if (File.Exists(binary) == true)
+            {
+                object[] objects = getCurrentSetup(binary);
+
+                if(Convert.ToBoolean(objects[0]) == false)
+                {
+                    ColorScheme = DefaultColors();
+                    iconScheme = 6;
+                }
+                else
+                {
+                    if (Convert.ToBoolean(objects[1]) == false)
+                    {
+                        ColorScheme = DefaultColors();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 27; i++)
+                        {
+                            ColorScheme[i] = Convert.ToByte(objects[i + 2]);
+                        }
+                    }
+                    iconScheme = Convert.ToByte(objects[30]);
+
+                    if (objects[31].ToString().Trim() != "Default")
+                    {
+                        customFilepathEnalbled[0] = true;
+                        customFilepaths[0] = objects[31].ToString();
+                    }
+                    if (objects[32].ToString().Trim() != "Default")
+                    {
+                        customFilepathEnalbled[1] = true;
+                        customFilepaths[1] = objects[32].ToString();
+                    }
+
+                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
+                }
+            }
+            else
+            {
+                writeBinary(binary, new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default" });
+                ColorScheme = DefaultColors();
+                iconScheme = 6;
+            }
         }
 
         private void CustomColors()
@@ -454,7 +500,6 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-
             byte[] fontData = Resources.mss;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint uint1 = 0;
@@ -505,9 +550,9 @@ namespace MP4toMP3Converter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            writeBinary("C:\\users\\fabian\\downloads\\test.bin", new object[] { true, false, DefaultColors(), Convert.ToByte(67), "Default", "Default"}) ;
+            writeBinary(binary, new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default"});
 
-            getCurrentSetup("C:\\users\\fabian\\downloads\\test.bin");
+            getCurrentSetup(binary);
         }
     }
 }
