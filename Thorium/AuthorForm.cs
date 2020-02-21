@@ -69,6 +69,7 @@ namespace MP4toMP3Converter
             this.BackColor = MainForm.getCustomColor(7);
 
             BackgroundPanel.BackColor = MainForm.getCustomColor(8);
+            panel1.BackColor = MainForm.getCustomColor(8);
 
             InfoLabel1.ForeColor = MainForm.getCustomColor(4);
 
@@ -87,7 +88,6 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-
             PrivateFontCollection fonts = new PrivateFontCollection();
             byte[] fontData = Resources.CG;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
@@ -106,10 +106,5 @@ namespace MP4toMP3Converter
         }
 
         #endregion
-
-        private void InfoLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

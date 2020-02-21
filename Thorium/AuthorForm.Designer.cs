@@ -49,6 +49,8 @@
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.BackgroundPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AspNETPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BunifuPictureBox)).BeginInit();
@@ -127,7 +129,6 @@
             this.InfoLabel2.TabIndex = 12;
             this.InfoLabel2.Text = "When creating this programm, i used ressources from the \r\nfollowing sources:";
             this.InfoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InfoLabel2.Click += new System.EventHandler(this.InfoLabel2_Click);
             // 
             // linkLabel2
             // 
@@ -267,6 +268,20 @@
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this.panel1;
             // 
+            // bunifuDragControl3
+            // 
+            this.bunifuDragControl3.Fixed = true;
+            this.bunifuDragControl3.Horizontal = true;
+            this.bunifuDragControl3.TargetControl = null;
+            this.bunifuDragControl3.Vertical = true;
+            // 
+            // bunifuDragControl4
+            // 
+            this.bunifuDragControl4.Fixed = true;
+            this.bunifuDragControl4.Horizontal = true;
+            this.bunifuDragControl4.TargetControl = this.panel1;
+            this.bunifuDragControl4.Vertical = true;
+            // 
             // AuthorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,5 +328,7 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl3;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
     }
 }

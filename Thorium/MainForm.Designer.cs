@@ -61,7 +61,6 @@
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -302,9 +301,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Location = new System.Drawing.Point(131, 0);
+            this.panel1.Location = new System.Drawing.Point(130, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(129, 29);
+            this.panel1.Size = new System.Drawing.Size(130, 29);
             this.panel1.TabIndex = 3;
             // 
             // RestartButton
@@ -386,7 +385,6 @@
             // FormPanel
             // 
             this.FormPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.FormPanel.Controls.Add(this.button1);
             this.FormPanel.Controls.Add(this.IconPictureBox);
             this.FormPanel.Controls.Add(this.stLabel);
             this.FormPanel.Controls.Add(this.InfoLabel1);
@@ -481,16 +479,6 @@
             this.bunifuDragControl1.TargetControl = this.panel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(245, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,9 +538,8 @@
         public Bunifu.Framework.UI.BunifuDragControl IconPictureBoxDragControl;
         public System.Windows.Forms.Button Sub2Button4;
         public System.Windows.Forms.Button RestartButton;
-        private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Panel panel1;
     }
 }
 

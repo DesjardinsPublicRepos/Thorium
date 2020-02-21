@@ -1,28 +1,17 @@
 ﻿using System;
-using System.IO;
+using System.Collections;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing.Text;
-
+using System.IO;
+using System.Windows.Forms;
 
 using MP4toMP3Converter.Properties;
-using System.Collections;
 
 namespace MP4toMP3Converter
 {
     public partial class MainForm : Form
     {
-        public static string SetupFile = "preferences.txt";
-
         public static bool[] customFilepathEnalbled = new bool[2] { false, false };
         public static string[] customFilepaths = new string[2] { "Default", "Default" };
         public static byte[] ColorScheme = new byte[27];
@@ -36,7 +25,7 @@ namespace MP4toMP3Converter
 
         public static Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
                                                      typeof(byte), typeof(string), typeof(string) };
-        public static string binary = "C:\\users\\fabian\\downloads\\test.bin";
+        public static string binary = "settings.bin"; 
 
         public MainForm()
         {
@@ -108,21 +97,68 @@ namespace MP4toMP3Converter
         {
             OpenChildForm(new MailForm());
         }
+
         #endregion
 
-        #region staticSecondaryMethods
+        #region colorHandling
 
-        public static string getLine(string fileName, int line)
+        public static byte[] DefaultColors()
         {
-            using (StreamReader streamreader = new StreamReader(fileName))
+            return new byte[] 
             {
-                for (int i = 1; i < line; i++)
+                0, 0, 0, //2            1
+                255, 255, 255,//5       2
+                227, 176, 255, //8      3
+                151, 142, 153, //11     4
+                44, 44, 44, //14        5
+                64, 0, 64,  //17        6
+                50, 50, 50,//20         7 
+                64, 64, 64,//23         8
+                111, 74, 113 //26       9
+            };
+        }
+
+        public static Color getCustomColor(byte index)
+        {
+            //return Color.FromArgb(ColorScheme[(index - 2) * 3], ColorScheme[((index - 2) * 3) + 1], ColorScheme[((index - 2) * 3) + 2]);
+            return Color.FromArgb(ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2]);
+        }
+
+        #endregion
+
+        #region functionality
+
+        private void OpenChildForm(Form ChildForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = ChildForm;
+            ChildForm.TopLevel = false;
+            ChildForm.FormBorderStyle = FormBorderStyle.None;
+            ChildForm.Dock = DockStyle.Fill;
+            FormPanel.Controls.Add(ChildForm);
+            FormPanel.Tag = ChildForm;
+            ChildForm.BringToFront();
+            ChildForm.Show();
+        }
+
+        #endregion
+
+        #region binaryHandling
+
+        public static object[] getCurrentSetup()
+        {
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(binary, FileMode.Open)))
+            {
+                object[] newObjects = new object[32];
+
+                for(int i = 0; i < setupFileTypes.Length; i++)
                 {
-                    streamreader.ReadLine();
+                    newObjects[i] = readNextObject(Convert.ToByte(i), binaryReader);
                 }
-                string text = streamreader.ReadLine();
-                streamreader.Close();
-                return text;
+                return newObjects;
             }
         }
 
@@ -148,23 +184,9 @@ namespace MP4toMP3Converter
             return obj;
         }
 
-        public static object[] getCurrentSetup(string file)
-        {
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(file, FileMode.Open)))
-            {
-                object[] newObjects = new object[32];
-
-                for(int i = 0; i < setupFileTypes.Length; i++)
-                {
-                    newObjects[i] = readNextObject(Convert.ToByte(i), binaryReader);
-                }
-                return newObjects;
-            }
-        }
-
         public static void changeBinary(byte[] itemIndexes, object[] newObjects, byte[] colors)
         {
-            object[] oldObjects = getCurrentSetup(binary);
+            object[] oldObjects = getCurrentSetup();
 
             if (colors != null)
             {
@@ -179,56 +201,12 @@ namespace MP4toMP3Converter
                 oldObjects[itemIndexes[i]] = newObjects[i];
             }
             
-            writeBinary(binary, oldObjects);
+            writeBinary(oldObjects);
         }
 
-        public static void setLine(string fileName, int line,/* byte fileIndex, object newObject*/ string text)
+        public static void writeBinary(object[] objects)
         {
-            string[] file = File.ReadAllLines(fileName);
-            file[line - 1] = text;
-
-            using (StreamWriter sw = new StreamWriter(fileName))
-            {
-                foreach (string newLines in file)
-                {
-                    sw.WriteLine(newLines);
-                }
-                sw.Close();
-            }
-            return;
-            /*
-            var mForm = new MainForm();
-            object[] oldObjects = mForm.getCurrentSetup(binary);
-
-            oldObjects[fileIndex] = newObject;
-            writeBinary(binary, oldObjects);*/
-        }
-
-        public static byte[] DefaultColors()
-        {
-            return new byte[] 
-            {
-                0, 0, 0, //2            1
-                255, 255, 255,//5       2
-                227, 176, 255, //8      3
-                151, 142, 153, //11     4
-                44, 44, 44, //14        5
-                64, 0, 64,  //17        6
-                50, 50, 50,//20         7 
-                64, 64, 64,//23         8
-                111, 74, 113 //26       9
-            };
-        }
-
-        public static Color getCustomColor(byte index)
-        {
-            //return Color.FromArgb(ColorScheme[(index - 2) * 3], ColorScheme[((index - 2) * 3) + 1], ColorScheme[((index - 2) * 3) + 2]);
-            return Color.FromArgb(ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2]);
-        }
-
-        public static void writeBinary(string file, object[] objects)
-        {
-            using(BinaryWriter bw = new BinaryWriter(new FileStream(file, FileMode.Create)))
+            using(BinaryWriter bw = new BinaryWriter(new FileStream(binary, FileMode.Create)))
             {
                 foreach (object o in objects)
                 {
@@ -256,57 +234,10 @@ namespace MP4toMP3Converter
                 }
             }
 
-            using(BinaryReader br = new BinaryReader(new FileStream(file, FileMode.Open)))
+            using(BinaryReader br = new BinaryReader(new FileStream(binary, FileMode.Open)))
             {
                 Debug.WriteLine(br.ReadInt32());
             }
-        }
-
-        #endregion
-
-        #region dynamicSecondaryMethods
-
-        private void CreateDefaultSetupFile()
-        {
-            StreamWriter sw = new StreamWriter(SetupFile);
-            sw.WriteLine(" - THIS IS AN AUTOMATICALLY GENERATED FILE BY THORIUM.EXE. -");
-            sw.WriteLine(" - DO NOT CHANGE THIS FILE MANUALLY IF YOU DONT KNOW WHAT YOU ARE DOING. - ");
-            sw.WriteLine(" - IF YOU DID A CHANGE AND THE PROGRAM ISNT WORKING PROPERLY, TRY DELETING THIS FILE. - ");
-            sw.WriteLine();
-            sw.WriteLine("SetupMode <Default>");
-            sw.WriteLine("ColorScheme: Disabled"); 
-            sw.WriteLine("000 000 000 255 255 255 227 176 255 151 142 153 044 044 044 064 000 064 050 050 050 064 064 064 111 074 113");
-            sw.WriteLine("006");
-            sw.WriteLine("Default");
-            sw.WriteLine("Default");
-            sw.Close();
-        }
-
-        private void ShowSubMenus(Panel panel)
-        {
-            if (panel.Visible == false)
-            {
-                sub1panel.Visible = false;
-                sub2panel.Visible = false;
-                panel.Visible = true;
-            }
-            else panel.Visible = false;
-        }
-
-        private void OpenChildForm(Form ChildForm)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = ChildForm;
-            ChildForm.TopLevel = false;
-            ChildForm.FormBorderStyle = FormBorderStyle.None;
-            ChildForm.Dock = DockStyle.Fill;
-            FormPanel.Controls.Add(ChildForm);
-            FormPanel.Tag = ChildForm;
-            ChildForm.BringToFront();
-            ChildForm.Show();
         }
 
         #endregion
@@ -315,70 +246,9 @@ namespace MP4toMP3Converter
 
         private void readSetup()
         {
-            if (File.Exists(SetupFile) == true)
-            {
-                if (getLine(SetupFile, 5).Substring(11, 7) == "Default")
-                {
-                    ColorScheme = DefaultColors();
-                    iconScheme = 6;
-                }
-                else
-                {
-                    string[] file = File.ReadAllLines(SetupFile);
-
-                    ColorScheme[0] = Convert.ToByte(file[6].Substring(0, 3));
-                    ColorScheme[1] = Convert.ToByte(file[6].Substring(4, 3));
-                    ColorScheme[2] = Convert.ToByte(file[6].Substring(8, 3));
-                    ColorScheme[3] = Convert.ToByte(file[6].Substring(12, 3));
-                    ColorScheme[4] = Convert.ToByte(file[6].Substring(16, 3));
-                    ColorScheme[5] = Convert.ToByte(file[6].Substring(20, 3));
-                    ColorScheme[6] = Convert.ToByte(file[6].Substring(24, 3));
-                    ColorScheme[7] = Convert.ToByte(file[6].Substring(28, 3));
-                    ColorScheme[8] = Convert.ToByte(file[6].Substring(32, 3));
-                    ColorScheme[9] = Convert.ToByte(file[6].Substring(36, 3));
-                    ColorScheme[10] = Convert.ToByte(file[6].Substring(40, 3));
-                    ColorScheme[11] = Convert.ToByte(file[6].Substring(44, 3));
-                    ColorScheme[12] = Convert.ToByte(file[6].Substring(48, 3));
-                    ColorScheme[13] = Convert.ToByte(file[6].Substring(52, 3));
-                    ColorScheme[14] = Convert.ToByte(file[6].Substring(56, 3));
-                    ColorScheme[15] = Convert.ToByte(file[6].Substring(60, 3));
-                    ColorScheme[16] = Convert.ToByte(file[6].Substring(64, 3));
-                    ColorScheme[17] = Convert.ToByte(file[6].Substring(68, 3));
-                    ColorScheme[18] = Convert.ToByte(file[6].Substring(72, 3));
-                    ColorScheme[19] = Convert.ToByte(file[6].Substring(76, 3));
-                    ColorScheme[20] = Convert.ToByte(file[6].Substring(80, 3));
-                    ColorScheme[21] = Convert.ToByte(file[6].Substring(84, 3));
-                    ColorScheme[22] = Convert.ToByte(file[6].Substring(88, 3));
-                    ColorScheme[23] = Convert.ToByte(file[6].Substring(92, 3));
-                    ColorScheme[24] = Convert.ToByte(file[6].Substring(96, 3));
-                    ColorScheme[25] = Convert.ToByte(file[6].Substring(100, 3));
-                    ColorScheme[26] = Convert.ToByte(file[6].Substring(104, 3));
-
-                    iconScheme = Convert.ToByte(file[7].Substring(0, 3));
-
-                    if (file[8].Trim() != "Default")
-                    {
-                        customFilepathEnalbled[0] = true;
-                        customFilepaths[0] = file[8].Trim();
-                    }
-                    if (file[9].Trim() != "Default")
-                    {
-                        customFilepathEnalbled[1] = true;
-                        customFilepaths[1] = file[9].Trim();
-                    }
-                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
-                }
-            }
-            else
-            {
-                CreateDefaultSetupFile();
-                ColorScheme = DefaultColors();
-                iconScheme = 6;
-            }
-            
             if (File.Exists(binary) == true)
             {
-                object[] objects = getCurrentSetup(binary);
+                object[] objects = getCurrentSetup();
 
                 if(Convert.ToBoolean(objects[0]) == false)
                 {
@@ -416,10 +286,21 @@ namespace MP4toMP3Converter
             }
             else
             {
-                writeBinary(binary, new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default" });
+                writeBinary( new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default" });
                 ColorScheme = DefaultColors();
                 iconScheme = 6;
             }
+        }
+
+        private void ShowSubMenus(Panel panel)
+        {
+            if (panel.Visible == false)
+            {
+                sub1panel.Visible = false;
+                sub2panel.Visible = false;
+                panel.Visible = true;
+            }
+            else panel.Visible = false;
         }
 
         private void CustomColors()
@@ -557,16 +438,5 @@ namespace MP4toMP3Converter
         }
 
         #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            writeBinary(binary, new object[] { true, false, ColorScheme, Convert.ToByte(9), "fdgjfj", "jhosp" });
-            getCurrentSetup(binary);
-            //changeBinary(new byte[] { 0 }, new object[] { true }, null);
-            /*
-            object[] o = getCurrentSetup(binary);
-            o[7] = 2;
-            writeBinary(binary, o);*/
-        }
     }
 }
