@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Threading;
@@ -11,16 +12,16 @@ namespace MP4toMP3Converter
     public partial class SettingsForm : Form
     {
         private ColorSelectForm colorSelectForm;
-        private readonly MainForm f;
+        private readonly MainForm mainForm;
         private Thread thread;
         private readonly bool initComplete = false;
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
 
-        public SettingsForm(MainForm ff)
+        public SettingsForm(MainForm mainForm)
         {
-            f = ff;
+            this.mainForm = mainForm;
             InitializeComponent();
             CustomColors();
             fontInit();
@@ -147,9 +148,6 @@ namespace MP4toMP3Converter
         private void iconClick(byte iconIndex)
         {
             MainForm.iconScheme = iconIndex;
-            //MainForm.setLine(MainForm.SetupFile, 8, "00" + iconIndex.ToString());
-            //MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-
             MainForm.changeBinary(new byte[] { 29, 0 }, new object[] { Convert.ToByte(iconIndex), true }, null);
 
             PictureBox[] iconPictures = new PictureBox[] { icon1box, icon2box, icon3box, icon4box, icon5box, icon6box, icon7box, icon8box, icon9box };
@@ -176,27 +174,9 @@ namespace MP4toMP3Converter
             }
             else if (sender == applyChangesButton)
             {
-                string s = null;
-                foreach (byte b in MainForm.ColorScheme)
-                {
-                    if (b < 10)
-                    {
-                        s += "00" + b.ToString() + " ";
-                    }
-                    else if (b < 100)
-                    {
-                        s += "0" + b.ToString() + " ";
-                    }
-                    else s += b.ToString() + " ";
-                }
-
-                //MainForm.setLine(MainForm.SetupFile, 7, s);
-                //MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-
-                MainForm.changeBinary(new byte[] { 0, 1 }, new object[] { true, true }, MainForm.ColorScheme);
+                MainForm.changeBinary(new byte[] { }, new object[] { }, MainForm.ColorScheme);
                 MainForm.getCurrentSetup();
             }
-
         }
 
         #endregion
@@ -214,8 +194,6 @@ namespace MP4toMP3Converter
                     if (checkBox2.Checked == true)
                     {
                         changeLabelStyle(TempFilesLabel, true);
-                        //MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
-                        //MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
 
                         MainForm.changeBinary(new byte[] { 0, 30 }, new object[] { true, TempFilesLabel.Text }, null);
 
@@ -225,7 +203,6 @@ namespace MP4toMP3Converter
                     else
                     {
                         changeLabelStyle(TempFilesLabel, false);
-                        //MainForm.setLine(MainForm.SetupFile, 9, "Default");
                         MainForm.customFilepathEnalbled[0] = false;
                         MainForm.customFilepaths[0] = "Default";
 
@@ -242,7 +219,6 @@ namespace MP4toMP3Converter
                         changeLabelStyle(OutputPathLabel, true);
                         if (OutputPathLabel.Text.Substring(0, 8) == "..users\\")
                         {
-                            //MainForm.setLine(MainForm.SetupFile, 10, "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7));
                             MainForm.customFilepaths[1] = "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7);
                             MainForm.customFilepathEnalbled[1] = true;
 
@@ -250,7 +226,6 @@ namespace MP4toMP3Converter
                         }
                         else
                         {
-                           // MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
                             MainForm.customFilepathEnalbled[1] = true;
                             MainForm.customFilepaths[1] = OutputPathLabel.Text;
 
@@ -260,7 +235,7 @@ namespace MP4toMP3Converter
                     else
                     {
                         changeLabelStyle(OutputPathLabel, false);
-                       // MainForm.setLine(MainForm.SetupFile, 10, "Default");
+
                         MainForm.customFilepathEnalbled[1] = false;
                         MainForm.customFilepaths[1] = "Default";
 
@@ -288,11 +263,8 @@ namespace MP4toMP3Converter
                         sub1heading2.Visible = false;
                         setDefaultButton.Visible = false;
                         applyChangesButton.Visible = false;
-
                         MainForm.ColorScheme = MainForm.DefaultColors();
                         updateColors(this);
-
-                        //MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Disabled");
 
                         MainForm.changeBinary(new byte[] { 1 }, new object[] { false }, null);
 
@@ -314,7 +286,6 @@ namespace MP4toMP3Converter
                         sub1heading2.Visible = true;
                         setDefaultButton.Visible = true;
                         applyChangesButton.Visible = true;
-                        //MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Enabled.");
 
                         MainForm.changeBinary(new byte[] { 1 }, new object[] { true }, null);
                     }
@@ -468,61 +439,61 @@ namespace MP4toMP3Converter
         {
             settingsForm.CustomColors();
 
-            settingsForm.f.BackPanel.BackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.BackPanel.BackColor = MainForm.getCustomColor(5);
 
-            settingsForm.f.sub1panel.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.sub2panel.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.sub1panel.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.sub2panel.BackColor = MainForm.getCustomColor(8);
 
-            settingsForm.f.Sub1Button1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
-            settingsForm.f.Sub1Button2.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
-            settingsForm.f.Sub1Button3.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
-            settingsForm.f.Sub2Button1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
-            settingsForm.f.Sub2Button3.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
-            settingsForm.f.Sub2Button4.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub1Button1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub1Button2.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub1Button3.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub2Button1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub2Button3.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
+            settingsForm.mainForm.Sub2Button4.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(9);
 
-            settingsForm.f.Sub1Button1.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub1Button2.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub1Button3.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button1.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button3.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button4.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.sub1panel.BackColor = MainForm.getCustomColor(8);
-            settingsForm.f.sub2panel.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button1.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button2.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button3.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button1.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button3.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button4.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.sub1panel.BackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.sub2panel.BackColor = MainForm.getCustomColor(8);
 
-            settingsForm.f.Sub1Button1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub1Button2.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub1Button3.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button3.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
-            settingsForm.f.Sub2Button4.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button2.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub1Button3.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button3.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
+            settingsForm.mainForm.Sub2Button4.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(8);
 
-            settingsForm.f.CloseButton.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
-            settingsForm.f.RestartButton.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
-            settingsForm.f.DropdownButton1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
-            settingsForm.f.DropdownButton2.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
+            settingsForm.mainForm.CloseButton.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
+            settingsForm.mainForm.RestartButton.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
+            settingsForm.mainForm.DropdownButton1.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
+            settingsForm.mainForm.DropdownButton2.FlatAppearance.MouseOverBackColor = MainForm.getCustomColor(6);
 
-            settingsForm.f.CloseButton.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
-            settingsForm.f.RestartButton.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
-            settingsForm.f.DropdownButton1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
-            settingsForm.f.DropdownButton2.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
-            settingsForm.f.DropdownButton1.BackColor = MainForm.getCustomColor(5);
-            settingsForm.f.DropdownButton2.BackColor = MainForm.getCustomColor(5);
-            settingsForm.f.sub0panel.BackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.CloseButton.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.RestartButton.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.DropdownButton1.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.DropdownButton2.FlatAppearance.MouseDownBackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.DropdownButton1.BackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.DropdownButton2.BackColor = MainForm.getCustomColor(5);
+            settingsForm.mainForm.sub0panel.BackColor = MainForm.getCustomColor(5);
 
-            settingsForm.f.panel1.BackColor = MainForm.getCustomColor(7);
-            settingsForm.f.CloseButton.BackColor = MainForm.getCustomColor(7);
-            settingsForm.f.RestartButton.BackColor = MainForm.getCustomColor(7);
+            settingsForm.mainForm.panel1.BackColor = MainForm.getCustomColor(7);
+            settingsForm.mainForm.CloseButton.BackColor = MainForm.getCustomColor(7);
+            settingsForm.mainForm.RestartButton.BackColor = MainForm.getCustomColor(7);
 
-            settingsForm.f.Sub1Button1.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.Sub1Button2.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.Sub1Button3.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.Sub2Button1.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.Sub2Button3.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.Sub2Button4.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.CloseButton.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.RestartButton.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.DropdownButton1.ForeColor = MainForm.getCustomColor(2);
-            settingsForm.f.DropdownButton2.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub1Button1.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub1Button2.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub1Button3.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub2Button1.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub2Button3.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.Sub2Button4.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.CloseButton.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.RestartButton.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.DropdownButton1.ForeColor = MainForm.getCustomColor(2);
+            settingsForm.mainForm.DropdownButton2.ForeColor = MainForm.getCustomColor(2);
 
 
             
@@ -605,7 +576,7 @@ namespace MP4toMP3Converter
                 checkBox3.Checked = true;
                 defaultPathButton.Enabled = true;
             }
-            
+
             if (Convert.ToBoolean(MainForm.getCurrentSetup()[1]) == false)
             {
                 if (initComplete == false)

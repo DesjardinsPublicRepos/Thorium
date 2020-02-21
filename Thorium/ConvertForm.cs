@@ -1,15 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Text;
 
@@ -85,18 +80,6 @@ namespace MP4toMP3Converter
 
                 Thread t = new Thread(() => convertLauncher(OutputFormat));
                 t.Start();
-                /*
-                BGTasks.Run(() =>
-                {
-                    try
-                    {
-                        OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, InputData, convertOptions);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine(ex);
-                    }
-                });*/
                 ItemListBox.Items.Clear();
             }
         }

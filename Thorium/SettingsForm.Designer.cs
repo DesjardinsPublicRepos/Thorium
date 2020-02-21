@@ -86,6 +86,7 @@
             this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl4 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuElipse8 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color7box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color5box2)).BeginInit();
@@ -807,6 +808,11 @@
             this.bunifuDragControl4.TargetControl = this.backPanel;
             this.bunifuDragControl4.Vertical = true;
             // 
+            // bunifuElipse8
+            // 
+            this.bunifuElipse8.ElipseRadius = 3;
+            this.bunifuElipse8.TargetControl = this.defaultPathButton;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,5 +917,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl4;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse8;
     }
 }
