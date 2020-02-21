@@ -34,9 +34,9 @@ namespace MP4toMP3Converter
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
         private readonly PrivateFontCollection fonts = new PrivateFontCollection();
 
-        private Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
+        public static Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
                                                      typeof(byte), typeof(string), typeof(string) };
-        private string binary = "C:\\users\\fabian\\downloads\\test.bin";
+        public static string binary = "C:\\users\\fabian\\downloads\\test.bin";
 
         public MainForm()
         {
@@ -112,7 +112,7 @@ namespace MP4toMP3Converter
 
         #region staticSecondaryMethods
 
-        public static string/*object*/ getLine(string fileName, int line/*byte index*/)
+        public static string getLine(string fileName, int line)
         {
             using (StreamReader streamreader = new StreamReader(fileName))
             {
@@ -124,19 +124,9 @@ namespace MP4toMP3Converter
                 streamreader.Close();
                 return text;
             }
-            /*
-            using(BinaryReader binaryReader = new BinaryReader(new FileStream(binary, FileMode.Open)))
-            {
-                for (int i = 0; i < index + 1; i++) binaryReader.Read();
-
-                var mForm = new MainForm();
-                return mForm.readNextObject(index, binaryReader);
-                
-                
-            }*/
         }
 
-        private object readNextObject(byte index, BinaryReader binaryReader)
+        public static object readNextObject(byte index, BinaryReader binaryReader)
         {
             object obj = new object();
 
@@ -158,18 +148,38 @@ namespace MP4toMP3Converter
             return obj;
         }
 
-        private object[] getCurrentSetup(string file)
+        public static object[] getCurrentSetup(string file)
         {
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(file, FileMode.Open)))
             {
                 object[] newObjects = new object[32];
 
-                for(int i = 0; i < 32; i++)
+                for(int i = 0; i < setupFileTypes.Length; i++)
                 {
                     newObjects[i] = readNextObject(Convert.ToByte(i), binaryReader);
                 }
                 return newObjects;
             }
+        }
+
+        public static void changeBinary(byte[] itemIndexes, object[] newObjects, byte[] colors)
+        {
+            object[] oldObjects = getCurrentSetup(binary);
+
+            if (colors != null)
+            {
+                for(int i = 0; i < 27; i++)
+                {
+                    oldObjects[i + 2] = colors[i];
+                }
+            }
+            
+            for (int i = 0; i < itemIndexes.Length; i++)
+            {
+                oldObjects[itemIndexes[i]] = newObjects[i];
+            }
+            
+            writeBinary(binary, oldObjects);
         }
 
         public static void setLine(string fileName, int line,/* byte fileIndex, object newObject*/ string text)
@@ -388,17 +398,17 @@ namespace MP4toMP3Converter
                             ColorScheme[i] = Convert.ToByte(objects[i + 2]);
                         }
                     }
-                    iconScheme = Convert.ToByte(objects[30]);
+                    iconScheme = Convert.ToByte(objects[29]);
 
-                    if (objects[31].ToString().Trim() != "Default")
+                    if (objects[30].ToString().Trim() != "Default")
                     {
                         customFilepathEnalbled[0] = true;
-                        customFilepaths[0] = objects[31].ToString();
+                        customFilepaths[0] = objects[30].ToString();
                     }
-                    if (objects[32].ToString().Trim() != "Default")
+                    if (objects[31].ToString().Trim() != "Default")
                     {
                         customFilepathEnalbled[1] = true;
-                        customFilepaths[1] = objects[32].ToString();
+                        customFilepaths[1] = objects[31].ToString();
                     }
 
                     Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
@@ -550,9 +560,13 @@ namespace MP4toMP3Converter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            writeBinary(binary, new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default"});
-
+            writeBinary(binary, new object[] { true, false, ColorScheme, Convert.ToByte(9), "fdgjfj", "jhosp" });
             getCurrentSetup(binary);
+            //changeBinary(new byte[] { 0 }, new object[] { true }, null);
+            /*
+            object[] o = getCurrentSetup(binary);
+            o[7] = 2;
+            writeBinary(binary, o);*/
         }
     }
 }

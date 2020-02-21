@@ -150,6 +150,9 @@ namespace MP4toMP3Converter
             MainForm.setLine(MainForm.SetupFile, 8, "00" + iconIndex.ToString());
             MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
 
+            MainForm.changeBinary(new byte[] { 29, 0 }, new object[] { Convert.ToByte(iconIndex), true }, null);
+            MainForm.getCurrentSetup(MainForm.binary);
+
             PictureBox[] iconPictures = new PictureBox[] { icon1box, icon2box, icon3box, icon4box, icon5box, icon6box, icon7box, icon8box, icon9box };
 
             foreach (PictureBox iconPicture in iconPictures)
@@ -190,6 +193,9 @@ namespace MP4toMP3Converter
 
                 MainForm.setLine(MainForm.SetupFile, 7, s);
                 MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
+
+                MainForm.changeBinary(new byte[] { 0 }, new object[] { true }, MainForm.ColorScheme);
+                MainForm.getCurrentSetup(MainForm.binary);
             }
 
         }
@@ -211,6 +217,9 @@ namespace MP4toMP3Converter
                         changeLabelStyle(TempFilesLabel, true);
                         MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
                         MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
+
+                        //MainForm.writeBinary(MainForm.binary, new object[] { });
+
                         MainForm.customFilepathEnalbled[0] = true;
                         MainForm.customFilepaths[0] = TempFilesLabel.Text;
                     }
