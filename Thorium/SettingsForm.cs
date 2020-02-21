@@ -151,7 +151,6 @@ namespace MP4toMP3Converter
             MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
 
             MainForm.changeBinary(new byte[] { 29, 0 }, new object[] { Convert.ToByte(iconIndex), true }, null);
-            MainForm.getCurrentSetup(MainForm.binary);
 
             PictureBox[] iconPictures = new PictureBox[] { icon1box, icon2box, icon3box, icon4box, icon5box, icon6box, icon7box, icon8box, icon9box };
 
@@ -194,7 +193,7 @@ namespace MP4toMP3Converter
                 MainForm.setLine(MainForm.SetupFile, 7, s);
                 MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
 
-                MainForm.changeBinary(new byte[] { 0 }, new object[] { true }, MainForm.ColorScheme);
+                MainForm.changeBinary(new byte[] { 0, 1 }, new object[] { true, true }, MainForm.ColorScheme);
                 MainForm.getCurrentSetup(MainForm.binary);
             }
 
@@ -218,7 +217,7 @@ namespace MP4toMP3Converter
                         MainForm.setLine(MainForm.SetupFile, 5, "SetupMode <Custom>");
                         MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
 
-                        //MainForm.writeBinary(MainForm.binary, new object[] { });
+                        MainForm.changeBinary(new byte[] { 0, 30 }, new object[] { true, TempFilesLabel.Text }, null);
 
                         MainForm.customFilepathEnalbled[0] = true;
                         MainForm.customFilepaths[0] = TempFilesLabel.Text;
@@ -229,6 +228,8 @@ namespace MP4toMP3Converter
                         MainForm.setLine(MainForm.SetupFile, 9, "Default");
                         MainForm.customFilepathEnalbled[0] = false;
                         MainForm.customFilepaths[0] = "Default";
+
+                        MainForm.changeBinary(new byte[] { 30 }, new object[] { "Default" }, null);
                     }
                 }
             }
@@ -244,12 +245,16 @@ namespace MP4toMP3Converter
                             MainForm.setLine(MainForm.SetupFile, 10, "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7));
                             MainForm.customFilepaths[1] = "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7);
                             MainForm.customFilepathEnalbled[1] = true;
+
+                            MainForm.changeBinary(new byte[] { 31, 0 }, new object[] { ("C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7)).ToString(), true }, null);
                         }
                         else
                         {
                             MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
                             MainForm.customFilepathEnalbled[1] = true;
                             MainForm.customFilepaths[1] = OutputPathLabel.Text;
+
+                            MainForm.changeBinary(new byte[] { 31, 0 }, new object[] { OutputPathLabel.Text.ToString(), true }, null);
                         }
                     }
                     else
@@ -257,7 +262,9 @@ namespace MP4toMP3Converter
                         changeLabelStyle(OutputPathLabel, false);
                         MainForm.setLine(MainForm.SetupFile, 10, "Default");
                         MainForm.customFilepathEnalbled[1] = false;
-                        MainForm.customFilepaths[1] = "Default";                  
+                        MainForm.customFilepaths[1] = "Default";
+
+                        MainForm.changeBinary(new byte[] { 31 }, new object[] { "Default" }, null);
                     }
                 }
             }
@@ -286,6 +293,9 @@ namespace MP4toMP3Converter
                         updateColors(this);
 
                         MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Disabled");
+
+                        MainForm.changeBinary(new byte[] { 1 }, new object[] { false }, null);
+
                         SettingsFormButtonClicked(applyChangesButton, null);
                     }
                     else
@@ -305,6 +315,8 @@ namespace MP4toMP3Converter
                         setDefaultButton.Visible = true;
                         applyChangesButton.Visible = true;
                         MainForm.setLine(MainForm.SetupFile, 6, "ColorScheme: Enabled.");
+
+                        MainForm.changeBinary(new byte[] { 1 }, new object[] { true }, null);
                     }
                 }
             }
@@ -417,6 +429,8 @@ namespace MP4toMP3Converter
             {
                 MainForm.setLine(MainForm.SetupFile, 9, TempFilesLabel.Text);
                 MainForm.customFilepaths[0] = TempFilesLabel.Text;
+
+                MainForm.changeBinary(new byte[] { 0, 30 }, new object[] { true, TempFilesLabel.Text.ToString() }, null);
             }
             else if (sender == OutputPathLabel)
             {
@@ -426,17 +440,23 @@ namespace MP4toMP3Converter
                     {
                         MainForm.setLine(MainForm.SetupFile, 10, "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7));
                         MainForm.customFilepaths[1] = "C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7);
+
+                        MainForm.changeBinary(new byte[] { 0, 31 }, new object[] { true, ("C:\\Users\\" + Environment.UserName + OutputPathLabel.Text.Substring(7, OutputPathLabel.Text.Length - 7)).ToString() }, null);
                     }
                     else
                     {
                         MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
                         MainForm.customFilepaths[1] = OutputPathLabel.Text;
+
+                        MainForm.changeBinary(new byte[] { 0, 31 }, new object[] { true, OutputPathLabel.Text.ToString() }, null);
                     }
                 }
                 catch (Exception)
                 {
                     MainForm.setLine(MainForm.SetupFile, 10, OutputPathLabel.Text);
                     MainForm.customFilepaths[1] = OutputPathLabel.Text;
+
+                    MainForm.changeBinary(new byte[] { 0, 31 }, new object[] { true, OutputPathLabel.Text.ToString() }, null);
                 }
             }
         }
@@ -581,7 +601,7 @@ namespace MP4toMP3Converter
                 defaultPathButton.Enabled = true;
             }
             
-            if (MainForm.getLine(MainForm.SetupFile, 6).Substring(13, 8) == "Disabled")
+            if (Convert.ToBoolean(MainForm.getCurrentSetup(MainForm.binary)[1]) == false)
             {
                 if (initComplete == false)
                 {
