@@ -494,9 +494,6 @@ namespace MP4toMP3Converter
             settingsForm.mainForm.RestartButton.ForeColor = MainForm.getCustomColor(2);
             settingsForm.mainForm.DropdownButton1.ForeColor = MainForm.getCustomColor(2);
             settingsForm.mainForm.DropdownButton2.ForeColor = MainForm.getCustomColor(2);
-
-
-            
         }
 
         private void CustomColors()
@@ -513,13 +510,15 @@ namespace MP4toMP3Converter
             setDefaultButton.OnHovercolor = MainForm.getCustomColor(6);
             setDefaultButton.ForeColor = MainForm.getCustomColor(2);
             setDefaultButton.OnHoverTextColor = MainForm.getCustomColor(2);
+            setDefaultButton.Textcolor = MainForm.getCustomColor(2);
 
             applyChangesButton.BackColor = MainForm.getCustomColor(8);
             applyChangesButton.Activecolor = MainForm.getCustomColor(8);
             applyChangesButton.Normalcolor = MainForm.getCustomColor(8);
             applyChangesButton.OnHovercolor = MainForm.getCustomColor(6);
-            applyChangesButton.ForeColor = MainForm.getCustomColor(2);
             applyChangesButton.OnHoverTextColor = MainForm.getCustomColor(2);
+            applyChangesButton.ForeColor = MainForm.getCustomColor(2);
+            applyChangesButton.Textcolor = MainForm.getCustomColor(2);
 
             Heading1.ForeColor = MainForm.getCustomColor(2);
             Heading2.ForeColor = MainForm.getCustomColor(2);
@@ -539,6 +538,21 @@ namespace MP4toMP3Converter
             color6box.BackColor = MainForm.getCustomColor(7);
             color7box.BackColor = MainForm.getCustomColor(8);
             color7box2.BackColor = MainForm.getCustomColor(9);
+
+
+            TempFilesLabel.ForeColor = MainForm.getCustomColor(2);
+            TempFilesLabel.LineIdleColor = MainForm.getCustomColor(4);
+            TempFilesLabel.LineFocusedColor = MainForm.getCustomColor(3);
+            TempFilesLabel.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            OutputPathLabel.ForeColor = MainForm.getCustomColor(2);
+            OutputPathLabel.LineIdleColor = MainForm.getCustomColor(4);
+            OutputPathLabel.LineFocusedColor = MainForm.getCustomColor(3);
+            OutputPathLabel.LineMouseHoverColor = MainForm.getCustomColor(3);
+
+            tmpFilePathButton.BackColor = MainForm.getCustomColor(4);
+            defaultPathButton.BackColor = MainForm.getCustomColor(4);
+
 
             this.Size = new Size(760, 580);
 

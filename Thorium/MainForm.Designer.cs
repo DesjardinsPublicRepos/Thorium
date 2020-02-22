@@ -61,6 +61,9 @@
             this.IconPictureBoxDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.OpenOutput = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.BackPanel.SuspendLayout();
             this.sub2panel.SuspendLayout();
             this.sub1panel.SuspendLayout();
@@ -301,9 +304,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Location = new System.Drawing.Point(130, 0);
+            this.panel1.Location = new System.Drawing.Point(128, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(130, 29);
+            this.panel1.Size = new System.Drawing.Size(134, 29);
             this.panel1.TabIndex = 3;
             // 
             // RestartButton
@@ -316,7 +319,7 @@
             this.RestartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.RestartButton.Location = new System.Drawing.Point(65, 0);
+            this.RestartButton.Location = new System.Drawing.Point(64, -1);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RestartButton.Size = new System.Drawing.Size(64, 29);
@@ -336,7 +339,7 @@
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CloseButton.Location = new System.Drawing.Point(0, 0);
+            this.CloseButton.Location = new System.Drawing.Point(0, -1);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.CloseButton.Size = new System.Drawing.Size(64, 29);
@@ -479,6 +482,21 @@
             this.bunifuDragControl1.TargetControl = this.panel1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 3;
+            this.bunifuElipse1.TargetControl = this.CloseButton;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 3;
+            this.bunifuElipse2.TargetControl = this.RestartButton;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 3;
+            this.bunifuElipse3.TargetControl = this.panel1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,6 +558,9 @@
         public System.Windows.Forms.Button RestartButton;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         public System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
     }
 }
 
