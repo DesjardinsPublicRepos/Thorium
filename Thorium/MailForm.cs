@@ -4,14 +4,13 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 
 using MP4toMP3Converter.Properties;
+using System.Threading;
+using System.Diagnostics;
 
 namespace MP4toMP3Converter
 {
     public partial class MailForm : Form
     {
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
         public MailForm()
         {
             InitializeComponent();
@@ -23,13 +22,15 @@ namespace MP4toMP3Converter
 
         private void sendButtonClick(object sender, EventArgs e)
         {
-            try
+            if (MainForm.mailTimer.IsRunning == false | MainForm.mailTimer.ElapsedMilliseconds > 300000 )
             {
+                MainForm.mailTimer.Start();
                 OutsourcedFunctions.sendMail(MailBox.Text, "Desjardinslegedz@icloud.com", SubjectBox.Text, BodyTextBox.Text, "smtp-mail.outlook.com", MailBox.Text, PasswordBox.Text);
             }
-            catch (Exception ee)
+            else
             {
-                MessageBox.Show("Please check if your inputted data is correct. Maybe the Name of the exception helps: " + ee, "Oops, something went wrong there!", MessageBoxButtons.OK);
+                Thread thread = new Thread(() => OutsourcedFunctions.showForm(new ErrorForm("E-Mail could not be sent", "It seems like you have sent an E-Mail a while before. Please note that the amount of E-Mails you can send is limited to one a day.")));
+                thread.Start();
             }
         }
 
@@ -128,21 +129,20 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-            PrivateFontCollection fonts = new PrivateFontCollection();
             byte[] fontData = Resources.CG;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint dummy = 0;
 
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            MainForm.fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            MainForm.AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             OutsourcedFunctions o = new OutsourcedFunctions();
 
-            o.changeFont(new Control[] { Heading }, new Font(fonts.Families[0], 26.25f));
+            o.changeFont(new Control[] { Heading }, new Font(MainForm.fonts.Families[0], 26.25f));
 
-            o.changeFont(new Control[] { SubjectBox, MailBox, PasswordBox, BodyTextBox, sendButton }, new Font(fonts.Families[0], 9.75f));
+            o.changeFont(new Control[] { SubjectBox, MailBox, PasswordBox, BodyTextBox, sendButton }, new Font(MainForm.fonts.Families[0], 9.75f));
         }
 
         #endregion

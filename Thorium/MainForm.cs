@@ -20,12 +20,14 @@ namespace MP4toMP3Converter
         private Form activeForm = null;
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private readonly PrivateFontCollection fonts = new PrivateFontCollection();
+        public static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        public static readonly PrivateFontCollection fonts = new PrivateFontCollection();
 
         public static Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
                                                      typeof(byte), typeof(string), typeof(string) };
-        public static string binary = "settings.bin"; 
+        public static string binary = "settings.bin";
+
+        public static Stopwatch mailTimer = new Stopwatch();
 
         public MainForm()
         {
@@ -253,7 +255,7 @@ namespace MP4toMP3Converter
                 if(Convert.ToBoolean(objects[0]) == false)
                 {
                     ColorScheme = DefaultColors();
-                    iconScheme = 6;
+                    iconScheme = 5;
                 }
                 else
                 {
@@ -286,9 +288,9 @@ namespace MP4toMP3Converter
             }
             else
             {
-                writeBinary( new object[] { false, false, DefaultColors(), Convert.ToByte(6), "Default", "Default" });
+                writeBinary( new object[] { false, false, DefaultColors(), Convert.ToByte(5), "Default", "Default" });
                 ColorScheme = DefaultColors();
-                iconScheme = 6;
+                iconScheme = 5;
             }
         }
 

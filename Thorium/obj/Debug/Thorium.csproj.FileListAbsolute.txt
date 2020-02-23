@@ -46,3 +46,4 @@ C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.applica
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.csproj.CopyComplete
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.exe
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.pdb
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.ErrorForm.resources

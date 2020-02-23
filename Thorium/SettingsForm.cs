@@ -16,9 +16,6 @@ namespace MP4toMP3Converter
         private Thread thread;
         private readonly bool initComplete = false;
 
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
         public SettingsForm(MainForm mainForm)
         {
             this.mainForm = mainForm;
@@ -503,7 +500,7 @@ namespace MP4toMP3Converter
             panel1.BackColor = MainForm.getCustomColor(8);
             panel2.BackColor = MainForm.getCustomColor(8);
             panel3.BackColor = MainForm.getCustomColor(8);
-
+            
             setDefaultButton.BackColor = MainForm.getCustomColor(8);
             setDefaultButton.Activecolor = MainForm.getCustomColor(8);
             setDefaultButton.Normalcolor = MainForm.getCustomColor(8);
@@ -511,7 +508,7 @@ namespace MP4toMP3Converter
             setDefaultButton.ForeColor = MainForm.getCustomColor(2);
             setDefaultButton.OnHoverTextColor = MainForm.getCustomColor(2);
             setDefaultButton.Textcolor = MainForm.getCustomColor(2);
-
+            
             applyChangesButton.BackColor = MainForm.getCustomColor(8);
             applyChangesButton.Activecolor = MainForm.getCustomColor(8);
             applyChangesButton.Normalcolor = MainForm.getCustomColor(8);
@@ -616,23 +613,22 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-            PrivateFontCollection fonts = new PrivateFontCollection();
             byte[] fontData = Resources.CG;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint dummy = 0;
 
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            MainForm.fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
+            MainForm.AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             OutsourcedFunctions o = new OutsourcedFunctions();
 
-            o.changeFont(new Control[] { Heading1, Heading2, Heading3 }, new Font(fonts.Families[0], 26.25f));
+            o.changeFont(new Control[] { Heading1, Heading2, Heading3 }, new Font(MainForm.fonts.Families[0], 26.25f));
 
-            o.changeFont(new Control[] { checkBox1, checkBox2, checkBox3, TempFilesLabel, OutputPathLabel, applyChangesButton, setDefaultButton }, new Font(fonts.Families[0], 9.75f));
+            o.changeFont(new Control[] { checkBox1, checkBox2, checkBox3, TempFilesLabel, OutputPathLabel, applyChangesButton, setDefaultButton }, new Font(MainForm.fonts.Families[0], 9.75f));
 
-            o.changeFont(new Control[] { sub1heading1, sub1heading2 }, new Font(fonts.Families[0], 20.25f));
+            o.changeFont(new Control[] { sub1heading1, sub1heading2 }, new Font(MainForm.fonts.Families[0], 20.25f));
         }
         #endregion
 

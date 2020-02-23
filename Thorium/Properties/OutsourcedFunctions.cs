@@ -153,21 +153,28 @@ namespace MP4toMP3Converter.Properties
 
                 if (e.GetType().FullName == "System.FormatException")
                 {
-
-                    MessageBox.Show("It seems like your inputted Data has not the correct format. Maybe the Name of the exception helps: " + e.GetType().FullName, "Oops, something went wrong there!", MessageBoxButtons.OK);
+                    Thread thread = new Thread(() => showForm(new ErrorForm("Something went wrong here.", "It seems like your inputted Data has not the correct format. Maybe the Name of the exception helps: " + e.GetType().FullName)));
+                    thread.Start();
                 }
                 else if (e.GetType().FullName == "System.Net.Mail.SmtpException")
                 {
 
-                    MessageBox.Show("It seems like there went something wrong with the authentication. Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e.GetType().FullName, "Oops, something went wrong there!", MessageBoxButtons.OK);
+                    Thread thread = new Thread(() => showForm(new ErrorForm("Something went wrong here.", "It seems like there went something wrong with the authentication. Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e.GetType().FullName)));
+                    thread.Start();
                 }
                 else
                 {
-                    MessageBox.Show("Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e.GetType().FullName, "Oops, something went wrong there!", MessageBoxButtons.OK);
+                    Thread thread = new Thread(() => showForm(new ErrorForm("Something went wrong here.", "Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e.GetType().FullName)));
+                    thread.Start();
                 }
             }
         }
-        
+
+        public static void showForm(Form form)
+        {
+            Application.Run(form);
+        }
+
         public static Control GetControlByName(string name, Form form)
         {
             foreach (Control c in form.Controls)
