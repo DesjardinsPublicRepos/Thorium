@@ -83,20 +83,20 @@ namespace MP4toMP3Converter.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap avatar {
+        internal static System.Drawing.Bitmap _7e12bc49ebf1675f0fc79d3c80c85d3b_1_4_png {
             get {
-                object obj = ResourceManager.GetObject("avatar", resourceCulture);
+                object obj = ResourceManager.GetObject("7e12bc49ebf1675f0fc79d3c80c85d3b-1-4.png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] CG {
+        internal static System.Drawing.Bitmap avatar {
             get {
-                object obj = ResourceManager.GetObject("CG", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -211,6 +211,36 @@ namespace MP4toMP3Converter.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] font_primary {
+            get {
+                object obj = ResourceManager.GetObject("font_primary", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] font_secondary {
+            get {
+                object obj = ResourceManager.GetObject("font_secondary", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] font_slim {
+            get {
+                object obj = ResourceManager.GetObject("font_slim", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap icons8_arrow_96px {
@@ -271,16 +301,6 @@ namespace MP4toMP3Converter.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] mss {
-            get {
-                object obj = ResourceManager.GetObject("mss", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap newLoad {
@@ -297,16 +317,6 @@ namespace MP4toMP3Converter.Properties {
             get {
                 object obj = ResourceManager.GetObject("Pichon-Icons8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] Playball {
-            get {
-                object obj = ResourceManager.GetObject("Playball", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

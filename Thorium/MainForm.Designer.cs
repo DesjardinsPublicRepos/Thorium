@@ -401,7 +401,6 @@
             // IconPictureBox
             // 
             this.IconPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.IconPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.coal_lila;
             this.IconPictureBox.Location = new System.Drawing.Point(308, 144);
             this.IconPictureBox.Name = "IconPictureBox";
             this.IconPictureBox.Size = new System.Drawing.Size(170, 170);
@@ -467,7 +466,6 @@
             // 
             this.OpenOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OpenOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.OpenOutput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
             this.OpenOutput.Location = new System.Drawing.Point(1086, 72);
             this.OpenOutput.Name = "OpenOutput";
             this.OpenOutput.Size = new System.Drawing.Size(28, 20);

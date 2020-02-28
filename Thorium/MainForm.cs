@@ -393,13 +393,13 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-            byte[] fontData = Resources.mss;
+            byte[] fontData = Resources.font_primary;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint uint1 = 0;
 
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            fonts.AddMemoryFont(fontPtr, Resources.mss.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.mss.Length, IntPtr.Zero, ref uint1);
+            fonts.AddMemoryFont(fontPtr, Resources.font_primary.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.font_primary.Length, IntPtr.Zero, ref uint1);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             OutsourcedFunctions o = new OutsourcedFunctions();
@@ -412,13 +412,13 @@ namespace MP4toMP3Converter
 
             o.changeFont(new Control[] { InfoLabel1 }, new Font(fonts.Families[0], 21.75f));
 
-            byte[] fontData0 = Resources.Playball;
+            byte[] fontData0 = Resources.font_secondary;
             IntPtr fontPtr0 = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint uint2 = 1;
 
             System.Runtime.InteropServices.Marshal.Copy(fontData0, 0, fontPtr0, fontData0.Length);
-            fonts.AddMemoryFont(fontPtr0, Resources.Playball.Length);
-            AddFontMemResourceEx(fontPtr0, (uint)Properties.Resources.Playball.Length, IntPtr.Zero, ref uint2);
+            fonts.AddMemoryFont(fontPtr0, Resources.font_secondary.Length);
+            AddFontMemResourceEx(fontPtr0, (uint)Properties.Resources.font_secondary.Length, IntPtr.Zero, ref uint2);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr0);
 
             o.changeFont(new Control[] { InfoLabel2 }, new Font(fonts.Families[1], 48f));

@@ -106,7 +106,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MP4toMP3Converter.Properties.Resources.newLoad;
+            this.pictureBox1.Image = Properties.Resources.newLoad;
             this.pictureBox1.Location = new System.Drawing.Point(184, 126);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);

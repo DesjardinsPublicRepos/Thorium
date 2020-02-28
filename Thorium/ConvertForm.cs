@@ -260,13 +260,13 @@ namespace MP4toMP3Converter
 
         private void fontInit()
         {
-            byte[] fontData = Resources.CG;
+            byte[] fontData = Resources.font_slim;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             uint dummy = 0;
 
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            MainForm.fonts.AddMemoryFont(fontPtr, Resources.CG.Length);
-            MainForm.AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CG.Length, IntPtr.Zero, ref dummy);
+            MainForm.fonts.AddMemoryFont(fontPtr, Resources.font_slim.Length);
+            MainForm.AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.font_slim.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             OutsourcedFunctions o = new OutsourcedFunctions();
