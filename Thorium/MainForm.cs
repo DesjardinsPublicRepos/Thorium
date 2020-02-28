@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
-using MP4toMP3Converter.Properties;
+using Thorium.Properties;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class MainForm : Form
     {
@@ -49,22 +50,19 @@ namespace MP4toMP3Converter
 
         private void Sub1Button1_Click(object sender, EventArgs e)
         {
-            ConvertForm.InputData = new string[50];
-            ConvertForm.InputName = new string[50];
+            ConvertForm.InputData = new List<string>();
             OpenChildForm(new ConvertForm("convert"));
         }
 
         private void Sub1Button2Click(object sender, EventArgs e)
         {
-            ConvertForm.InputData = new string[50];
-            ConvertForm.InputName = new string[50];
+            ConvertForm.InputData = new List<string>();
             OpenChildForm(new ConvertForm("combine"));
         }
 
         private void Sub1Button3_Click(object sender, EventArgs e)
         {
-            ConvertForm.InputData = new string[50];
-            ConvertForm.InputName = new string[50];
+            ConvertForm.InputData = new List<string>();
             OpenChildForm(new ConvertForm("convertCombine"));
         }
 

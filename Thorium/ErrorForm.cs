@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class ErrorForm : Form
     {

@@ -3,11 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Text;
 
-using MP4toMP3Converter.Properties;
+using Thorium.Properties;
 using System.Threading;
 using System.Diagnostics;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class MailForm : Form
     {

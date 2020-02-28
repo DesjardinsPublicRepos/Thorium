@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MP4toMP3Converter.Properties
+namespace Thorium.Properties
 {
 
 

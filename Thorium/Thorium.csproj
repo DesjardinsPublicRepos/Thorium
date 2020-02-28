@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Thorium</ProductName>
     <PublisherName>Desjardins</PublisherName>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -174,14 +174,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Properties\OutsourcedFunctions.cs" />
-    <None Include="Properties\CG.ttf" />
     <None Include="Properties\font-primary.ttf" />
     <None Include="Properties\font-secondary.ttf" />
     <None Include="Properties\font-slim.ttf" />
     <None Include="Thorium_aryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="Properties\mss.ttf" />
-    <None Include="Properties\Playball.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

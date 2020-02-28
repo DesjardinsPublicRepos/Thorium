@@ -1,4 +1,4 @@
-﻿namespace MP4toMP3Converter
+﻿namespace Thorium
 {
     partial class AuthorForm
     {
@@ -240,7 +240,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::MP4toMP3Converter.Properties.Resources._7e12bc49ebf1675f0fc79d3c80c85d3b_1_4_png;
+            this.pictureBox1.Image = global::Thorium.Properties.Resources._7e12bc49ebf1675f0fc79d3c80c85d3b_1_4_png;
             this.pictureBox1.Location = new System.Drawing.Point(517, 42);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(76, 76);
@@ -252,7 +252,7 @@
             // AspNETPictureBox
             // 
             this.AspNETPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AspNETPictureBox.Image = global::MP4toMP3Converter.Properties.Resources._59339595;
+            this.AspNETPictureBox.Image = global::Thorium.Properties.Resources._59339595;
             this.AspNETPictureBox.Location = new System.Drawing.Point(405, 43);
             this.AspNETPictureBox.Name = "AspNETPictureBox";
             this.AspNETPictureBox.Size = new System.Drawing.Size(74, 74);
@@ -264,7 +264,7 @@
             // BunifuPictureBox
             // 
             this.BunifuPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BunifuPictureBox.Image = global::MP4toMP3Converter.Properties.Resources._33341147;
+            this.BunifuPictureBox.Image = global::Thorium.Properties.Resources._33341147;
             this.BunifuPictureBox.Location = new System.Drawing.Point(291, 38);
             this.BunifuPictureBox.Name = "BunifuPictureBox";
             this.BunifuPictureBox.Size = new System.Drawing.Size(80, 80);
@@ -276,7 +276,7 @@
             // Icons8PictureBox
             // 
             this.Icons8PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Icons8PictureBox.Image = global::MP4toMP3Converter.Properties.Resources.Pichon_Icons8;
+            this.Icons8PictureBox.Image = global::Thorium.Properties.Resources.Pichon_Icons8;
             this.Icons8PictureBox.Location = new System.Drawing.Point(42, 38);
             this.Icons8PictureBox.Name = "Icons8PictureBox";
             this.Icons8PictureBox.Size = new System.Drawing.Size(80, 80);
@@ -288,7 +288,7 @@
             // NRecoPictureBox
             // 
             this.NRecoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NRecoPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.avatar;
+            this.NRecoPictureBox.Image = global::Thorium.Properties.Resources.avatar;
             this.NRecoPictureBox.Location = new System.Drawing.Point(160, 34);
             this.NRecoPictureBox.Name = "NRecoPictureBox";
             this.NRecoPictureBox.Size = new System.Drawing.Size(93, 88);

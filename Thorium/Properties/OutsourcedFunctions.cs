@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading;
@@ -9,23 +11,26 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Windows.Forms;
 
-namespace MP4toMP3Converter.Properties
+namespace Thorium.Properties
 {
     class OutsourcedFunctions
     {
-        public static void ConvertAll(string output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, string[] inputData, string settings)
+        public static void ConvertAll(string output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, List<string> inputData, string settings)
         {
-            for (int i = 0; i < inputData.Length; i++)
+            foreach (string input in inputData)
             {
-                if (inputData[i] != null)
+                string name = Path.GetFileName(input);
+
+                if (input != null)
                 {
                     if (settings == "convert")
                     {
-                        converter.ConvertMedia(inputData[i].Trim(), output.Trim() + ("\\" + ConvertForm.InputName[i].Substring(0, ConvertForm.InputName[i].Length - 4) + "." + format), format);
+                        converter.ConvertMedia(input.Trim(), output.Trim() + ("\\" + name.Substring(0, name.Length - 4) + "." + format), format);
                     }
                     else if (settings == "combine")
                     {
-                        converter.ConcatMedia(inputData, output.Trim() + ("\\CombinedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+
+                        converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\CombinedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                         break;
                     }
                     else
@@ -37,16 +42,15 @@ namespace MP4toMP3Converter.Properties
                         }
                         else outPath = "C:\tempFile";
 
-
                         if (format == "mp3")
                         {
-                            converter.ConcatMedia(inputData, output.Trim() + ("\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                            converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                             break;
                         }
                         else
                         {
-                            converter.ConcatMedia(inputData, @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                            converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + ConvertForm.InputName[0].Substring(0, ConvertForm.InputName[0].Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                            converter.ConcatMedia(inputData.ToArray(), @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
+                            converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
 
                             File.Delete(@outPath + "tempFile.mp4");
                             break;
@@ -54,33 +58,36 @@ namespace MP4toMP3Converter.Properties
                     }
 
                     ConvertForm.ProgressState++;
+
                     if (ConvertForm.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
-                if (i == inputData.Length)
-                {
-                    break;
-                }
             }
-            ConvertForm.InputData = new string[50];
-            ConvertForm.InputName = new string[50];
-                    
+            ConvertForm.InputData = null;
+
             Thread.Sleep(3);
             closePopup(loadingPopup);
         }
 
-        public static void getConvertableFiles(string[] inputData, string[] inputName)
+        public static List<string> getConvertableFiles(List<string> inputData)
         {
-            for (int i = 0; i < 50; i++)
+            string[] files = inputData.ToArray();
+
+            for (int i = 0; i < files.Length; i++)
             {
-                if (inputData[i] != null)
+                if (files[i] != null)
                 {
-                    if (File.Exists("@" + inputData[i]) == true | IsVideo(Path.GetExtension(inputData[i].Trim())) == false)
+                    if (File.Exists("@" + files[i]) == true | IsVideo(Path.GetExtension(files[i].Trim())) == false)
                     {
-                        inputData[i] = null;
-                        inputName[i] = null;
+                        files[i] = null;
                     }
+                    else Debug.WriteLine("loool");
                 }
             }
+            List<string> l = files.ToList();
+
+            l.RemoveAll(item => item == null);
+
+            return l;
         }
 
         public static void closePopup(LoadingPopup loadingPopup)

@@ -1,4 +1,4 @@
-﻿namespace MP4toMP3Converter
+﻿namespace Thorium
 {
     partial class SettingsForm
     {
@@ -550,7 +550,7 @@
             this.icon1box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon1box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon1box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon1box.Image = global::MP4toMP3Converter.Properties.Resources.coal_white;
+            this.icon1box.Image = global::Thorium.Properties.Resources.coal_white;
             this.icon1box.Location = new System.Drawing.Point(33, 23);
             this.icon1box.Name = "icon1box";
             this.icon1box.Size = new System.Drawing.Size(55, 55);
@@ -565,7 +565,7 @@
             this.icon3box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon3box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon3box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon3box.Image = global::MP4toMP3Converter.Properties.Resources.coal_yellow;
+            this.icon3box.Image = global::Thorium.Properties.Resources.coal_yellow;
             this.icon3box.Location = new System.Drawing.Point(163, 23);
             this.icon3box.Name = "icon3box";
             this.icon3box.Size = new System.Drawing.Size(55, 55);
@@ -580,7 +580,7 @@
             this.icon2box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon2box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon2box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon2box.Image = global::MP4toMP3Converter.Properties.Resources.coal_orange;
+            this.icon2box.Image = global::Thorium.Properties.Resources.coal_orange;
             this.icon2box.Location = new System.Drawing.Point(98, 23);
             this.icon2box.Name = "icon2box";
             this.icon2box.Size = new System.Drawing.Size(55, 55);
@@ -595,7 +595,7 @@
             this.icon8box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon8box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon8box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon8box.Image = global::MP4toMP3Converter.Properties.Resources.coal_red;
+            this.icon8box.Image = global::Thorium.Properties.Resources.coal_red;
             this.icon8box.Location = new System.Drawing.Point(488, 23);
             this.icon8box.Name = "icon8box";
             this.icon8box.Size = new System.Drawing.Size(55, 55);
@@ -610,7 +610,7 @@
             this.icon7box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon7box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon7box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon7box.Image = global::MP4toMP3Converter.Properties.Resources.coal_lila;
+            this.icon7box.Image = global::Thorium.Properties.Resources.coal_lila;
             this.icon7box.Location = new System.Drawing.Point(423, 23);
             this.icon7box.Name = "icon7box";
             this.icon7box.Size = new System.Drawing.Size(55, 55);
@@ -625,7 +625,7 @@
             this.icon6box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon6box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon6box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon6box.Image = global::MP4toMP3Converter.Properties.Resources.coal_blue;
+            this.icon6box.Image = global::Thorium.Properties.Resources.coal_blue;
             this.icon6box.Location = new System.Drawing.Point(358, 23);
             this.icon6box.Name = "icon6box";
             this.icon6box.Size = new System.Drawing.Size(55, 55);
@@ -640,7 +640,7 @@
             this.icon4box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon4box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon4box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon4box.Image = global::MP4toMP3Converter.Properties.Resources.coal_green;
+            this.icon4box.Image = global::Thorium.Properties.Resources.coal_green;
             this.icon4box.Location = new System.Drawing.Point(228, 23);
             this.icon4box.Name = "icon4box";
             this.icon4box.Size = new System.Drawing.Size(55, 55);
@@ -655,7 +655,7 @@
             this.icon9box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon9box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon9box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon9box.Image = global::MP4toMP3Converter.Properties.Resources.coal_black;
+            this.icon9box.Image = global::Thorium.Properties.Resources.coal_black;
             this.icon9box.Location = new System.Drawing.Point(553, 23);
             this.icon9box.Name = "icon9box";
             this.icon9box.Size = new System.Drawing.Size(55, 55);
@@ -670,7 +670,7 @@
             this.icon5box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.icon5box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.icon5box.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icon5box.Image = global::MP4toMP3Converter.Properties.Resources.coal_brightblue;
+            this.icon5box.Image = global::Thorium.Properties.Resources.coal_brightblue;
             this.icon5box.Location = new System.Drawing.Point(293, 23);
             this.icon5box.Name = "icon5box";
             this.icon5box.Size = new System.Drawing.Size(55, 55);
@@ -685,7 +685,7 @@
             this.defaultPathButton.BackColor = System.Drawing.Color.Gray;
             this.defaultPathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.defaultPathButton.Enabled = false;
-            this.defaultPathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
+            this.defaultPathButton.Image = global::Thorium.Properties.Resources.folder_2_open_512;
             this.defaultPathButton.Location = new System.Drawing.Point(594, 121);
             this.defaultPathButton.Name = "defaultPathButton";
             this.defaultPathButton.Size = new System.Drawing.Size(36, 26);
@@ -700,7 +700,7 @@
             this.tmpFilePathButton.BackColor = System.Drawing.Color.Gray;
             this.tmpFilePathButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tmpFilePathButton.Enabled = false;
-            this.tmpFilePathButton.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
+            this.tmpFilePathButton.Image = global::Thorium.Properties.Resources.folder_2_open_512;
             this.tmpFilePathButton.Location = new System.Drawing.Point(594, 36);
             this.tmpFilePathButton.Name = "tmpFilePathButton";
             this.tmpFilePathButton.Size = new System.Drawing.Size(36, 26);

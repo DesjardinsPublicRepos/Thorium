@@ -4,9 +4,9 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 
 
-using MP4toMP3Converter.Properties;
+using Thorium.Properties;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class AuthorForm : Form
     {

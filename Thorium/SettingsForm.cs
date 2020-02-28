@@ -5,9 +5,9 @@ using System.Drawing.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-using MP4toMP3Converter.Properties;
+using Thorium.Properties;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class SettingsForm : Form
     {

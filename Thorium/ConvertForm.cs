@@ -7,15 +7,16 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using System.Collections.Generic;
 
-using MP4toMP3Converter.Properties;
+using Thorium.Properties;
 
-namespace MP4toMP3Converter
+namespace Thorium
 {
     public partial class ConvertForm : Form
     {
         public static string Output;
-        public static string[] InputData = new string[50], InputName = new string[50];
+        public static List<string> InputData = null;
         public static LoadingPopup loadingPopup;
         public static NReco.VideoConverter.FFMpegConverter converter = new NReco.VideoConverter.FFMpegConverter();
         public static int ProgressState;
@@ -26,6 +27,7 @@ namespace MP4toMP3Converter
         public ConvertForm(string convertOptions)
         {
             this.convertOptions = convertOptions;
+            InputData = null;
 
             InitializeComponent();
             CustomColors();
@@ -43,7 +45,7 @@ namespace MP4toMP3Converter
                 foreach (string file in openFileDialog.FileNames)
                 {
                     Debug.WriteLine(file);
-                    AddInputFile(file, Path.GetFileName(file));
+                    AddInputFile(file);
                 }
                 DragDropLabel.Dispose();
                 GC.Collect();
@@ -62,21 +64,26 @@ namespace MP4toMP3Converter
 
         private void ConvertButtonClick(object sender, EventArgs e)
         {
-            if (InputData[0] != null)
+            if (InputData != null)
             {
-                OutsourcedFunctions.getConvertableFiles(InputData, InputName);
-                InputData = InputData.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-                InputName = InputName.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                InputData = OutsourcedFunctions.getConvertableFiles(InputData);
+                //data = data.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
-                string OutputFormat = formatDropdown.Text;
-                ProgressState = InputData.Length;
+                string outputFormat = formatDropdown.Text;
+                ProgressState = InputData.Count;
+
+                foreach (string s in InputData)
+                {
+                    Debug.WriteLine(s);
+                }
 
                 loadingPopup = new LoadingPopup(convertOptions);
                 thread = new Thread(new ThreadStart(StartLoadingPopup));
                 thread.Start();
 
-                Thread t = new Thread(() => convertLauncher(OutputFormat));
+                Thread t = new Thread(() => convertLauncher(outputFormat, InputData));
                 t.Start();
+
                 ItemListBox.Items.Clear();
             }
         }
@@ -89,7 +96,7 @@ namespace MP4toMP3Converter
         {
             foreach (string file in (string[])e.Data.GetData(DataFormats.FileDrop))
             {
-                AddInputFile(Path.GetFullPath(file), Path.GetFileName(file));
+                AddInputFile(Path.GetFullPath(file));
 
                 DragDropLabel.Dispose();
                 GC.Collect();
@@ -112,7 +119,7 @@ namespace MP4toMP3Converter
         {
             if (OutsourcedFunctions.enterHandling(e) == true) 
             {
-                AddInputFile(InputPathLabel.Text, System.IO.Path.GetFileName(InputPathLabel.Text));
+                AddInputFile(InputPathLabel.Text);
                 InputPathLabel.Text = null;
             }
         }
@@ -130,11 +137,11 @@ namespace MP4toMP3Converter
 
         #region SecondaryMethods
 
-        private void convertLauncher(string OutputFormat)
+        private void convertLauncher(string OutputFormat, List<string> data)
         {
             try
             {
-                OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, InputData, convertOptions);
+                OutsourcedFunctions.ConvertAll(Output, OutputFormat, converter, loadingPopup, data, convertOptions);
             }
             catch (Exception ex)
             {
@@ -147,20 +154,13 @@ namespace MP4toMP3Converter
             Application.Run(loadingPopup);
         }
 
-        private void AddInputFile(string FilePath, string FileName)
+        private void AddInputFile(string FilePath)
         {
-            for (int i = 0; i < 50; i++)
-            {
-                if (InputData[i] == null)
-                {
-                    InputData[i] = FilePath;
-                    InputName[i] = FileName;
-                    Debug.WriteLine("added '" + FileName + "' to InputData");
+            if (InputData == null) InputData = new List<string>();
+            InputData.Add(FilePath);
 
-                    ItemListBox.Items.Add(Path.GetFileNameWithoutExtension(FilePath));
-                    break; 
-                }
-            }
+            ItemListBox.Items.Add(Path.GetFileNameWithoutExtension(FilePath));
+            Debug.WriteLine("added '" + Path.GetFileName(FilePath) + "' to InputData");
         }
         #endregion
 

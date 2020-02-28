@@ -1,4 +1,4 @@
-﻿namespace MP4toMP3Converter
+﻿namespace Thorium
 {
     partial class ErrorForm
     {

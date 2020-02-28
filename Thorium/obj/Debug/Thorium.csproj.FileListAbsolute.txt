@@ -32,13 +32,6 @@ C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\NReco.VideoConverter.dll
 C:\Users\Fabian\source\repos\Thorium\Thorium\bin\Debug\NReco.VideoConverter.xml
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.csprojAssemblyReference.cache
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.AuthorForm.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.ColorSelectForm.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.MailForm.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.SettingsForm.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.LoadingPopup.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.MainForm.resources
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.ConvertForm.resources
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.Properties.Resources.resources
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.csproj.GenerateResource.cache
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.exe.manifest
@@ -46,4 +39,11 @@ C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.applica
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.csproj.CopyComplete
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.exe
 C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.pdb
-C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\MP4toMP3Converter.ErrorForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.AuthorForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.ColorSelectForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.ErrorForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.MailForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.SettingsForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.LoadingPopup.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.MainForm.resources
+C:\Users\Fabian\source\repos\Thorium\Thorium\obj\Debug\Thorium.ConvertForm.resources
