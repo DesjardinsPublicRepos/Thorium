@@ -17,55 +17,63 @@ namespace MP4toMP3Converter.Properties
     {
         public static void ConvertAll(string output, string format, NReco.VideoConverter.FFMpegConverter converter, LoadingPopup loadingPopup, List<string> inputData, string settings)
         {
-            foreach (string input in inputData)
+            try
             {
-                string name = Path.GetFileName(input);
-
-                if (input != null)
+                foreach (string input in inputData)
                 {
-                    if (settings == "convert")
-                    {
-                        converter.ConvertMedia(input.Trim(), output.Trim() + ("\\" + name.Substring(0, name.Length - 4) + "." + format), format);
-                    }
-                    else if (settings == "combine")
-                    {
+                    string name = Path.GetFileName(input);
 
-                        converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\CombinedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
-                        break;
-                    }
-                    else
+                    if (input != null)
                     {
-                        string outPath;
-                        if (MainForm.customFilepathEnalbled[0] == true | MainForm.customFilepaths[0] == "Default")
+                        if (settings == "convert")
                         {
-                            outPath = MainForm.customFilepaths[0];
+                            converter.ConvertMedia(input.Trim(), output.Trim() + ("\\" + name.Substring(0, name.Length - 4) + "." + format), format);
                         }
-                        else outPath = "C:\tempFile";
-
-                        if (format == "mp3")
+                        else if (settings == "combine")
                         {
-                            converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+
+                            converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\CombinedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                             break;
                         }
                         else
                         {
-                            converter.ConcatMedia(inputData.ToArray(), @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                            converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                            if (format == "mp3")
+                            {
+                                converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
+                                break;
+                            }
+                            else
+                            {
+                                string outPath;
 
-                            File.Delete(@outPath + "tempFile.mp4");
-                            break;
+                                if (MainForm.customFilepathEnalbled[0] == true | MainForm.customFilepaths[0] == "Default")
+                                {
+                                    outPath = MainForm.customFilepaths[0];
+                                }
+                                else outPath = "C:\tempFile";
+
+                                converter.ConcatMedia(inputData.ToArray(), @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
+                                converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+
+                                File.Delete(@outPath + "tempFile.mp4");
+                                break;
+                            }
                         }
+                        ConvertForm.ProgressState++;
+
+                        if (ConvertForm.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                     }
-
-                    ConvertForm.ProgressState++;
-
-                    if (ConvertForm.ProgressState != 0) UpdateInfoLabel(loadingPopup);
                 }
-            }
-            ConvertForm.InputData = null;
+                ConvertForm.InputData = null;
 
-            Thread.Sleep(3);
-            closePopup(loadingPopup);
+                Thread.Sleep(3);
+                closePopup(loadingPopup);
+            }
+            catch (InvalidOperationException e)
+            {
+                Thread thread = new Thread(() => showForm(new ErrorForm("Starting the process failed.", "It seems like the converting process could not be stared. Please check your input and output filepaths. Maybe the Name of the exception helps: " + e.GetType().FullName)));
+                thread.Start();
+            }
         }
 
         public static List<string> getConvertableFiles(List<string> inputData)
