@@ -246,47 +246,60 @@ namespace Thorium
 
         private void readSetup()
         {
-            if (File.Exists(binary) == true)
+            try
             {
-                object[] objects = getCurrentSetup();
+                if (File.Exists(binary) == true)
+                {
+                    object[] objects = getCurrentSetup();
 
-                if(Convert.ToBoolean(objects[0]) == false)
-                {
-                    ColorScheme = DefaultColors();
-                    iconScheme = 5;
-                }
-                else
-                {
-                    if (Convert.ToBoolean(objects[1]) == false)
+                    if (Convert.ToBoolean(objects[0]) == false)
                     {
                         ColorScheme = DefaultColors();
+                        iconScheme = 5;
                     }
                     else
                     {
-                        for (int i = 0; i < 27; i++)
+                        if (Convert.ToBoolean(objects[1]) == false)
                         {
-                            ColorScheme[i] = Convert.ToByte(objects[i + 2]);
+                            ColorScheme = DefaultColors();
                         }
-                    }
-                    iconScheme = Convert.ToByte(objects[29]);
+                        else
+                        {
+                            for (int i = 0; i < 27; i++)
+                            {
+                                ColorScheme[i] = Convert.ToByte(objects[i + 2]);
+                            }
+                        }
+                        iconScheme = Convert.ToByte(objects[29]);
 
-                    if (objects[30].ToString().Trim() != "Default")
-                    {
-                        customFilepathEnalbled[0] = true;
-                        customFilepaths[0] = objects[30].ToString();
-                    }
-                    if (objects[31].ToString().Trim() != "Default")
-                    {
-                        customFilepathEnalbled[1] = true;
-                        customFilepaths[1] = objects[31].ToString();
-                    }
+                        if (objects[30].ToString().Trim() != "Default")
+                        {
+                            customFilepathEnalbled[0] = true;
+                            customFilepaths[0] = objects[30].ToString();
+                        }
+                        if (objects[31].ToString().Trim() != "Default")
+                        {
+                            customFilepathEnalbled[1] = true;
+                            customFilepaths[1] = objects[31].ToString();
+                        }
 
-                    Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
+                        Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());
+                    }
+                }
+                else
+                {
+                    writeBinary(new object[] { false, false, DefaultColors(), Convert.ToByte(5), "Default", "Default" });
+                    ColorScheme = DefaultColors();
+                    iconScheme = 5;
                 }
             }
-            else
+            catch(Exception e)
             {
-                writeBinary( new object[] { false, false, DefaultColors(), Convert.ToByte(5), "Default", "Default" });
+                MessageBox.Show("It seems like the setup file is corrupted - at least this program couldnt read it. The programm also tried to override the file with a default setup, maybe that worked. If you dont know why, the issue is: " + e.GetType(), "Something went wrong here", MessageBoxButtons.OK);
+
+                if (File.Exists(binary)) File.Delete(binary);
+
+                writeBinary(new object[] { false, false, DefaultColors(), Convert.ToByte(5), "Default", "Default" });
                 ColorScheme = DefaultColors();
                 iconScheme = 5;
             }
