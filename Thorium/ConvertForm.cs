@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Collections.Generic;
 
-using Thorium.Properties;
+using MP4toMP3Converter.Properties;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     public partial class ConvertForm : Form
     {

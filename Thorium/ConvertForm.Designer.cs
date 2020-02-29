@@ -1,4 +1,4 @@
-﻿namespace Thorium
+﻿namespace MP4toMP3Converter
 {
     partial class ConvertForm
     {
@@ -274,7 +274,7 @@
             this.OpenOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.OpenOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.OpenOutput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenOutput.Image = global::Thorium.Properties.Resources.folder_2_open_512;
+            this.OpenOutput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
             this.OpenOutput.Location = new System.Drawing.Point(711, 160);
             this.OpenOutput.Name = "OpenOutput";
             this.OpenOutput.Size = new System.Drawing.Size(28, 20);
@@ -288,7 +288,7 @@
             this.OpenInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.OpenInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(142)))), ((int)(((byte)(153)))));
             this.OpenInput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenInput.Image = global::Thorium.Properties.Resources.folder_2_open_512;
+            this.OpenInput.Image = global::MP4toMP3Converter.Properties.Resources.folder_2_open_512;
             this.OpenInput.Location = new System.Drawing.Point(711, 63);
             this.OpenInput.Name = "OpenInput";
             this.OpenInput.Size = new System.Drawing.Size(28, 20);

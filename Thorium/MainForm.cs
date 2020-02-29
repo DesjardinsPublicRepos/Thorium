@@ -7,15 +7,15 @@ using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 
-using Thorium.Properties;
+using MP4toMP3Converter.Properties;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     public partial class MainForm : Form
     {
         public static bool[] customFilepathEnalbled = new bool[2] { false, false };
         public static string[] customFilepaths = new string[2] { "Default", "Default" };
-        public static byte[] ColorScheme = new byte[27];
+        public static byte[] ColorScheme = new byte[24];
         public static byte iconScheme;
 
         private Form activeForm = null;
@@ -24,7 +24,7 @@ namespace Thorium
         public static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
         public static readonly PrivateFontCollection fonts = new PrivateFontCollection();
 
-        public static Type[] setupFileTypes = new Type[32] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
+        public static Type[] setupFileTypes = new Type[29] { typeof(bool), typeof(bool), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte), typeof(byte),
                                                      typeof(byte), typeof(string), typeof(string) };
         public static string binary = "settings.bin";
 
@@ -106,22 +106,22 @@ namespace Thorium
         {
             return new byte[] 
             {
-                0, 0, 0, //2            1
-                249, 252, 255,//5       2
-                170, 170, 255, //8      3
-                147, 150, 153, //11     4
-                35, 38, 41, //14        5
-                0, 0, 64,  //17        6
-                43, 46, 50,//20         7 
-                56, 60, 64,//23         8
-                74, 74, 113 //26       9
+                //0, 0, 0, //2            1
+                249, 252, 255,//5       2.
+                170, 170, 255, //8      3.
+                147, 150, 153, //11     4.
+                35, 38, 41, //14        5.
+                0, 0, 64,  //17        6.
+                43, 46, 50,//20         7 .
+                56, 60, 64,//23         8.
+                74, 74, 113 //26       9.
             };
         }
 
         public static Color getCustomColor(byte index)
         {
             //return Color.FromArgb(ColorScheme[(index - 2) * 3], ColorScheme[((index - 2) * 3) + 1], ColorScheme[((index - 2) * 3) + 2]);
-            return Color.FromArgb(ColorScheme[(index - 1) * 3], ColorScheme[((index - 1) * 3) + 1], ColorScheme[((index - 1) * 3) + 2]);
+            return Color.FromArgb(ColorScheme[(index - 2) * 3], ColorScheme[((index - 2) * 3) + 1], ColorScheme[((index - 2) * 3) + 2]);
         }
 
         #endregion
@@ -152,7 +152,7 @@ namespace Thorium
         {
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(binary, FileMode.Open)))
             {
-                object[] newObjects = new object[32];
+                object[] newObjects = new object[29];
 
                 for(int i = 0; i < setupFileTypes.Length; i++)
                 {
@@ -186,11 +186,13 @@ namespace Thorium
 
         public static void changeBinary(byte[] itemIndexes, object[] newObjects, byte[] colors)
         {
+            for(int i = 0; i < itemIndexes.Length; i++) if (itemIndexes[i] > 2) itemIndexes[i] -= 3;
+
             object[] oldObjects = getCurrentSetup();
 
             if (colors != null)
             {
-                for(int i = 0; i < 27; i++)
+                for(int i = 0; i < 24; i++)
                 {
                     oldObjects[i + 2] = colors[i];
                 }
@@ -265,22 +267,22 @@ namespace Thorium
                         }
                         else
                         {
-                            for (int i = 0; i < 27; i++)
+                            for (int i = 0; i < 24; i++)
                             {
                                 ColorScheme[i] = Convert.ToByte(objects[i + 2]);
                             }
                         }
-                        iconScheme = Convert.ToByte(objects[29]);
+                        iconScheme = Convert.ToByte(objects[26]);
 
-                        if (objects[30].ToString().Trim() != "Default")
+                        if (objects[27].ToString().Trim() != "Default")
                         {
                             customFilepathEnalbled[0] = true;
-                            customFilepaths[0] = objects[30].ToString();
+                            customFilepaths[0] = objects[27].ToString();
                         }
-                        if (objects[31].ToString().Trim() != "Default")
+                        if (objects[28].ToString().Trim() != "Default")
                         {
                             customFilepathEnalbled[1] = true;
-                            customFilepaths[1] = objects[31].ToString();
+                            customFilepaths[1] = objects[28].ToString();
                         }
 
                         Debug.WriteLine(customFilepathEnalbled[1].ToString() + customFilepathEnalbled[0].ToString());

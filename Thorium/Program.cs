@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     static class Program
     {

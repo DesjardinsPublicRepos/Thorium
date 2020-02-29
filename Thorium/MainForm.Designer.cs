@@ -1,4 +1,4 @@
-﻿namespace Thorium
+﻿namespace MP4toMP3Converter
 {
     partial class MainForm
     {
@@ -401,6 +401,7 @@
             // IconPictureBox
             // 
             this.IconPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.IconPictureBox.Image = global::MP4toMP3Converter.Properties.Resources.coal_lila;
             this.IconPictureBox.Location = new System.Drawing.Point(308, 144);
             this.IconPictureBox.Name = "IconPictureBox";
             this.IconPictureBox.Size = new System.Drawing.Size(170, 170);

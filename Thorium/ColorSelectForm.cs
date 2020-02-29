@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-using Thorium.Properties;
+using MP4toMP3Converter.Properties;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     public partial class ColorSelectForm : Form
     {

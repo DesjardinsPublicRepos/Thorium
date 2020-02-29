@@ -193,7 +193,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GOTHIC_745063ed9142edcdcdfaeed69c36e6d2.ttf" />
     <None Include="Resources\Settings-icon.png" />
   </ItemGroup>
   <ItemGroup>

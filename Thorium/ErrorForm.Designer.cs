@@ -1,4 +1,4 @@
-﻿namespace Thorium
+﻿namespace MP4toMP3Converter
 {
     partial class ErrorForm
     {
@@ -118,6 +118,7 @@
             this.AbortButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.AbortButton.Textcolor = System.Drawing.Color.White;
             this.AbortButton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbortButton.Click += new System.EventHandler(this.AbortButton_Click);
             // 
             // bunifuElipse2
             // 

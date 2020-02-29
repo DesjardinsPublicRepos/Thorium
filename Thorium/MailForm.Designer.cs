@@ -1,4 +1,4 @@
-﻿namespace Thorium
+﻿namespace MP4toMP3Converter
 {
     partial class MailForm
     {

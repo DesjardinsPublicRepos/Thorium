@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Windows.Forms;
 
-namespace Thorium.Properties
+namespace MP4toMP3Converter.Properties
 {
     class OutsourcedFunctions
     {
@@ -165,7 +165,6 @@ namespace Thorium.Properties
                 }
                 else if (e.GetType().FullName == "System.Net.Mail.SmtpException")
                 {
-
                     Thread thread = new Thread(() => showForm(new ErrorForm("Something went wrong here.", "It seems like there went something wrong with the authentication. Please check if your inputted data is correct. Maybe the Name of the exception helps: " + e.GetType().FullName)));
                     thread.Start();
                 }

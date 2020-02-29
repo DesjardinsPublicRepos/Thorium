@@ -5,9 +5,9 @@ using System.Drawing.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-using Thorium.Properties;
+using MP4toMP3Converter.Properties;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     public partial class SettingsForm : Form
     {
@@ -27,67 +27,58 @@ namespace Thorium
 
         #region onClicks
 
-        private void color1box_Click(object sender, EventArgs e)
+        private void color2box_Click(object sender, EventArgs e)
         {
             colorSelectForm = new ColorSelectForm(this, new byte[3] {0, 1, 2 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
-        private void color2box_Click(object sender, EventArgs e)
+        private void color3box_Click(object sender, EventArgs e)
         {
             colorSelectForm = new ColorSelectForm(this, new byte[3] { 3, 4, 5 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
-        private void color3box_Click(object sender, EventArgs e)
-        {
-
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 6, 7, 8 });
-            thread = new Thread(new ThreadStart(startColorForm));
-            thread.Start();
-        }
-
         private void color4box_Click(object sender, EventArgs e)
         {
-
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 9, 10, 11 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 6, 7, 8 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
         private void color5box_Click(object sender, EventArgs e)
         {
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 12, 13, 14 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 9, 10, 11 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
         private void color5box2_Click(object sender, EventArgs e)
         {
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 15, 16, 17 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 12, 13, 14 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
         private void color6box_Click(object sender, EventArgs e)
         {
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 18, 19, 20 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 15, 16, 17 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
         private void color7box_Click(object sender, EventArgs e)
         {
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 21, 22, 23 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 18, 19, 20 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
 
         private void color7box2_Click(object sender, EventArgs e)
         {
-            colorSelectForm = new ColorSelectForm(this, new byte[3] { 24, 25, 26 });
+            colorSelectForm = new ColorSelectForm(this, new byte[3] { 21, 22, 23 });
             thread = new Thread(new ThreadStart(startColorForm));
             thread.Start();
         }
@@ -153,11 +144,11 @@ namespace Thorium
             {
                 if (iconPicture.Name == "icon" + (MainForm.iconScheme + 1) + "box")
                 {
-                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+                    iconPicture.BackColor = MainForm.getCustomColor(4);
                 }
                 else
                 {
-                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+                    iconPicture.BackColor = MainForm.getCustomColor(8);
                 }
             }
         }
@@ -171,7 +162,7 @@ namespace Thorium
             }
             else if (sender == applyChangesButton)
             {
-                MainForm.changeBinary(new byte[] { }, new object[] { }, MainForm.ColorScheme);
+                MainForm.changeBinary(new byte[] { 0, 1 }, new object[] { true, true}, MainForm.ColorScheme);
                 MainForm.getCurrentSetup();
             }
         }
@@ -536,7 +527,6 @@ namespace Thorium
             color7box.BackColor = MainForm.getCustomColor(8);
             color7box2.BackColor = MainForm.getCustomColor(9);
 
-
             TempFilesLabel.ForeColor = MainForm.getCustomColor(2);
             TempFilesLabel.LineIdleColor = MainForm.getCustomColor(4);
             TempFilesLabel.LineFocusedColor = MainForm.getCustomColor(3);
@@ -559,11 +549,11 @@ namespace Thorium
             {
                 if (iconPicture.Name == "icon" + (MainForm.iconScheme + 1) + "box")
                 {
-                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[9], MainForm.ColorScheme[10], MainForm.ColorScheme[11]);
+                    iconPicture.BackColor = MainForm.getCustomColor(4);
                 }
                 else
                 {
-                    iconPicture.BackColor = Color.FromArgb(MainForm.ColorScheme[21], MainForm.ColorScheme[22], MainForm.ColorScheme[23]);
+                    iconPicture.BackColor = MainForm.getCustomColor(8);
                 }
             }
             

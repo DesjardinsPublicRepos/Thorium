@@ -3,14 +3,15 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Text;
 
-using Thorium.Properties;
+using MP4toMP3Converter.Properties;
 using System.Threading;
 using System.Diagnostics;
 
-namespace Thorium
+namespace MP4toMP3Converter
 {
     public partial class MailForm : Form
     {
+        private static Thread thread;
         public MailForm()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Thorium
             }
             else
             {
-                Thread thread = new Thread(() => OutsourcedFunctions.showForm(new ErrorForm("E-Mail could not be sent", "It seems like you have sent an E-Mail a while before. Please note that the amount of E-Mails you can send is limited to one a day.")));
+                thread = new Thread(() => OutsourcedFunctions.showForm(new ErrorForm("E-Mail could not be sent", "It seems like you have sent an E-Mail a while before. Please note that the amount of E-Mails you can send is limited to one a day.")));
                 thread.Start();
             }
         }
