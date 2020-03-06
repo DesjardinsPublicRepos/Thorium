@@ -7,7 +7,7 @@ Installer in "\Thorium\publish". It will aditionally install dependencies for th
 
 You can ignore the "\.vs" folder. It also may be hidden.
 
-SPECS --------------------------------------------------------------------------------------------------------------------------
+SPECS -------------------------------------------------------------------------------------------------based on an Intel i7-6700
 
 
 Converting Files:
