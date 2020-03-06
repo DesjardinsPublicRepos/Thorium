@@ -6,22 +6,33 @@ Installer in "\Thorium\publish". It will aditionally install dependencies for th
 
 You can ignore the "\.vs" folder. It also may be hidden.
 
-SPECS
+SPECS --------------------------------------------------------------------------------------------------------------------------
+
 
 Converting Files:
 
+    converting speed - higher is better                          file size - lower is better
+   
+  wav:       1050.44 s/s . . . . . . . . . . . . . . . . . . . . . . . . 171.940 Bytes/s
+  voc:       1020.42 s/s . . . . . . . . . . . . . . . . . . . . . . . . 176.618 Bytes/s
+  au:         621.13 s/s . . . . . . . . . . . . . . . . . . . . . . . . 176.446 Bytes/s
+  tta:        269.55 s/s . . . . . . . . . . . . . . . . . . . . . . . . 123.109 Bytes/s
+  oga:        255.10 s/s . . . . . . . . . . . . . . . . . . . . . . . . 117.689 Bytes/s
+  wv:         166.12 s/s . . . . . . . . . . . . . . . . . . . . . . . . 202.475 Bytes/s
+  opus:        78.49 s/s . . . . . . . . . . . . . . . . . . . . . . . . . 9.601 Bytes/s
+  mp3:         25.57 s/s . . . . . . . . . . . . . . . . . . . . . . . .  15.602 Bytes/s
+  flac:         5.87 s/s . . . . . . . . . . . . . . . . . . . . . . . . 166.581 Bytes/s
+  aiff:         5.77 s/s . . . . . . . . . . . . . . . . . . . . . . . . 171.941 Bytes/s
 
 
 Combining Files:
 
-    converting speed                file size
+     converting speed - higher is better                         file size - lower is better
  
-  avi:  259.018.105 px/s          4.4 * 10^-3  byte/px
-  flv:  223.697.454 px/s          4.9 * 10^-3  byte/px
-  mov:  136.704.000 px/s          7.9 * 10^-3  byte/px
-  mp4:  133.009.297 px/s          8.0 * 10^-3  byte/px
-  ogv:  46.869.942 px/s           2.7 * 10^-3  byte/px
-  ogg:  45.993.869 px/s           2.7 * 10^-3  byte/px
-  webm: n. a.                     n. a.
-  oga:  n. a.                     n. a.
-  
+  avi:  259.018.105 px/s . . . . . . . . . . . . . . . . . . . . . 4.4 * 10^-3  Bytes/px
+  flv:  223.697.454 px/s . . . . . . . . . . . . . . . . . . . . . 4.9 * 10^-3  Bytes/px
+  mov:  136.704.000 px/s . . . . . . . . . . . . . . . . . . . . . 7.9 * 10^-3  Bytes/px
+  mp4:  133.009.297 px/s . . . . . . . . . . . . . . . . . . . . . 8.0 * 10^-3  Bytes/px
+  ogv:   46.869.942 px/s . . . . . . . . . . . . . . . . . . . . . 2.7 * 10^-3  Bytes/px
+  ogg:   45.993.869 px/s . . . . . . . . . . . . . . . . . . . . . 2.7 * 10^-3  Bytes/px
+  webm:            n. a. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  n. a.
