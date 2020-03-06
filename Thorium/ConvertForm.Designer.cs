@@ -178,14 +178,12 @@
             "au",
             "flac",
             "mp3",
-            "ogg",
             "oga",
             "opus",
             "tta",
             "voc",
             "wav",
-            "wv",
-            "webm"});
+            "wv"});
             this.formatDropdown.Location = new System.Drawing.Point(633, 277);
             this.formatDropdown.Name = "formatDropdown";
             this.formatDropdown.Size = new System.Drawing.Size(69, 24);

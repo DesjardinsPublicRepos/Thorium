@@ -247,7 +247,7 @@ namespace MP4toMP3Converter
             else
             {
                 formatDropdown.Items.Clear();
-                string[] items = new string[] { "mp4", "avi", "flv", "mov", "webm", "ogg", "oga", "ogv" };
+                string[] items = new string[] { "mp4", "avi", "flv", "mov", "webm", "ogg", "ogv" };
 
                 foreach (string item in items)
                 {

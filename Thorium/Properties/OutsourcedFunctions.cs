@@ -31,7 +31,6 @@ namespace MP4toMP3Converter.Properties
                         }
                         else if (settings == "combine")
                         {
-
                             converter.ConcatMedia(inputData.ToArray(), output.Trim() + ("\\CombinedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format), format, new NReco.VideoConverter.ConcatSettings());
                             break;
                         }
@@ -52,10 +51,10 @@ namespace MP4toMP3Converter.Properties
                                 }
                                 else outPath = "C:\tempFile";
 
-                                converter.ConcatMedia(inputData.ToArray(), @outPath + "tempFile.mp4", "mp4", new NReco.VideoConverter.ConcatSettings());
-                                converter.ConvertMedia(@outPath + "tempFile.mp4", output.Trim() + "\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
+                                converter.ConcatMedia(inputData.ToArray(), @outPath + "tempFile.avi", "avi", new NReco.VideoConverter.ConcatSettings());
+                                converter.ConvertMedia(@outPath + "tempFile.avi", output.Trim() + "\\ConvertedFile '" + name.Substring(0, name.Length - 4) + "' and " + (ConvertForm.ProgressState - 1) + " others" + "." + format, format);
 
-                                File.Delete(@outPath + "tempFile.mp4");
+                                File.Delete(@outPath + "tempFile.avi");
                                 break;
                             }
                         }
